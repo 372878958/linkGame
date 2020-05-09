@@ -1,7 +1,9 @@
 import countDown from "../../component/countDown";
 import gridManager from "./gridManager";
+import comboText from "./comboText";
 
 const { ccclass, property } = cc._decorator;
+const comboTime: number = 2;
 
 @ccclass
 export default class gameMan extends cc.Component {
@@ -23,6 +25,12 @@ export default class gameMan extends cc.Component {
     })
     protected time: countDown = null;
 
+    @property({
+        type: comboText,
+        displayName: "连击文字"
+    })
+    protected comboText: comboText = null;
+
     @property(gridManager)
     protected gridManager: gridManager = null;
 
@@ -30,8 +38,9 @@ export default class gameMan extends cc.Component {
     protected gameOverNode: cc.Node = null;
 
     start() {
+        this.comboText.durationTime = comboTime;
+        this.gridManager.setGridRemovedCallback(this.onGridRemoved.bind(this));
         this.gridManager.setGameOverCallback(this.gameOver.bind(this));
-        this.gridManager.setAddScoreCallback(this.addScore.bind(this));
         this.gridManager.setNextLevelCallback(this.nextLevel.bind(this));
         this.gameStart();
     }
@@ -74,15 +83,45 @@ export default class gameMan extends cc.Component {
         this.time.resume();
     }
 
+
+
+    protected isCanCombo: boolean = false;
+    protected curComboNum: number = 0;
+
+    // 重置连击数
+    protected resetCombo() {
+        this.isCanCombo = false;
+        this.curComboNum = 0;
+    }
+
+    // 返回当前连击数
+    protected getComboNum(): number {
+        this.unschedule(this.resetCombo);
+        if (!this.isCanCombo) {
+            // 如果不能连击
+            this.isCanCombo = true;
+        } else {
+            // 如果可以连击
+            ++this.curComboNum;
+            // 设置连击文字
+            this.comboText.setCombo(this.curComboNum);
+        }
+        this.scheduleOnce(this.resetCombo, comboTime);
+        return this.curComboNum;
+    }
+
     // 当前分数
     protected curScore: number = 0;
-    // 添加分数
-    addScore(score: number) {
-        this.curScore += score;
+    // 当有一对格子被消除 dis:格子之间的距离
+    onGridRemoved(dis: number) {
+        let comboNum = this.getComboNum();
+        this.curScore += dis * comboNum;
         this.score.string = this.curScore.toString();
     }
+
     // 重置分数
     resetScore() {
+        this.resetCombo(); // 重置分数的时候，连击数也要清零
         this.curScore = 0;
         this.score.string = "0";
     }

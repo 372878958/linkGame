@@ -321,10 +321,10 @@ export default class gridManager extends cc.Component {
         this.gameOverCallback = callback;
     }
 
-    protected addScoreCallback: (score: number) => void = null;
-    // 设置添加积分的回调
-    setAddScoreCallback(callback: (score: number) => void) {
-        this.addScoreCallback = callback;
+    protected gridRemovedCallback: (dis: number) => void = null;
+    // 设置一对格子被消除时回调 dis:格子之间的距离
+    setGridRemovedCallback(callback: (dis: number) => void) {
+        this.gridRemovedCallback = callback;
     }
 
     protected nextLevelCallback: Function = null;
@@ -481,8 +481,8 @@ export default class gridManager extends cc.Component {
                 // 获取分数路径点
                 let scorePath = this.getScroeLine(path, this.pathFinding.startPoint, this.pathFinding.endPoint);
                 // 添加分数
-                if (this.addScoreCallback) {
-                    this.addScoreCallback(scorePath.length + 1);
+                if (this.gridRemovedCallback) {
+                    this.gridRemovedCallback(scorePath.length + 1);
                 }
                 // 解锁方块旁边冻结的方块
                 let unfreezeGrid = (x, y) => {

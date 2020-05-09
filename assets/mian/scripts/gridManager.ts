@@ -74,6 +74,8 @@ export default class gridManager extends cc.Component {
 
     // 游戏开始
     gameStart() {
+        // 停止生成格子
+        this.stopGenerateGrid();
         // 设置格子最大宽高
         this.setMaxWH(3, 6);
         // 清除当前选择的格子
@@ -134,6 +136,47 @@ export default class gridManager extends cc.Component {
             if (v.id >= 0) {
                 v.id = getType();
             }
+        }
+    }
+
+    // 是否已经开始生成格子
+    protected isStartGenerateGrid: boolean = false;
+    // 开始每间隔一段时间生成生成格子
+    protected startGenerateGrid() {
+        if (this.isStartGenerateGrid) {
+            return;
+        }
+        this.isStartGenerateGrid = true;
+        this.schedule(this.randomGenerateGrid, 5);
+    }
+    // 停止生成格子
+    protected stopGenerateGrid() {
+        if (!this.isStartGenerateGrid) {
+            return;
+        }
+        this.isStartGenerateGrid = false;
+        this.unschedule(this.randomGenerateGrid);
+    }
+    // 随机位置生成一对格子
+    protected randomGenerateGrid() {
+        // 获取所有空位
+        let array = this.getNullSpace();
+        if (array && array.length > 1) {
+            // 随机取一个位置
+            let randPos = () => {
+                let index = gameLib.GetRandomNum(0, array.length - 1);
+                let pos = array[index];
+                array.splice(index, 1);
+                return pos;
+            }
+            let pos1 = randPos();
+            let pos2 = randPos();
+            // 随机类型
+            let type = this.gridTypes[gameLib.GetRandomNum(0, this.gridTypes.length - 1)];
+            let grid1 = this.addGrid(pos1.x, pos1.y, type, false, false);
+            let grid2 = this.addGrid(pos2.x, pos2.y, type, false, false);
+            grid1.playGenerateAni();
+            grid2.playGenerateAni();
         }
     }
 
@@ -291,12 +334,15 @@ export default class gridManager extends cc.Component {
     }
 
     protected gameOver() {
-        if (this.gameOverCallback) {
-            this.gameOverCallback();
-        }
+        // 停止生成格子
+        this.stopGenerateGrid();
         // 游戏结束，暂停所有炸弹时间
         for (let v of this.allGrids) {
             v.pauseBoomTime();
+        }
+        // 回调游戏结束
+        if (this.gameOverCallback) {
+            this.gameOverCallback();
         }
     }
 
@@ -472,11 +518,15 @@ export default class gridManager extends cc.Component {
                 }
                 // 判断是否对齐移动
                 this.moveGrid(gameLib.GetRandomNum(GRID_MOVE_DIR.UP, GRID_MOVE_DIR.RIGHT));
+                // 开始生成格子
+                this.startGenerateGrid();
                 // 判断是否是死局
                 if (this.isAllGridBlock()) {
                     // 如果是死局，则随机现有格子的位置
                     this.randomGridsPos();
                 }
+                // 清除当前选择
+                this.curSelectGrid = null;
                 return;
             }
         }
@@ -486,6 +536,34 @@ export default class gridManager extends cc.Component {
         }
         this.curSelectGrid = grid;
         this.curSelectGrid.isSelect = true;
+    }
+
+    // 获取所有空位的数组
+    protected getNullSpace(): cc.Vec2[] {
+        let map: cc.Vec2[][] = [];
+        // 格式化地图
+        for (let x = 0; x < this.maxX - 2; ++x) {
+            for (let y = 0; y < this.maxY - 2; ++y) {
+                if (!map[x]) {
+                    map[x] = [];
+                }
+                map[x][y] = cc.v2(x + 1, y + 1);
+            }
+        }
+        // 删除已有格子
+        for (let v of this.allGrids) {
+            map[v.x - 1][v.y - 1] = null;
+        }
+        // 保存数组
+        let ret: cc.Vec2[] = [];
+        for (let v of map) {
+            for (let w of v) {
+                if (w) {
+                    ret.push(w);
+                }
+            }
+        }
+        return ret;
     }
 
     // 根据位置获取格子信息
@@ -512,7 +590,7 @@ export default class gridManager extends cc.Component {
     }
 
     // 添加一个格子
-    protected addGrid(x: number, y: number, id: number, freezing: boolean, hideMode: boolean, boomTime: number = 0): boolean {
+    protected addGrid(x: number, y: number, id: number, freezing: boolean, hideMode: boolean, boomTime: number = 0): grid {
         // 给寻路添加障碍
         this.pathFinding.addBlockPoint([cc.v2(x, y)]);
         // 创建格子
@@ -533,7 +611,7 @@ export default class gridManager extends cc.Component {
         com.id = id;
         com.freezing = freezing;
         com.hideMode = hideMode;
-        return true;
+        return com;
     }
 
     // 绘制连线

@@ -56,6 +56,18 @@ export default class grid extends cc.Component {
     protected boomTime: countDown = null;
 
     @property({
+        type: cc.Animation,
+        displayName: "动画播放器"
+    })
+    protected animation: cc.Animation = null;
+
+    @property({
+        type: cc.AnimationClip,
+        displayName: "生成动画"
+    })
+    protected generateAni: cc.AnimationClip = null;
+
+    @property({
         type: cc.SpriteFrame,
         displayName: "图标集",
         tooltip: "都有哪些图标（图标合集）"
@@ -293,6 +305,12 @@ export default class grid extends cc.Component {
                 this.curTween = null;
             })
             .start();
+    }
+
+    // 播放格子生成的动画
+    playGenerateAni() {
+        this.animation.play(this.generateAni.name);
+        this.animation.sample(this.generateAni.name);
     }
 
     // 重置翻转动画

@@ -4,6 +4,13 @@ import linkGamePathFinding from "./linkGamePathFinding";
 
 const { ccclass, property } = cc._decorator;
 
+export enum GRID_MOVE_DIR {
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+}
+
 @ccclass
 export default class gridManager extends cc.Component {
 
@@ -68,7 +75,7 @@ export default class gridManager extends cc.Component {
     // 游戏开始
     gameStart() {
         // 设置格子最大宽高
-        this.setMaxWH(7, 10);
+        this.setMaxWH(3, 6);
         // 清除当前选择的格子
         this.curSelectGrid = null;
         // 清除所有格子
@@ -93,7 +100,8 @@ export default class gridManager extends cc.Component {
             for (let x = 0; x < array.length; ++x) {
                 let data = array[x];
                 if (data) {
-                    this.addGrid(x, y, data, gameLib.GetRandomNum(0, 1) ? true : false, gameLib.GetRandomNum(0, 1) ? true : false);
+                    // this.addGrid(x, y, data, gameLib.GetRandomNum(0, 1) ? true : false, gameLib.GetRandomNum(0, 1) ? true : false);
+                    this.addGrid(x, y, data, false, false);
                 }
             }
         }
@@ -326,6 +334,94 @@ export default class gridManager extends cc.Component {
         // }
     }
 
+    // 移动格子（对齐格子） dir 0:上 1:下 2:左 3:右
+    protected moveGrid(dir: GRID_MOVE_DIR) {
+        // 根据需要的方向，返回格子 x 还是 y 的开关。 u:是否取反
+        let getX_Y = (g: grid, u: boolean = false) => {
+            let isX = dir == GRID_MOVE_DIR.UP || dir == GRID_MOVE_DIR.DOWN ? true : false;
+            !u ? isX : isX = !isX;
+            if (isX) {
+                return g.x;
+            } else {
+                return g.y;
+            }
+        }
+        // 格式化所有格子
+        let map: { [key: number]: grid[] } = {};
+        for (let v of this.allGrids) {
+            if (map[getX_Y(v)] == null) {
+                map[getX_Y(v)] = [];
+            }
+            map[getX_Y(v)].push(v);
+        }
+        for (let key in map) {
+            let gridArray = map[key];
+            // 排序
+            gridArray.sort((a, b) => {
+                return getX_Y(a, true) - getX_Y(b, true);
+            });
+            // 移动格子
+            switch (dir) {
+                case GRID_MOVE_DIR.UP:
+                    {
+                        let max = this.maxY - 2;
+                        for (let i = gridArray.length - 1; i >= 0; --i) {
+                            let grid = gridArray[i];
+                            if (grid.y == max) {
+                                max--;
+                            } else {
+                                grid.moveToY(max, this.pathFinding);
+                                max--;
+                            }
+                        }
+                    }
+                    break;
+                case GRID_MOVE_DIR.DOWN:
+                    {
+                        let min = 1;
+                        for (let i = 0; i < gridArray.length; ++i) {
+                            let grid = gridArray[i];
+                            if (grid.y == min) {
+                                min++;
+                            } else {
+                                grid.moveToY(min, this.pathFinding);
+                                min++;
+                            }
+                        }
+                    }
+                    break;
+                case GRID_MOVE_DIR.LEFT:
+                    {
+                        let min = 1;
+                        for (let i = 0; i < gridArray.length; ++i) {
+                            let grid = gridArray[i];
+                            if (grid.x == min) {
+                                min++;
+                            } else {
+                                grid.moveToX(min, this.pathFinding);
+                                min++;
+                            }
+                        }
+                    }
+                    break;
+                case GRID_MOVE_DIR.RIGHT:
+                    {
+                        let max = this.maxX - 2;
+                        for (let i = gridArray.length - 1; i >= 0; --i) {
+                            let grid = gridArray[i];
+                            if (grid.x == max) {
+                                max--;
+                            } else {
+                                grid.moveToX(max, this.pathFinding);
+                                max--;
+                            }
+                        }
+                    }
+                    break;
+            }
+        }
+    }
+
     // 当前选中的格子
     protected curSelectGrid: grid = null;
     // 格子被点击的事件
@@ -374,6 +470,8 @@ export default class gridManager extends cc.Component {
                     }
                     return;
                 }
+                // 判断是否对齐移动
+                this.moveGrid(gameLib.GetRandomNum(GRID_MOVE_DIR.UP, GRID_MOVE_DIR.RIGHT));
                 // 判断是否是死局
                 if (this.isAllGridBlock()) {
                     // 如果是死局，则随机现有格子的位置

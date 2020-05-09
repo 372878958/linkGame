@@ -6,6 +6,7 @@
 //  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
 
 import countDown from "../../component/countDown";
+import linkGamePathFinding from "./linkGamePathFinding";
 
 const { ccclass, property } = cc._decorator;
 
@@ -95,7 +96,7 @@ export default class grid extends cc.Component {
     set x(x: number) {
         if (this._x != x) {
             this._x = x;
-            this.node.x = x * this.size.width + this.size.width / 2;
+            this.node.x = this.getX();
         }
     }
     get y(): number {
@@ -104,8 +105,17 @@ export default class grid extends cc.Component {
     set y(y: number) {
         if (this._y != y) {
             this._y = y;
-            this.node.y = y * this.size.height + this.size.height / 2;
+            this.node.y = this.getY();
         }
+    }
+
+    // 获取在UI上的X坐标
+    protected getX() {
+        return this._x * this.size.width + this.size.width / 2;
+    }
+    // 获取在UI上的Y坐标
+    protected getY() {
+        return this._y * this.size.height + this.size.height / 2;
     }
 
     // 格子大小
@@ -212,6 +222,51 @@ export default class grid extends cc.Component {
             this.boomTime.pause();
         } else {
             this.boomTime.resume();
+        }
+    }
+
+    // 移动格子（仅限横向）
+    moveToX(x: number, path: linkGamePathFinding = null) {
+        this.moveTo(x, this.y, path);
+    }
+
+    // 移动格子（仅限纵向）
+    moveToY(y: number, path: linkGamePathFinding = null) {
+        this.moveTo(this.x, y, path);
+    }
+
+    protected curMoveTween: cc.Tween<cc.Node> = null;
+    // 移动格子
+    moveTo(x: number, y: number, path: linkGamePathFinding = null) {
+        if (this.x != x || this.y != y) {
+            // 先停止移动动画
+            if (this.curMoveTween) {
+                this.curMoveTween.stop();
+                this.node.x = this.getX();
+                this.node.y = this.getY();
+            }
+            // 计算移动距离
+            let moveX = Math.abs(this.x - x);
+            let moveY = Math.abs(this.y - y);
+            let moveDis = Math.max(moveX, moveY);
+            // 刷新障碍点
+            if (path) {
+                path.remBlockPoint([cc.v2(this.x, this.y)]);
+                path.addBlockPoint([cc.v2(x, y)]);
+            }
+            // 刷新坐标
+            this._x = x;
+            this._y = y;
+            // 获取UI坐标
+            let uiX = this.getX();
+            let uiY = this.getY();
+            // 移动格子
+            this.curMoveTween = cc.tween(this.node)
+                .to(moveDis * 0.2, { x: uiX, y: uiY }, { easing: "backOut" })
+                .call(() => {
+                    this.curMoveTween = null;
+                })
+                .start();
         }
     }
 

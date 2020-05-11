@@ -26,6 +26,12 @@ export default class gridManager extends cc.Component {
     })
     protected graphics: cc.Graphics = null;
 
+    @property({
+        type: cc.Node,
+        displayName: "炸弹选择框"
+    })
+    protected bombSelectNode: cc.Node = null;
+
     protected metaMap: number[][] = []; // 原始地图数据
     // protected curMap: number[][] = []; // 当前地图数据
 
@@ -35,7 +41,7 @@ export default class gridManager extends cc.Component {
     protected allGrids: grid[] = []; // 当前所有格子的对象
     protected gridTypes: number[] = [1, 2, 3, 4]; // 当前所有格子包含的类型
     protected pathFinding: linkGamePathFinding = new linkGamePathFinding(); // 寻路
-    protected boomTime: number = 60; // 炸弹时间
+    protected bombTime: number = 60; // 炸弹时间
 
     start() {
         // 设置画笔层级
@@ -74,12 +80,14 @@ export default class gridManager extends cc.Component {
 
     // 游戏开始
     gameStart() {
+        // 关闭炸弹选择模式
+        this.setBombSelectMode(false);
         // 停止生成格子
         this.stopGenerateGrid();
         // 设置格子最大宽高
-        this.setMaxWH(3, 6);
+        this.setMaxWH(5, 8);
         // 清除当前选择的格子
-        this.curSelectGrid = null;
+        this.clearCurSelectGrid();
         // 清除所有格子
         this.clearAllGrids();
         // 清除绘制
@@ -102,15 +110,15 @@ export default class gridManager extends cc.Component {
             for (let x = 0; x < array.length; ++x) {
                 let data = array[x];
                 if (data) {
-                    // this.addGrid(x, y, data, gameLib.GetRandomNum(0, 1) ? true : false, gameLib.GetRandomNum(0, 1) ? true : false);
-                    this.addGrid(x, y, data, false, false);
+                    this.addGrid(x, y, data, gameLib.GetRandomNum(0, 2) == 0 ? true : false, gameLib.GetRandomNum(0, 2) == 0 ? true : false);
+                    // this.addGrid(x, y, data, false, false);
                 }
             }
         }
         // 随机生成所有格子的类型
         this.generateGridType();
         // 随机炸弹
-        this.addBoom(2, this.boomTime);
+        this.addBomb(2, this.bombTime);
         // 看看是否是死局，如果是则随机一遍
         if (this.isAllGridBlock()) {
             this.randomGridsPos();
@@ -139,6 +147,17 @@ export default class gridManager extends cc.Component {
         }
     }
 
+    protected isBombSelectMode: boolean = null;
+    // 开始选择炸弹模式
+    setBombSelectMode(b: boolean) {
+        if (this.isBombSelectMode != b) {
+            this.isBombSelectMode = b;
+            this.bombSelectNode.active = b;
+            // 清除当前选择的格子
+            this.clearCurSelectGrid();
+        }
+    }
+
     // 是否已经开始生成格子
     protected isStartGenerateGrid: boolean = false;
     // 开始每间隔一段时间生成生成格子
@@ -147,7 +166,7 @@ export default class gridManager extends cc.Component {
             return;
         }
         this.isStartGenerateGrid = true;
-        this.schedule(this.randomGenerateGrid, 5);
+        this.schedule(this.randomGenerateGrid, 10);
     }
     // 停止生成格子
     protected stopGenerateGrid() {
@@ -181,7 +200,7 @@ export default class gridManager extends cc.Component {
     }
 
     // 随机变换所有格子的位置
-    protected randomGridsPos() {
+    randomGridsPos() {
         let grids: grid[] = [];
         let types: number[] = [];
         // 循环判断是否有格子能连线
@@ -212,6 +231,8 @@ export default class gridManager extends cc.Component {
         }
     }
 
+    // 自动查找的可以链接的两个格子
+    protected canLinkGrids: grid[] = [];
     // 判断是否所有的格子都不能连接了
     protected isAllGridBlock(): boolean {
         // 判断是否找到了，对应连线
@@ -221,6 +242,7 @@ export default class gridManager extends cc.Component {
                 if (tar.freezing == false && src.freezing == false && src.id == tar.id) {
                     let path = this.pathFinding.search(cc.v2(src.x, src.y), cc.v2(tar.x, tar.y));
                     if (path && path.length > 1) {
+                        this.canLinkGrids = [src, tar];
                         return true;
                     }
                 }
@@ -334,11 +356,13 @@ export default class gridManager extends cc.Component {
     }
 
     protected gameOver() {
+        // 关闭炸弹选择
+        this.setBombSelectMode(false);
         // 停止生成格子
         this.stopGenerateGrid();
         // 游戏结束，暂停所有炸弹时间
         for (let v of this.allGrids) {
-            v.pauseBoomTime();
+            v.pauseBombTime();
         }
         // 回调游戏结束
         if (this.gameOverCallback) {
@@ -347,15 +371,15 @@ export default class gridManager extends cc.Component {
     }
 
     // 相应炸弹爆炸
-    protected onBoom(grid: grid) {
+    protected onBomb(grid: grid) {
         this.gameOver();
     }
 
     // 设置炸弹
-    protected addBoom(count: number, time: number): grid[] {
+    protected addBomb(count: number, time: number): grid[] {
         let grids: grid[] = [];
         for (let v of this.allGrids) {
-            if (!v.isBoom()) {
+            if (!v.isBomb()) {
                 grids.push(v);
             }
         }
@@ -363,7 +387,7 @@ export default class gridManager extends cc.Component {
         for (let i = 0; i < count; ++i) {
             if (grids.length) {
                 let index = gameLib.GetRandomNum(0, grids.length - 1);
-                grids[index].setBoomTime(time);
+                grids[index].setBombTime(time);
                 res.push(grids[index]);
                 grids.splice(index, 1);
             }
@@ -372,7 +396,7 @@ export default class gridManager extends cc.Component {
         // let randomGrid = () => {
         //     let i = gameLib.GetRandomNum(0, this.allGrids.length - 1);
         //     let grid = this.allGrids[i];
-        //     if (!grid.isBoom()) {
+        //     if (!grid.isBomb()) {
         //         return grid;
         //     } else {
         //         return randomGrid();
@@ -470,72 +494,124 @@ export default class gridManager extends cc.Component {
 
     // 当前选中的格子
     protected curSelectGrid: grid = null;
+    // 清除当前选择
+    protected clearCurSelectGrid() {
+        if (this.curSelectGrid) {
+            this.curSelectGrid.isSelect = false;
+            this.curSelectGrid = null;
+        }
+    }
+
     // 格子被点击的事件
     protected onGridClick(grid: grid) {
+        if (this.bombSelectNode.active) {
+            this.onBombSelect(grid);
+            return;
+        }
+
         if (this.curSelectGrid && grid != this.curSelectGrid && this.curSelectGrid.id == grid.id) {
             // 如果被点击的格子与之前的格子属于统一类型，则判断是否能连线消除
-            let path = this.pathFinding.search(cc.v2(this.curSelectGrid.x, this.curSelectGrid.y), cc.v2(grid.x, grid.y));
-            if (path && path.length > 1) {
-                // 连线成功 绘制连线
-                this.paintLine(path);
-                // 获取分数路径点
-                let scorePath = this.getScroeLine(path, this.pathFinding.startPoint, this.pathFinding.endPoint);
-                // 添加分数
-                if (this.gridRemovedCallback) {
-                    this.gridRemovedCallback(scorePath.length + 1);
-                }
-                // 解锁方块旁边冻结的方块
-                let unfreezeGrid = (x, y) => {
-                    let grid = this.getGrid(x, y);
-                    if (grid && grid.freezing) {
-                        grid.freezing = false;
-                    }
-                }
-                unfreezeGrid(this.curSelectGrid.x + 1, this.curSelectGrid.y);
-                unfreezeGrid(this.curSelectGrid.x - 1, this.curSelectGrid.y);
-                unfreezeGrid(this.curSelectGrid.x, this.curSelectGrid.y + 1);
-                unfreezeGrid(this.curSelectGrid.x, this.curSelectGrid.y - 1);
-                unfreezeGrid(grid.x + 1, grid.y);
-                unfreezeGrid(grid.x - 1, grid.y);
-                unfreezeGrid(grid.x, grid.y + 1);
-                unfreezeGrid(grid.x, grid.y - 1);
-                // 判断如果被消除的是炸弹，则重新生成炸弹
-                if (this.curSelectGrid.isBoom()) {
-                    this.addBoom(1, this.boomTime);
-                }
-                if (grid.isBoom()) {
-                    this.addBoom(1, this.boomTime);
-                }
-                // 清除两个方块
-                this.removeGrid(this.curSelectGrid);
-                this.removeGrid(grid);
-                // 判断是否通关了
-                if (this.allGrids.length == 0) {
-                    if (this.nextLevelCallback) {
-                        this.nextLevelCallback();
-                    }
-                    return;
-                }
-                // 判断是否对齐移动
-                this.moveGrid(gameLib.GetRandomNum(GRID_MOVE_DIR.UP, GRID_MOVE_DIR.RIGHT));
-                // 开始生成格子
-                this.startGenerateGrid();
-                // 判断是否是死局
-                if (this.isAllGridBlock()) {
-                    // 如果是死局，则随机现有格子的位置
-                    this.randomGridsPos();
-                }
-                // 清除当前选择
-                this.curSelectGrid = null;
+            if (this.linkGrid(this.curSelectGrid, grid)) {
                 return;
             }
         }
-
-        if (this.curSelectGrid) {
-            this.curSelectGrid.isSelect = false;
-        }
+        // 清除当前选择的格子
+        this.clearCurSelectGrid();
+        // 设置当前选择的格子
         this.curSelectGrid = grid;
         this.curSelectGrid.isSelect = true;
+    }
+
+    protected bombSelectCallback: (select: boolean) => void
+    // 设置选择炸掉某种格子的回调
+    setBombSelectCallback(callback: (select: boolean) => void) {
+        this.bombSelectCallback = callback;
+    }
+
+    // 选择炸掉所有同种类的格子
+    protected onBombSelect(grid: grid) {
+        if (grid && grid.id >= 0) {
+            let grids: grid[] = [];
+            for (let v of this.allGrids) {
+                if (v.id == grid.id) {
+                    grids.push(v);
+                }
+            }
+            for (let v of grids) {
+                this.removeGrid(v);
+            }
+            this.setBombSelectMode(false);
+
+            if (this.bombSelectCallback) {
+                this.bombSelectCallback(true);
+            }
+        }
+    }
+
+    点击炸弹选择框() {
+        this.setBombSelectMode(false);
+        if (this.bombSelectCallback) {
+            this.bombSelectCallback(false);
+        }
+    }
+
+    // 自动链接格子
+    autoLinkGrid(): boolean {
+        if (this.canLinkGrids.length == 2) {
+            return this.linkGrid(this.canLinkGrids[0], this.canLinkGrids[1]);
+        }
+        return false;
+    }
+
+    // 链接格子
+    linkGrid(src: grid, tar: grid): boolean {
+        let path = this.pathFinding.search(cc.v2(src.x, src.y), cc.v2(tar.x, tar.y));
+        if (path && path.length > 1) {
+            // 连线成功 绘制连线
+            this.paintLine(path);
+            // 获取分数路径点
+            let scorePath = this.getScroeLine(path, this.pathFinding.startPoint, this.pathFinding.endPoint);
+            // 添加分数
+            if (this.gridRemovedCallback) {
+                this.gridRemovedCallback(scorePath.length + 1);
+            }
+
+            // 判断如果被消除的是炸弹，则重新生成炸弹
+            if (src.isBomb()) {
+                this.addBomb(1, this.bombTime);
+            }
+            if (tar.isBomb()) {
+                this.addBomb(1, this.bombTime);
+            }
+            // 清除两个方块
+            this.removeGrid(src);
+            this.removeGrid(tar);
+            // 判断是否通关了
+            if (this.allGrids.length == 0) {
+                this.onNextLevel();
+                return true;
+            }
+            // 判断是否对齐移动
+            this.moveGrid(gameLib.GetRandomNum(GRID_MOVE_DIR.UP, GRID_MOVE_DIR.RIGHT));
+            // 开始生成格子
+            this.startGenerateGrid();
+            // 判断是否是死局
+            if (this.isAllGridBlock()) {
+                // 如果是死局，则随机现有格子的位置
+                this.randomGridsPos();
+            }
+            // 清除当前选择的格子
+            this.clearCurSelectGrid();
+            return true;
+        }
+        return false;
+    }
+
+    // 下一关
+    protected onNextLevel() {
+        if (this.nextLevelCallback) {
+            this.nextLevelCallback();
+        }
     }
 
     // 获取所有空位的数组
@@ -578,6 +654,17 @@ export default class gridManager extends cc.Component {
 
     // 消除格子
     protected removeGrid(grid: grid) {
+        // 解锁格子旁边冻结的方块
+        let unfreezeGrid = (x, y) => {
+            let grid = this.getGrid(x, y);
+            if (grid && grid.freezing) {
+                grid.freezing = false;
+            }
+        }
+        unfreezeGrid(grid.x + 1, grid.y);
+        unfreezeGrid(grid.x - 1, grid.y);
+        unfreezeGrid(grid.x, grid.y + 1);
+        unfreezeGrid(grid.x, grid.y - 1);
         // 重置格子
         grid.reset();
         // 删除格子信息
@@ -590,7 +677,7 @@ export default class gridManager extends cc.Component {
     }
 
     // 添加一个格子
-    protected addGrid(x: number, y: number, id: number, freezing: boolean, hideMode: boolean, boomTime: number = 0): grid {
+    protected addGrid(x: number, y: number, id: number, freezing: boolean, hideMode: boolean, bombTime: number = 0): grid {
         // 给寻路添加障碍
         this.pathFinding.addBlockPoint([cc.v2(x, y)]);
         // 创建格子
@@ -600,8 +687,8 @@ export default class gridManager extends cc.Component {
         this.allGrids.push(com);
         // 设置回调
         com.setClickCallback(this.onGridClick.bind(this));
-        com.setBoomCallback(this.onBoom.bind(this));
-        com.setBoomTime(boomTime);
+        com.setBombCallback(this.onBomb.bind(this));
+        com.setBombTime(bombTime);
         // 设置格子属性
         com.resetTrun();
         com.isSelect = false;

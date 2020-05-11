@@ -483,7 +483,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "boom",
+    "_name": "bomb",
     "_objFlags": 0,
     "_parent": {
       "__id__": 2
@@ -551,7 +551,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "boomTime",
+    "_name": "bombTime",
     "_objFlags": 0,
     "_parent": {
       "__id__": 12
@@ -886,10 +886,10 @@
     "freezingIcon": {
       "__id__": 10
     },
-    "boomNode": {
+    "bombNode": {
       "__id__": 12
     },
-    "boomTime": {
+    "bombTime": {
       "__id__": 15
     },
     "animation": {

@@ -47,13 +47,13 @@ export default class grid extends cc.Component {
         type: cc.Node,
         displayName: "炸弹节点"
     })
-    protected boomNode: cc.Node = null;
+    protected bombNode: cc.Node = null;
 
     @property({
         type: countDown,
         displayName: "炸弹倒计时"
     })
-    protected boomTime: countDown = null;
+    protected bombTime: countDown = null;
 
     @property({
         type: cc.Animation,
@@ -206,34 +206,34 @@ export default class grid extends cc.Component {
         this.freezing = false;
         this.isSelect = false;
         this.id = -1;
-        this.setBoomCallback(null);
+        this.setBombCallback(null);
         this.setClickCallback(null);
-        this.setBoomTime(0);
+        this.setBombTime(0);
         this.resetTrun();
     }
 
     // 设置炸弹时间
-    setBoomTime(time: number) {
+    setBombTime(time: number) {
         if (time) {
-            this.boomTime.resume();
-            this.boomTime.setTime(time);
-            this.boomNode.active = true;
+            this.bombTime.resume();
+            this.bombTime.setTime(time);
+            this.bombNode.active = true;
         } else {
-            this.boomNode.active = false;
+            this.bombNode.active = false;
         }
     }
 
     // 是否是炸弹
-    isBoom(): boolean {
-        return this.boomNode.active;
+    isBomb(): boolean {
+        return this.bombNode.active;
     }
 
     // 暂停炸弹时间
-    pauseBoomTime(pause: boolean = true) {
+    pauseBombTime(pause: boolean = true) {
         if (pause) {
-            this.boomTime.pause();
+            this.bombTime.pause();
         } else {
-            this.boomTime.resume();
+            this.bombTime.resume();
         }
     }
 
@@ -329,14 +329,14 @@ export default class grid extends cc.Component {
     }
 
     // 设置炸弹回调
-    protected boomCallback: grid_callback = null;
-    setBoomCallback(cb: grid_callback) {
-        this.boomCallback = cb;
+    protected bombCallback: grid_callback = null;
+    setBombCallback(cb: grid_callback) {
+        this.bombCallback = cb;
     }
     protected 炸弹事件(event: string, time: number) {
         if (time <= 0) {
-            if (this.boomCallback) {
-                this.boomCallback(this);
+            if (this.bombCallback) {
+                this.bombCallback(this);
             }
         }
     }

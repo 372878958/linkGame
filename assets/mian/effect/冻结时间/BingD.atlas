@@ -1,0 +1,90 @@
+
+BingD.png
+size: 512,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+冰冻/smoke07
+  rotate: false
+  xy: 410, 79
+  size: 64, 48
+  orig: 64, 48
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_01
+  rotate: false
+  xy: 244, 15
+  size: 43, 30
+  orig: 43, 30
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_02
+  rotate: true
+  xy: 348, 46
+  size: 26, 40
+  orig: 26, 40
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_03
+  rotate: false
+  xy: 190, 14
+  size: 53, 31
+  orig: 53, 31
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_04
+  rotate: false
+  xy: 289, 60
+  size: 58, 67
+  orig: 58, 67
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_05
+  rotate: false
+  xy: 348, 73
+  size: 61, 54
+  orig: 61, 54
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_06
+  rotate: true
+  xy: 149, 1
+  size: 44, 40
+  orig: 44, 40
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_07
+  rotate: false
+  xy: 475, 82
+  size: 31, 45
+  orig: 31, 45
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_08
+  rotate: false
+  xy: 288, 10
+  size: 42, 29
+  orig: 42, 29
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_10
+  rotate: false
+  xy: 149, 46
+  size: 139, 81
+  orig: 139, 81
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_12
+  rotate: false
+  xy: 1, 17
+  size: 147, 110
+  orig: 147, 110
+  offset: 0, 0
+  index: -1
+冰冻/冰冻_13
+  rotate: false
+  xy: 289, 40
+  size: 46, 19
+  orig: 46, 19
+  offset: 0, 0
+  index: -1

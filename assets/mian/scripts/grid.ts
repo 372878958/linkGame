@@ -1,12 +1,7 @@
-// Learn TypeScript:
-//  - https://docs.cocos.com/creator/manual/en/scripting/typescript.html
-// Learn Attribute:
-//  - https://docs.cocos.com/creator/manual/en/scripting/reference/attributes.html
-// Learn life-cycle callbacks:
-//  - https://docs.cocos.com/creator/manual/en/scripting/life-cycle-callbacks.html
-
-import countDown from "../../component/countDown";
 import linkGamePathFinding from "./linkGamePathFinding";
+import countDown from "../../commonLib/component/countDown";
+import playAnimation from "../../commonLib/component/playAnimation";
+import { setGridIcon } from "./gameData";
 
 const { ccclass, property } = cc._decorator;
 
@@ -50,6 +45,12 @@ export default class grid extends cc.Component {
     protected bombNode: cc.Node = null;
 
     @property({
+        type: cc.Node,
+        displayName: "选中状态节点"
+    })
+    protected selectNode: cc.Node = null;
+
+    @property({
         type: countDown,
         displayName: "炸弹倒计时"
     })
@@ -68,17 +69,38 @@ export default class grid extends cc.Component {
     protected generateAni: cc.AnimationClip = null;
 
     @property({
-        type: cc.SpriteFrame,
-        displayName: "图标集",
-        tooltip: "都有哪些图标（图标合集）"
+        type: cc.AnimationClip,
+        displayName: "查看动画",
+        tooltip: "查看未知格子动画"
     })
-    protected iconSF: cc.SpriteFrame[] = [];
+    protected openGridClip: cc.AnimationClip = null;
+
+    @property({
+        type: cc.AnimationClip,
+        displayName: "取消查看",
+        tooltip: "取消查看未知格子动画"
+    })
+    protected closeGridClip: cc.AnimationClip = null;
+
+    // @property({
+    //     type: cc.SpriteFrame,
+    //     displayName: "图标集",
+    //     tooltip: "都有哪些图标（图标合集）"
+    // })
+    // protected iconSF: cc.SpriteFrame[] = [];
 
     @property({
         type: cc.Button,
         displayName: "点击按钮"
     })
     protected button: cc.Button = null;
+
+    // @property({
+    //     type: cc.Prefab,
+    //     displayName: "冰碎特效"
+    // })
+    // protected unfreezePrefab: cc.Prefab = null;
+    // protected unfreezeAni: playAnimation = null;
 
     // 当前 图标 ID -1:没有
     protected _iconID: number = null;
@@ -92,11 +114,15 @@ export default class grid extends cc.Component {
             this._iconID = id;
             if (this._iconID != null && this._iconID >= 0) {
                 this.node.active = true;
-                this.icon.spriteFrame = this.iconSF[this._iconID];
+                this.updateIcon();
             } else {
                 this.node.active = false;
             }
         }
+    }
+
+    updateIcon() {
+        setGridIcon(this._iconID, this.icon);
     }
 
     // 格子坐标
@@ -122,11 +148,11 @@ export default class grid extends cc.Component {
     }
 
     // 获取在UI上的X坐标
-    protected getX() {
+    getX() {
         return this._x * this.size.width + this.size.width / 2;
     }
     // 获取在UI上的Y坐标
-    protected getY() {
+    getY() {
         return this._y * this.size.height + this.size.height / 2;
     }
 
@@ -144,12 +170,14 @@ export default class grid extends cc.Component {
 
     // 根据需要格子显示的大小，设置缩放
     protected setScaleBySize(size: cc.Size) {
-        this.node.scaleX = size.width / this.node.width;
-        this.node.scaleY = size.height / this.node.height;
+        if (size) {
+            this.node.scaleX = size.width / this.node.width;
+            this.node.scaleY = size.height / this.node.height;
+        }
     }
 
     // 是否被选择
-    protected _isSelect: boolean = false;
+    protected _isSelect: boolean = null;
     get isSelect(): boolean {
         return this._isSelect;
     }
@@ -157,11 +185,48 @@ export default class grid extends cc.Component {
         if (this._isSelect != select) {
             this._isSelect = select;
             this.button.interactable = !this._isSelect;
+            this.selectNode.active = select;
             // 问号格子点击时反转
             if (this.hideMode) {
                 this.turnGrid(select);
             }
+            // 播放和停止选中动画
+            if (this._isSelect) {
+                // 正在播发出生动画，则直接采样最后一帧
+                if (this.animation.currentClip.name == this.generateAni.name) {
+                    let state = this.animation.getAnimationState(this.generateAni.name);
+                    if (state.isPlaying) {
+                        this.animation.setCurrentTime(state.duration, this.generateAni.name);
+                        this.animation.sample(this.generateAni.name);
+                    }
+                }
+                let s = this.animation.play("选中");
+                this.scheduleOnce(this.playSelectLoopAni, s.duration);
+                this.node.zIndex = 1;
+            } else {
+                this.node.zIndex = 0;
+                this.unschedule(this.playSelectLoopAni);
+                this.animation.stop("选中_待机");
+            }
         }
+    }
+
+    // 解除冰冻
+    unfreeze() {
+        if (this.freezing) {
+            this.freezing = false;
+            // if (!this.unfreezeAni) {
+            //     let node = cc.instantiate(this.unfreezePrefab);
+            //     this.content.addChild(node);
+            //     this.unfreezeAni = node.getComponent(playAnimation);
+            // }
+            // return this.unfreezeAni.play();
+        }
+    }
+
+    // 播放选中的循环动画
+    protected playSelectLoopAni() {
+        this.animation.play("选中_待机");
     }
 
     // 是否是问好格子
@@ -173,7 +238,7 @@ export default class grid extends cc.Component {
         if (this._hideMode != b) {
             this._hideMode = b;
             this.hideIcon.node.active = b;
-            this.icon.node.active = !b;
+            // this.icon.node.active = !b;
         }
     }
 
@@ -188,7 +253,7 @@ export default class grid extends cc.Component {
                 this.isSelect = false;
             }
             this.freezingIcon.node.active = b;
-            this.button.enabled = !b;
+            // this.button.enabled = !b;
         }
     }
 
@@ -202,14 +267,29 @@ export default class grid extends cc.Component {
     }
 
     reset() {
+        this.x = 0;
+        this.y = 0;
+        this.size = cc.Size.ZERO;
         this.hideMode = false;
         this.freezing = false;
         this.isSelect = false;
         this.id = -1;
+        this.icon.node.scale = 1;
         this.setBombCallback(null);
         this.setClickCallback(null);
         this.setBombTime(0);
         this.resetTrun();
+        this.stopMove();
+        this.stopAnimation();
+    }
+
+    // 停止所有动画
+    stopAnimation() {
+        if (this.animation && this.animation.currentClip) {
+            this.animation.setCurrentTime(this.animation.currentClip.duration, this.animation.currentClip.name);
+            this.animation.sample(this.animation.currentClip.name);
+        }
+        this.animation.stop();
     }
 
     // 设置炸弹时间
@@ -218,9 +298,20 @@ export default class grid extends cc.Component {
             this.bombTime.resume();
             this.bombTime.setTime(time);
             this.bombNode.active = true;
+            this.bombNode.scale = 0;
+            cc.tween(this.bombNode)
+                .to(0.25, { scale: 1 }, { easing: "backOut" })
+                .start();
         } else {
             this.bombNode.active = false;
         }
+    }
+
+    getBombTime() {
+        if (this.bombNode.active) {
+            return this.bombTime.getTime();
+        }
+        return 0;
     }
 
     // 是否是炸弹
@@ -252,11 +343,7 @@ export default class grid extends cc.Component {
     moveTo(x: number, y: number, path: linkGamePathFinding = null) {
         if (this.x != x || this.y != y) {
             // 先停止移动动画
-            if (this.curMoveTween) {
-                this.curMoveTween.stop();
-                this.node.x = this.getX();
-                this.node.y = this.getY();
-            }
+            this.stopMove();
             // 计算移动距离
             let moveX = Math.abs(this.x - x);
             let moveY = Math.abs(this.y - y);
@@ -282,29 +369,45 @@ export default class grid extends cc.Component {
         }
     }
 
-    protected curTween: cc.Tween<cc.Node> = null;
+    // 停止移动
+    stopMove() {
+        if (this.curMoveTween) {
+            this.curMoveTween.stop();
+            this.curMoveTween = null;
+            this.node.x = this.getX();
+            this.node.y = this.getY();
+        }
+    }
+
+    // protected curTween: cc.Tween<cc.Node> = null;
     // 反转格子显示问号或者图标
     protected turnGrid(isShow: boolean) {
-        if (this.curTween) {
-            this.curTween.stop();
+        let ani = this.hideIcon.getComponent(cc.Animation);
+        if (isShow) {
+            ani.play(this.openGridClip.name);
+        } else {
+            ani.play(this.closeGridClip.name);
         }
-        this.curTween = cc.tween(this.content)
-            .call(() => {
-                this.content.is3DNode = true;
-            })
-            .to(0.25, { eulerAngles: cc.v3(0, 90, 0) })
-            .call(() => {
-                if (this.hideMode) {
-                    this.hideIcon.node.active = !isShow;
-                    this.icon.node.active = isShow;
-                }
-            })
-            .to(0.25, { eulerAngles: cc.v3(0, 0, 0) })
-            .call(() => {
-                this.content.is3DNode = false;
-                this.curTween = null;
-            })
-            .start();
+        // if (this.curTween) {
+        //     this.curTween.stop();
+        // }
+        // this.curTween = cc.tween(this.content)
+        //     .call(() => {
+        //         this.content.is3DNode = true;
+        //     })
+        //     .to(0.25, { eulerAngles: cc.v3(0, 90, 0) })
+        //     .call(() => {
+        //         if (this.hideMode) {
+        //             this.hideIcon.node.active = !isShow;
+        //             this.icon.node.active = isShow;
+        //         }
+        //     })
+        //     .to(0.25, { eulerAngles: cc.v3(0, 0, 0) })
+        //     .call(() => {
+        //         this.content.is3DNode = false;
+        //         this.curTween = null;
+        //     })
+        //     .start();
     }
 
     // 播放格子生成的动画
@@ -315,11 +418,14 @@ export default class grid extends cc.Component {
 
     // 重置翻转动画
     resetTrun() {
-        if (this.curTween) {
-            this.curTween.stop();
-            this.curTween = null;
-        }
-        this.content.eulerAngles = cc.v3(0, 0, 0);
+        // if (this.curTween) {
+        //     this.curTween.stop();
+        //     this.curTween = null;
+        // }
+        // this.content.eulerAngles = cc.v3(0, 0, 0);
+        let ani = this.hideIcon.getComponent(cc.Animation);
+        ani.setCurrentTime(0, this.openGridClip.name);
+        ani.sample(this.openGridClip.name);
     }
 
     protected 点击格子() {

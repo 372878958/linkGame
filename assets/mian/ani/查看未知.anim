@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "查看未知",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.25,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 0,
+  "curveData": {
+    "paths": {},
+    "props": {
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 1,
+          "curve": "linear"
+        },
+        {
+          "frame": 0.25,
+          "value": 0
+        }
+      ]
+    }
+  },
+  "events": []
+}

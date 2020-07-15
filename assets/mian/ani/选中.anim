@@ -1,0 +1,103 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "选中",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.4666666666666667,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 0,
+  "curveData": {
+    "paths": {
+      "content/icon": {
+        "props": {
+          "scale": [
+            {
+              "frame": 0,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1,
+                "y": 1
+              }
+            },
+            {
+              "frame": 0.11666666666666667,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.107,
+                "y": 0.83
+              }
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 0.976,
+                "y": 0.984
+              }
+            },
+            {
+              "frame": 0.35,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1.132,
+                "y": 0.872
+              }
+            },
+            {
+              "frame": 0.4666666666666667,
+              "value": {
+                "__type__": "cc.Vec2",
+                "x": 1,
+                "y": 1
+              }
+            }
+          ],
+          "position": [
+            {
+              "frame": 0,
+              "value": [
+                0,
+                0,
+                0
+              ]
+            },
+            {
+              "frame": 0.11666666666666667,
+              "value": [
+                0,
+                -9,
+                0
+              ]
+            },
+            {
+              "frame": 0.26666666666666666,
+              "value": [
+                0,
+                8,
+                0
+              ]
+            },
+            {
+              "frame": 0.35,
+              "value": [
+                0,
+                -7,
+                0
+              ]
+            },
+            {
+              "frame": 0.4666666666666667,
+              "value": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": []
+}

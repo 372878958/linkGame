@@ -1,8 +1,16 @@
+import countDown from "../../commonLib/component/countDown";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class comboText extends cc.Component {
+
+    @property({
+        type: countDown,
+        displayName: "倒计时"
+    })
+    protected cd: countDown = null;
+
     @property({
         type: cc.Label,
         displayName: "连击数字"
@@ -35,6 +43,9 @@ export default class comboText extends cc.Component {
 
     onLoad() {
         this.node.opacity = 0;
+        this.cd.setFinishCallback((cd) => {
+            this.playHideAni();
+        });
     }
 
     // 显示持续时间
@@ -52,8 +63,7 @@ export default class comboText extends cc.Component {
             this.animation.play(this.changeAni.name);
         }
         // 显示一段时间关闭
-        this.unschedule(this.playHideAni);
-        this.scheduleOnce(this.playHideAni, this.durationTime);
+        this.cd.setTime(this.durationTime);
     }
 
     // 播放关闭动画

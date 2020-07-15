@@ -1,6 +1,6 @@
 export default class linkGamePathFinding {
 
-    protected pathObj: any = {};
+    public pathObj: any = {};
     public startPoint: cc.Vec2 = cc.Vec2.ONE;
     public endPoint: cc.Vec2 = cc.Vec2.ONE;
     protected path: cc.Vec2[] = [];//List<Point>

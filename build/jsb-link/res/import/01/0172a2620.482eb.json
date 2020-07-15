@@ -1,0 +1,188 @@
+[
+  {
+    "__type__": "cc.BitmapFont",
+    "_name": "llk_number02_price2x",
+    "spriteFrame": {
+      "__uuid__": "73xsRLwbVLApLg68OwmrQR"
+    },
+    "fontSize": 32,
+    "_fntConfig": {
+      "commonHeight": 48,
+      "fontSize": 32,
+      "atlasName": "llk_number02_price2x.png",
+      "fontDefDictionary": {
+        "9": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 1584
+        },
+        "32": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0
+          },
+          "xOffset": 0,
+          "yOffset": 0,
+          "xAdvance": 198
+        },
+        "48": {
+          "rect": {
+            "x": 0,
+            "y": 93,
+            "width": 33,
+            "height": 46
+          },
+          "xOffset": 0,
+          "yOffset": 2,
+          "xAdvance": 31
+        },
+        "49": {
+          "rect": {
+            "x": 35,
+            "y": 94,
+            "width": 20,
+            "height": 44
+          },
+          "xOffset": 0,
+          "yOffset": 3,
+          "xAdvance": 18
+        },
+        "50": {
+          "rect": {
+            "x": 36,
+            "y": 0,
+            "width": 31,
+            "height": 45
+          },
+          "xOffset": 0,
+          "yOffset": 2,
+          "xAdvance": 29
+        },
+        "51": {
+          "rect": {
+            "x": 0,
+            "y": 141,
+            "width": 32,
+            "height": 45
+          },
+          "xOffset": 0,
+          "yOffset": 3,
+          "xAdvance": 30
+        },
+        "52": {
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 34,
+            "height": 45
+          },
+          "xOffset": 0,
+          "yOffset": 2,
+          "xAdvance": 32
+        },
+        "53": {
+          "rect": {
+            "x": 35,
+            "y": 47,
+            "width": 31,
+            "height": 45
+          },
+          "xOffset": 0,
+          "yOffset": 3,
+          "xAdvance": 29
+        },
+        "54": {
+          "rect": {
+            "x": 34,
+            "y": 141,
+            "width": 32,
+            "height": 46
+          },
+          "xOffset": 0,
+          "yOffset": 2,
+          "xAdvance": 30
+        },
+        "55": {
+          "rect": {
+            "x": 0,
+            "y": 47,
+            "width": 33,
+            "height": 44
+          },
+          "xOffset": 0,
+          "yOffset": 3,
+          "xAdvance": 31
+        },
+        "56": {
+          "rect": {
+            "x": 34,
+            "y": 189,
+            "width": 31,
+            "height": 45
+          },
+          "xOffset": 0,
+          "yOffset": 3,
+          "xAdvance": 29
+        },
+        "57": {
+          "rect": {
+            "x": 0,
+            "y": 188,
+            "width": 32,
+            "height": 46
+          },
+          "xOffset": 0,
+          "yOffset": 2,
+          "xAdvance": 30
+        },
+        "58": {
+          "rect": {
+            "x": 57,
+            "y": 94,
+            "width": 15,
+            "height": 33
+          },
+          "xOffset": 0,
+          "yOffset": 15,
+          "xAdvance": 13
+        }
+      },
+      "kerningDict": {}
+    }
+  },
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "llk_number02_price2x",
+      "texture": "1fedbad02",
+      "rect": [
+        456,
+        1465,
+        72,
+        234
+      ],
+      "offset": [
+        -28,
+        11
+      ],
+      "originalSize": [
+        128,
+        256
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "ver": "2.3.4",
+  "uuid": "e7c11428-3886-4f7c-b969-d607b32430d4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "genMipmaps": false,
+  "packable": true,
+  "width": 272,
+  "height": 62,
+  "platformSettings": {},
+  "subMetas": {
+    "img_tujian_biaoti04": {
+      "ver": "1.0.4",
+      "uuid": "23a535c5-5b34-48f5-8b47-0d9b6c623f7d",
+      "rawTextureUuid": "e7c11428-3886-4f7c-b969-d607b32430d4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -10,
+      "offsetY": 2,
+      "trimX": 0,
+      "trimY": 4,
+      "width": 252,
+      "height": 50,
+      "rawWidth": 272,
+      "rawHeight": 62,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

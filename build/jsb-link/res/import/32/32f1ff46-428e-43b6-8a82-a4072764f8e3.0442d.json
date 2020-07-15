@@ -1,0 +1,126 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "gameOver",
+  "_duration": 6.45,
+  "wrapMode": 2,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": []
+      }
+    },
+    "props": {
+      "position": []
+    },
+    "paths": {
+      "失败/LLK_XL_yz1": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 3.5166666666666666,
+              "value": -5.863
+            },
+            {
+              "frame": 6.45,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "失败/LLK_XL_yz": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 2.9833333333333334,
+              "value": 6.402
+            },
+            {
+              "frame": 6.45,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "失败/SBai_03": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 1.8333333333333333,
+              "value": 0
+            },
+            {
+              "frame": 2.05,
+              "value": 23.431
+            },
+            {
+              "frame": 2.5166666666666666,
+              "value": -12.457
+            },
+            {
+              "frame": 2.85,
+              "value": -28.368304347826083
+            },
+            {
+              "frame": 3.4166666666666665,
+              "value": 0
+            },
+            {
+              "frame": 4.416666666666667,
+              "value": 6.678
+            },
+            {
+              "frame": 5.283333333333333,
+              "value": 0
+            }
+          ]
+        }
+      },
+      "失败/SBai_02": {
+        "props": {
+          "angle": [
+            {
+              "frame": 0,
+              "value": 0
+            },
+            {
+              "frame": 1.2333333333333334,
+              "value": -4.505
+            },
+            {
+              "frame": 1.6666666666666667,
+              "value": 0
+            },
+            {
+              "frame": 1.85,
+              "value": 10.161
+            },
+            {
+              "frame": 2.0166666666666666,
+              "value": 0
+            },
+            {
+              "frame": 4.05,
+              "value": -7.746
+            },
+            {
+              "frame": 6.45,
+              "value": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "选中边框",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.9166666666666666,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 2,
+  "curveData": {
+    "paths": {},
+    "props": {
+      "scale": [
+        {
+          "frame": 0,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 0.674,
+            "y": 0.674
+          }
+        },
+        {
+          "frame": 0.48333333333333334,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 1.053,
+            "y": 1.053
+          }
+        },
+        {
+          "frame": 0.9166666666666666,
+          "value": {
+            "__type__": "cc.Vec2",
+            "x": 0.674,
+            "y": 0.674
+          }
+        }
+      ]
+    }
+  },
+  "events": []
+}

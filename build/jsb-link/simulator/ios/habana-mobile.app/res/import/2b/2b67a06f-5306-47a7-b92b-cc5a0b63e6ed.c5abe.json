@@ -1,0 +1,22 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "取消查看未知",
+  "_duration": 0.25,
+  "wrapMode": 0,
+  "curveData": {
+    "paths": {},
+    "props": {
+      "scaleY": [
+        {
+          "frame": 0,
+          "value": 0,
+          "curve": "linear"
+        },
+        {
+          "frame": 0.25,
+          "value": 1
+        }
+      ]
+    }
+  }
+}

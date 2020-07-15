@@ -1,0 +1,68 @@
+{
+  "__type__": "cc.SpriteAtlas",
+  "_spriteFrames": {
+    "bg_tujian_di01": {
+      "__uuid__": "96I3phkuZDeqZ8hA5PHPyK"
+    },
+    "img_tujian_di": {
+      "__uuid__": "89tRY0htZMZanYFb6fKeH8"
+    },
+    "bg_tujian_di02": {
+      "__uuid__": "f0j0a5SqhOE5O4K+8VhkrQ"
+    },
+    "img_tujian_f": {
+      "__uuid__": "84oFPLxnhD/ZWJLwlm3z8o"
+    },
+    "img_tujian_a": {
+      "__uuid__": "56rtITDkxJM46YsrKfTE51"
+    },
+    "img_tujian_e": {
+      "__uuid__": "64RmXSI75NHLpjsuPxcC9F"
+    },
+    "img_tujian_d": {
+      "__uuid__": "391Dy1NMdOIradl0RpYa+M"
+    },
+    "img_tujian_biaoti02": {
+      "__uuid__": "d8rQIr3cdFVJrl1wOlGjP1"
+    },
+    "btn_tujian_details": {
+      "__uuid__": "41mlHSTndA24Bbvo8VZWv/"
+    },
+    "img_tujian_biaoti": {
+      "__uuid__": "bdQBSTlmVDEKDEeZsQY0Xl"
+    },
+    "img_tujian_biaoti03": {
+      "__uuid__": "4aoNYvdrdDG5RZYbR4pjX4"
+    },
+    "llk_number04_price2x": {
+      "__uuid__": "40x1YMx0hNq5On7baiSGXY"
+    },
+    "img_tujian_biaoti04": {
+      "__uuid__": "23pTXFWzRI9YtHDZtsYj99"
+    },
+    "btn_tujian_back": {
+      "__uuid__": "e56HeiK8lDr7bc6dPWJo2w"
+    },
+    "img_tujian_biaoti05": {
+      "__uuid__": "39KaQgOM1A4ZSe3d5DNRG0"
+    },
+    "img_tujian_suo": {
+      "__uuid__": "31Nv99SjxAzrf/YMifiN5X"
+    },
+    "img_tujian_biaoti01": {
+      "__uuid__": "b8Hry8cTxFt5YKwSMjBcll"
+    },
+    "img_tujian_b": {
+      "__uuid__": "89TjnL/VNKtYbS19Wqrnep"
+    },
+    "img_tujian_icondi": {
+      "__uuid__": "cdK415P5RGEqyyRg5F8hc3"
+    },
+    "img_tujian_c": {
+      "__uuid__": "4cA7m1GBdAmbltU64s/pQv"
+    },
+    "img_tujian_biaoti06": {
+      "__uuid__": "d0ON+VpV9NWYvBJ9Kj70Wo"
+    }
+  }
+}

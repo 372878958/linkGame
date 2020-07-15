@@ -1,0 +1,37 @@
+[
+  {
+    "__type__": "cc.SpriteFrame",
+    "content": {
+      "name": "拖尾",
+      "texture": "1fedbad02",
+      "rect": [
+        706,
+        1253,
+        150,
+        150
+      ],
+      "offset": [
+        -0.5,
+        -1
+      ],
+      "originalSize": [
+        173,
+        172
+      ],
+      "capInsets": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  {
+    "__type__": "cc.ParticleAsset",
+    "_name": "1111",
+    "_native": ".plist",
+    "spriteFrame": {
+      "__uuid__": "20CnqQsNpKybwA7slwyrBV"
+    }
+  }
+]

@@ -1,0 +1,27 @@
+{
+  "__type__": "cc.SpriteFrame",
+  "content": {
+    "name": "iconb_18",
+    "texture": "1fedbad02",
+    "rect": [
+      1497,
+      970,
+      57,
+      54
+    ],
+    "offset": [
+      2.5,
+      -1
+    ],
+    "originalSize": [
+      76,
+      76
+    ],
+    "capInsets": [
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+}

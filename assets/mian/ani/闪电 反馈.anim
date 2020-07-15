@@ -1,0 +1,69 @@
+{
+  "__type__": "cc.AnimationClip",
+  "_name": "闪电 反馈",
+  "_objFlags": 0,
+  "_native": "",
+  "_duration": 0.21666666666666667,
+  "sample": 60,
+  "speed": 1,
+  "wrapMode": 0,
+  "curveData": {
+    "comps": {
+      "cc.Sprite": {
+        "spriteFrame": [
+          {
+            "frame": 0,
+            "value": {
+              "__uuid__": "4d6043aa-d4c8-48b7-8c23-7df85573aed1"
+            }
+          },
+          {
+            "frame": 0.016666666666666666,
+            "value": {
+              "__uuid__": "37ad7502-d545-43dd-873a-ed05d9a0e021"
+            }
+          },
+          {
+            "frame": 0.03333333333333333,
+            "value": {
+              "__uuid__": "4df7ed1d-9640-4188-b886-1a90e37adf22"
+            }
+          },
+          {
+            "frame": 0.06666666666666667,
+            "value": {
+              "__uuid__": "5a01c272-8d88-4e7b-8db0-0fc6e5fe07f4"
+            }
+          },
+          {
+            "frame": 0.1,
+            "value": {
+              "__uuid__": "1c11ad41-2047-4d50-83d0-f40c6bf32f68"
+            }
+          },
+          {
+            "frame": 0.13333333333333333,
+            "value": {
+              "__uuid__": "5535ade4-8c23-4145-93b3-d4e90beb3de9"
+            }
+          },
+          {
+            "frame": 0.16666666666666666,
+            "value": {
+              "__uuid__": "aafb6830-05f2-4271-b2a8-ed2d67904c4a"
+            }
+          },
+          {
+            "frame": 0.2,
+            "value": null
+          }
+        ]
+      }
+    },
+    "props": {
+      "position": []
+    },
+    "paths": {}
+  },
+  "events": []
+}

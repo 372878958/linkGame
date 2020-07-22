@@ -52,7 +52,7 @@ bool AppDelegate::applicationDidFinishLaunching()
     
 #if defined(COCOS2D_DEBUG) && (COCOS2D_DEBUG > 0)
     // Enable debugger here
-    jsb_enable_debugger("0.0.0.0", 6086, false);
+    jsb_enable_debugger("0.0.0.0", 6089, false);
 #endif
     
     se->setExceptionCallback([](const char *location, const char *message, const char *stack) {

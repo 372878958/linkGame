@@ -23,9 +23,10 @@
     "3D Primitive",
     "3D Physics/cannon.js",
     "3D Physics/Builtin",
-    "3D Particle"
+    "3D Particle",
+    "SafeArea"
   ],
-  "last-module-event-record-time": 1591759773141,
+  "last-module-event-record-time": 1595301842603,
   "design-resolution-width": 720,
   "design-resolution-height": 1280,
   "fit-width": false,
@@ -48,6 +49,8 @@
       "enable": false
     }
   },
-  "migrate-history": [],
+  "migrate-history": [
+    "cloud-function"
+  ],
   "start-scene": "current"
 }

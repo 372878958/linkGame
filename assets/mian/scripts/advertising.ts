@@ -1,9 +1,14 @@
 import addUI from "../../commonLib/component/addUI";
+import { HttpLib, HttpMethod } from "../../commonLib/lib/HttpLib";
+import { loginLib } from "../../commonLib/lib/LoginLib";
+import popBox from "../../commonLib/component/PopBox/popBox";
 
 const { ccclass, property } = cc._decorator;
 
 @ccclass
 export default class advertising extends cc.Component {
+
+    private getUrl: string = HttpLib.BASE_PATH + "/smallgameapi/getRoundSet.php";
 
     protected static callback: Function = null;
     setFinishCallback(callback: Function) {
@@ -50,6 +55,10 @@ export default class advertising extends cc.Component {
                 }
                 return 'abcd'
             }
+            window["adFailure"] = (str) => {
+                popBox.popBox(str);
+            }
         }
     }
+    
 }

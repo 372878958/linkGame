@@ -1,5 +1,5 @@
 {
-  "ver": "2.3.4",
+  "ver": "2.3.5",
   "uuid": "54fe5b13-2709-482e-86f7-2ede0fbeca70",
   "type": "sprite",
   "wrapMode": "clamp",
@@ -26,10 +26,10 @@
       "height": 99,
       "rawWidth": 96,
       "rawHeight": 99,
-      "borderTop": 0,
-      "borderBottom": 0,
-      "borderLeft": 0,
-      "borderRight": 0,
+      "borderTop": 42,
+      "borderBottom": 42,
+      "borderLeft": 40,
+      "borderRight": 40,
       "subMetas": {}
     }
   }

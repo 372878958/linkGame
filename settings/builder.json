@@ -2,7 +2,9 @@
   "title": "habana",
   "packageName": "org.cocos2d.demo",
   "startScene": "3ec91656-91b8-44f7-83b3-81181d794b3e",
-  "excludeScenes": [],
+  "excludeScenes": [
+    "8f04524f-c5f1-4150-9cc5-f78008b1e716"
+  ],
   "includeSDKBox": false,
   "orientation": {
     "landscapeLeft": false,
@@ -21,15 +23,24 @@
   "zipCompressJs": true,
   "fb-instant-games": {},
   "android": {
+    "REMOTE_SERVER_ROOT": "",
     "packageName": "com.bhhy.linkgame"
   },
   "ios": {
-    "packageName": "com.bhhy.linkgame"
+    "REMOTE_SERVER_ROOT": "",
+    "packageName": "com.iosbhhy.linkgame"
   },
   "mac": {
-    "packageName": "org.cocos2d.demo"
+    "REMOTE_SERVER_ROOT": "",
+    "height": 720,
+    "packageName": "org.cocos2d.demo",
+    "width": 1280
   },
-  "win32": {},
+  "win32": {
+    "REMOTE_SERVER_ROOT": "",
+    "height": 720,
+    "width": 1280
+  },
   "android-instant": {
     "REMOTE_SERVER_ROOT": "",
     "host": "",
@@ -39,5 +50,8 @@
     "scheme": "https",
     "skipRecord": false
   },
-  "appBundle": false
+  "appBundle": false,
+  "mainCompressionType": "default",
+  "mainIsRemote": false,
+  "nativeMd5Cache": false
 }

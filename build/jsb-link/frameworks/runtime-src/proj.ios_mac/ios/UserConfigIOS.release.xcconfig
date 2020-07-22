@@ -1,4 +1,5 @@
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
 
-#include "/Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/ios/CCModuleConfigIOS.release.xcconfig"
+#include "/Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/ios/CCModuleConfigIOS.release.xcconfig"
+#include "../Pods/Target Support Files/Pods-habana-mobile/Pods-habana-mobile.release.xcconfig"

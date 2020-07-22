@@ -30,9 +30,9 @@
 #import "RootViewController.h"
 #import "SDKWrapper.h"
 #import "platform/ios/CCEAGLView-ios.h"
-#import "XLNUtilityDyLib/XLNUtilityDyLib.h"
 #import "XLNUtilityDyLib/GZThirdPartyCheck.h"
 #import "XLNUtilityDyLib/XLNDevice.h"
+
 #import <AppLovinSDK/AppLovinSDK.h>
 #include <CCScheduler.h>
 #include "cocos/scripting/js-bindings/jswrapper/SeApi.h"
@@ -49,7 +49,6 @@ using namespace cocos2d;
 
 Application* app = nullptr;
 AppController* appCon = nullptr;
-
 @synthesize window;
 
 #pragma mark -
@@ -61,10 +60,9 @@ AppController* appCon = nullptr;
     [[ALSdk shared] initializeSdkWithCompletionHandler:^(ALSdkConfiguration *configuration) {
         // AppLovin SDK is initialized, start loading ads
         NSLog(@"AppLovin SDK is initialized, start loading ads");
-        [self createInterstitialAd];
+//        [self createInterstitialAd];
         [self createRewardedAd];
     }];
-    
     [[SDKWrapper getInstance] application:application didFinishLaunchingWithOptions:launchOptions];
     // Add the view controller's view to the window and display.
     float scale = [[UIScreen mainScreen] scale];
@@ -106,6 +104,10 @@ AppController* appCon = nullptr;
     //run the cocos2d-x game scene
     app->start();
     
+    NSLog(@"uuid is %@",[XLNDevice uuid]);
+    NSLog(@"idfa is %@",[XLNDevice idfa]);
+    NSLog(@"idfv is %@",[XLNDevice idfv]);
+    
     return YES;
 }
 
@@ -139,14 +141,14 @@ AppController* appCon = nullptr;
      Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
      If your application supports background execution, called instead of applicationWillTerminate: when the user quits.
      */
-    [[SDKWrapper getInstance] applicationDidEnterBackground:application]; 
+    [[SDKWrapper getInstance] applicationDidEnterBackground:application];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     /*
      Called as part of  transition from the background to the inactive state: here you can undo many of the changes made on entering the background.
      */
-    [[SDKWrapper getInstance] applicationWillEnterForeground:application]; 
+    [[SDKWrapper getInstance] applicationWillEnterForeground:application];    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -165,7 +167,6 @@ AppController* appCon = nullptr;
      Free up as much memory as possible by purging cached data objects that can be recreated (or reloaded from disk) later.
      */
 }
-
 - (void)createInterstitialAd
 {
     self.interstitialAd = [[MAInterstitialAd alloc] initWithAdUnitIdentifier: @"eff53612cc965d11"];
@@ -241,7 +242,15 @@ AppController* appCon = nullptr;
 
 - (void)didStartRewardedVideoForAd:(MAAd *)ad {}
 
-- (void)didCompleteRewardedVideoForAd:(MAAd *)ad {}
+- (void)didCompleteRewardedVideoForAd:(MAAd *)ad {
+    [self.rewardedAd loadAd];
+        NSLog(@"didCompleteRewardedVideoForAd");
+        
+        Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+            se::ScriptEngine::getInstance()->evalString("didHideAd(\"啦啦啦\")");
+    //        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
+        });
+}
 
 - (void)didRewardUserForAd:(MAAd *)ad withReward:(MAReward *)reward
 {
@@ -256,12 +265,17 @@ AppController* appCon = nullptr;
     {
         [appCon.rewardedAd showAd];
         NSLog(@"[self.rewardedAd showAd];");
+    }else{
+        Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+                se::ScriptEngine::getInstance()->evalString("adFailure(\"No Fill!\")");
+        //        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
+            });
     }
     return true;
 }
 
-+(NSString *)getUUID{
-    return [NSString stringWithFormat:@"%@,%@", [XLNDevice uuid],[XLNDevice idfa]];
++(NSString *)getUUID:(NSString *)st{
+    return [NSString stringWithFormat:@"%@,%@,%@", [XLNDevice uuid],[XLNDevice idfa],@""];
 }
 
 @end

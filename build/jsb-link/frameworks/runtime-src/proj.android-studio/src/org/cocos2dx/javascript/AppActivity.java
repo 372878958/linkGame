@@ -1,40 +1,38 @@
 /****************************************************************************
-Copyright (c) 2015-2016 Chukong Technologies Inc.
-Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
- 
-http://www.cocos2d-x.org
+ Copyright (c) 2015-2016 Chukong Technologies Inc.
+ Copyright (c) 2017-2018 Xiamen Yaji Software Co., Ltd.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+ http://www.cocos2d-x.org
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
-****************************************************************************/
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ ****************************************************************************/
 package org.cocos2dx.javascript;
 
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 import org.cocos2dx.lib.Cocos2dxJavascriptJavaBridge;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Handler;
-import android.provider.Settings;
 
 import com.applovin.mediation.MaxAd;
 import com.applovin.mediation.MaxAdListener;
@@ -47,15 +45,19 @@ import com.applovin.sdk.AppLovinSdkConfiguration;
 
 import java.util.concurrent.TimeUnit;
 
-public class AppActivity extends Cocos2dxActivity
-        implements MaxAdListener, MaxRewardedAdListener
-{
+import oceania.solomon.makira.XLNDevice;
+import oceania.solomon.makira.XLNUnityAndroidLib;
 
+public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxRewardedAdListener{
+    private static AppActivity app = null;
+    public static String imei="";
+    public static String androidId="";
+    public static String uuid="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         app = this;
-        imei = getIMEI(this);
+        XLNUnityAndroidLib.registerActivity(this);
         // Workaround in
         // https://stackoverflow.com/questions/16283079/re-launch-of-activity-on-home-button-but-only-the-first-time/16447508
         if (!isTaskRoot()) {
@@ -67,7 +69,6 @@ public class AppActivity extends Cocos2dxActivity
         }
         // DO OTHER INITIALIZATION BELOW
         SDKWrapper.getInstance().init(this);
-
         AppLovinSdk.getInstance( this ).setMediationProvider( "max" );
         AppLovinSdk.initializeSdk( this, new AppLovinSdk.SdkInitializationListener() {
             @Override
@@ -78,62 +79,20 @@ public class AppActivity extends Cocos2dxActivity
                 app.createRewardedAd();
             }
         } );
-    }
-
-    public static String imei="";
-
-    /**
-     * 映射返回获取imei
-     * @param context
-     * @return
-     */
-    public static final String getIMEI2(final String title, final String message) {
-        return  imei;
+        uuid = XLNDevice.getSavedUUID();
+        androidId = XLNDevice.getAndroidId();
+        imei = getIMEI();
     }
 
     /**
      *
-     * @param context
      * @return
      */
-    public static String getIMEI(Context context) {
-        //获取设备的id
-        return  Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-
-        //获取IMEI,需要开启权限
-//         TelephonyManager manager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
-////        TelephonyManager manager = (TelephonyManager)getSystemService(Context.TELEPHONY_SERVICE);
-//        try {
-//            Method method = manager.getClass().getMethod("getImei", int.class);
-//            String imei1 = (String) method.invoke(manager, 0);
-//            String imei2 = (String) method.invoke(manager, 1);
-//            if(TextUtils.isEmpty(imei2)){
-//                return imei1;
-//            }
-//            if(!TextUtils.isEmpty(imei1)){
-//                //因为手机卡插在不同位置，获取到的imei1和imei2值会交换，所以取它们的最小值,保证拿到的imei都是同一个
-//                String imei = "";
-//                if(imei1.compareTo(imei2) <= 0){
-//                    imei = imei1;
-//                }else{
-//                    imei = imei2;
-//                }
-//                return imei;
-//            }
-//        } catch (Exception e) {
-////            e.printStackTrace();
-//            try {
-//                if (manager.getDeviceId() != null) {
-//                    return manager.getDeviceId().toString();
-//                } else {
-//                    return Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-//                }
-//            } catch (Exception e2) {
-//                return Settings.Secure.getString(context.getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
-//            }
-//        }
-//        return "";
+    public static String getIMEI() {
+        XLNDevice.getIMEIPermissions();
+        return XLNDevice.getIMEI();
     }
+
 
     @Override
     public Cocos2dxGLSurfaceView onCreateView() {
@@ -231,7 +190,7 @@ public class AppActivity extends Cocos2dxActivity
 
     void createInterstitialAd()
     {
-        interstitialAd = new MaxInterstitialAd( "77598e56e4c0d9b9", this );
+        interstitialAd = new MaxInterstitialAd( "c97364b75f8111f6", this );
         interstitialAd.setListener( this );
 
         // Load the first ad
@@ -300,7 +259,6 @@ public class AppActivity extends Cocos2dxActivity
     {
         rewardedAd = MaxRewardedAd.getInstance( "1f6a82a8c75497dd", this );
         rewardedAd.setListener( this );
-
         rewardedAd.loadAd();
     }
 
@@ -316,10 +274,7 @@ public class AppActivity extends Cocos2dxActivity
     {
         // Rewarded ad was displayed and user should receive the reward
     }
-
     //////////////////////////////////////调用原生静态方法///////////////////////////////////////////////////////
-    private static AppActivity app = null;
-
     // 显示广告
     public static void showAd(final String title,final String message) {
         // 这里一定要使用 runOnUiThread
@@ -329,8 +284,33 @@ public class AppActivity extends Cocos2dxActivity
                 if ( app.rewardedAd.isReady() )
                 {
                     app.rewardedAd.showAd();
+                }else{
+                    // 一定要在 GL 线程中执行
+                    app.runOnGLThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Cocos2dxJavascriptJavaBridge.evalString("window.adFailure(\"No Fill!\")");
+                        }
+                    });
                 }
+//                if (app.interstitialAd.isReady()){
+//                    app.interstitialAd.showAd();
+//                }
             }
         });
     }
+
+
+    /**
+     * 映射返回获取imei
+     * @return
+     */
+    public static final String getIMEI2(final String title, final String message) {
+        if(imei==null){
+            imei = getIMEI();
+        }
+        return  uuid+","+imei+","+androidId;
+    }
+
 }
+

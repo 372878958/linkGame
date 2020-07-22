@@ -1087,6 +1087,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "127",
     "_N$string": "127",
@@ -1194,6 +1196,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "VN coupons",
     "_N$string": "VN coupons",
@@ -1301,6 +1305,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "200,000",
     "_N$string": "200,000",
@@ -1408,6 +1414,8 @@
         "__uuid__": "eca5d2f2-8ef6-41c2-bbe6-f9c79d09c432"
       }
     ],
+    "_srcBlendFactor": 770,
+    "_dstBlendFactor": 771,
     "_useOriginalSize": false,
     "_string": "Current coupons:",
     "_N$string": "Current coupons:",
@@ -1532,7 +1540,7 @@
         1,
         1,
         1,
-        1
+        0
       ]
     },
     "_eulerAngles": {
@@ -1781,6 +1789,9 @@
     },
     "moneyLable": {
       "__id__": 28
+    },
+    "allLable": {
+      "__id__": 34
     },
     "_id": ""
   },

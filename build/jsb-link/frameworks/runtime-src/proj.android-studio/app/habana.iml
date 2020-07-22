@@ -33,111 +33,117 @@
     <output url="file://$MODULE_DIR$/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
     <exclude-output />
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/2d">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/2d" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/audio_utils">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/audio_utils" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/utils">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/utils" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/audio_utils">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/audio_utils" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/base">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/base" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/utils">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/audio/android/utils" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/base">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/base" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/particle">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/particle" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/particle">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/particle" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine-creator-support">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine-creator-support" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/math">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/math" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine-creator-support">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/editor-support/spine-creator-support" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/network">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/network" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/math">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/math" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/network">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/network" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/jni">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/jni" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/jni">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/jni" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/gfx">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/gfx" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/renderer">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/renderer" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/gfx">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/gfx" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/renderer">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/renderer" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene/assembler">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene/assembler" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/auto">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/auto" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene/assembler">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/renderer/scene/assembler" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/event">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/event" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/auto">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/auto" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/event">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/event" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8/debugger">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8/debugger" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/manual">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/manual" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8/debugger">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/jswrapper/v8/debugger" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/storage/local-storage">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/storage/local-storage" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/manual">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/scripting/js-bindings/manual" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/ui/edit-box">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/ui/edit-box" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/storage/local-storage">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/storage/local-storage" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/extensions/assets-manager">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/extensions/assets-manager" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/ui/edit-box">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/ui/edit-box" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/ConvertUTF">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/ConvertUTF" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/extensions/assets-manager">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/extensions/assets-manager" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src" isTestSource="false" />
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src/asm" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/ConvertUTF">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/ConvertUTF" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tinyxml2">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tinyxml2" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/edtaa3func">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/edtaa3func" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tremolo/Tremolo">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tremolo/Tremolo" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src" isTestSource="false" />
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/pvmp3dec/src/asm" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/unzip">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/unzip" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tinyxml2">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tinyxml2" isTestSource="false" />
     </content>
-    <content url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/xxtea">
-      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/xxtea" isTestSource="false" />
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tremolo/Tremolo">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/tremolo/Tremolo" isTestSource="false" />
+    </content>
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/unzip">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/unzip" isTestSource="false" />
+    </content>
+    <content url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/xxtea">
+      <sourceFolder url="file:///Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external/sources/xxtea" isTestSource="false" />
     </content>
     <content url="file://$USER_HOME$/Android/ndk/21.2.6472646/sources/android/cpufeatures">
       <sourceFolder url="file://$USER_HOME$/Android/ndk/21.2.6472646/sources/android/cpufeatures" isTestSource="false" />
@@ -224,22 +230,75 @@
     </content>
     <orderEntry type="jdk" jdkName="Android API 29 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: __local_aars__:./../../../../../../../../Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs/okhttp-3.12.7.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:./../../../../../../../../Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs/com.android.vending.expansion.zipfile.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:./../../../../../../../../Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs/okio-1.15.0.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-annotations:26.1.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.core:common:1.0.0@jar" level="project" />
-    <orderEntry type="library" name="Gradle: com.applovin:applovin-sdk:9.12.8@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:16.0.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:16.0.1@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-v4:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-media-compat:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-fragment:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-utils:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-core-ui:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: com.android.support:support-compat:26.1.0@aar" level="project" />
-    <orderEntry type="library" name="Gradle: android.arch.lifecycle:runtime:1.0.0@aar" level="project" />
-    <orderEntry type="module" module-name="android-libcocos2dx" />
+    <orderEntry type="library" scope="TEST" name="Gradle: com.android.support:multidex-instrumentation:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation.sdks.chartboost:chartboost:7.5.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.collection:collection:1.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.arch.core:core-common:2.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-common:2.0.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.annotation:annotation:1.1.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:logging-interceptor:3.12.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-android-extensions-runtime:1.3.50@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.8.5@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okhttp3:okhttp:3.12.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.3.50@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.squareup.okio:okio:1.15.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-common:1.3.50@jar" level="project" />
+    <orderEntry type="library" name="Gradle: org.jetbrains:annotations:13.0@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.android.support:multidex:1.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: artifacts:xlnutilityandroidlib:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.instantapps:instantapps:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-instantapps:16.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.multidex:multidex:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin:applovin-sdk:9.13.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:chartboost-adapter:7.5.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-base:16.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:facebook-adapter:5.10.1.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.recyclerview:recyclerview:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.appcompat:appcompat:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:google-adapter:19.2.0.4@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:google-ad-manager-adapter:19.2.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:ironsource-adapter:6.17.0.0.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:unityads-adapter:3.4.6.2@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation:vungle-adapter:6.7.0.3@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.facebook.android:audience-network-sdk:5.10.1@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads:19.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-gass:19.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-identifier:17.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-lite:19.2.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-sdk-api:17.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-tasks:17.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-measurement-base:17.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-basement:17.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.fragment:fragment:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable-animated:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.browser:browser:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-ui:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.vungle:publisher-sdk-android:6.7.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.legacy:legacy-support-core-utils:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.vectordrawable:vectordrawable:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.viewpager:viewpager:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.coordinatorlayout:coordinatorlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.drawerlayout:drawerlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.slidingpanelayout:slidingpanelayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.customview:customview:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.swiperefreshlayout:swiperefreshlayout:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.asynclayoutinflater:asynclayoutinflater:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.loader:loader:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.core:core:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.versionedparcelable:versionedparcelable:1.1.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.cursoradapter:cursoradapter:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.interpolator:interpolator:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.documentfile:documentfile:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.localbroadcastmanager:localbroadcastmanager:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.print:print:1.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-viewmodel:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-livedata-core:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.arch.core:core-runtime:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: androidx.lifecycle:lifecycle-runtime:2.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.applovin.mediation.sdks.ironsource:mediationsdk:6.17.0.0@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.unity3d.ads:unity-ads:3.4.6@aar" level="project" />
+    <orderEntry type="library" name="Gradle: com.google.android.gms:play-services-ads-base:19.2.0@aar" level="project" />
+    <orderEntry type="module" module-name="libcocos2dx" />
   </component>
 </module>

@@ -7,11 +7,12 @@ android {
     buildToolsVersion PROP_BUILD_TOOLS_VERSION
 
     defaultConfig {
-        applicationId "com.bhhy.linkgame"
+        applicationId "com.iosbhhy.linkgame"
         minSdkVersion PROP_MIN_SDK_VERSION
         targetSdkVersion PROP_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
 
         externalNativeBuild {
             ndkBuild {
@@ -20,9 +21,9 @@ android {
                     targets 'cocos2djs'
                     arguments 'NDK_TOOLCHAIN_VERSION=clang'
                     
-                    def module_paths = [project.file("/Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x"),
-                                        project.file("/Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos"),
-                                        project.file("/Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/external")]
+                    def module_paths = [project.file("/Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x"),
+                                        project.file("/Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/cocos"),
+                                        project.file("/Applications/CocosCreator/Creator/2.4.0/CocosCreator.app/Contents/Resources/cocos2d-x/external")]
                     if (Os.isFamily(Os.FAMILY_WINDOWS)) {
                         arguments 'NDK_MODULE_PATH=' + module_paths.join(";")
                     }
@@ -95,6 +96,10 @@ android {
             }
         }
     }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/okhttp3.pro'
+    }
 }
 
 android.applicationVariants.all { variant ->
@@ -105,13 +110,8 @@ android.applicationVariants.all { variant ->
         def sourceDir = "${buildDir}/../../../../.."
 
         copy {
-            from "${sourceDir}/res"
-            into "${outputDir}/res"
-        }
-
-        copy {
-            from "${sourceDir}/subpackages"
-            into "${outputDir}/subpackages"
+            from "${sourceDir}/assets"
+            into "${outputDir}/assets"
         }
 
         copy {
@@ -132,9 +132,30 @@ android.applicationVariants.all { variant ->
     }
 }
 
+repositories {
+    maven { url "https://chartboostmobile.bintray.com/Chartboost" }
+    maven { url "https://applovin.bintray.com/Android-Adapter-SDKs" }
+}
+
 dependencies {
-    implementation 'com.applovin:applovin-sdk:+'
     implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
-    implementation fileTree(dir: "/Applications/CocosCreator/Creator/2.3.3/CocosCreator.app/Contents/Resources/cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
+    implementation fileTree(dir: "../../../cocos2d-x/cocos/platform/android/java/libs", include: ['*.jar'])
     implementation project(':libcocos2dx')
+    implementation project(':xlnutilityandroidlib')
+    implementation 'com.google.android.instantapps:instantapps:1.1.0'
+    implementation 'com.google.android.gms:play-services-instantapps:16.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'com.applovin:applovin-sdk:+'
+
+    implementation 'com.applovin.mediation:chartboost-adapter:7.5.0.3'
+    implementation 'com.google.android.gms:play-services-base:16.1.0'
+    implementation 'com.applovin.mediation:facebook-adapter:+'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'com.applovin.mediation:google-adapter:+'
+    implementation 'com.applovin.mediation:google-ad-manager-adapter:+'
+    implementation 'com.applovin.mediation:ironsource-adapter:+'
+    implementation 'com.applovin.mediation:unityads-adapter:+'
+    implementation 'com.applovin.mediation:vungle-adapter:+'
+
 }

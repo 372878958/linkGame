@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
-
+-ignorewarnings
 # Proguard Cocos2d-x-lite for release
 -keep public class org.cocos2dx.** { *; }
 -dontwarn org.cocos2dx.**

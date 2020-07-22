@@ -1,0 +1,6 @@
+framework module Pods_habana_mobile {
+  umbrella header "Pods-habana-mobile-umbrella.h"
+
+  export *
+  module * { export * }
+}

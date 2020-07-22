@@ -1,0 +1,118 @@
+PODS:
+  - AppLovinMediationChartboostAdapter (8.2.0.3):
+    - AppLovinSDK
+    - ChartboostSDK (= 8.2.0)
+  - AppLovinMediationFacebookAdapter (5.10.0.1):
+    - AppLovinSDK
+    - FBAudienceNetwork (= 5.10.0)
+  - AppLovinMediationGoogleAdapter (7.62.0.0):
+    - AppLovinSDK
+    - Google-Mobile-Ads-SDK (= 7.62.0)
+  - AppLovinMediationGoogleAdManagerAdapter (7.62.0.0):
+    - AppLovinSDK
+    - Google-Mobile-Ads-SDK (= 7.62.0)
+  - AppLovinMediationIronSourceAdapter (6.17.0.0.2):
+    - AppLovinSDK
+    - IronSourceSDK (= 6.17.0.0)
+  - AppLovinMediationUnityAdsAdapter (3.4.6.3):
+    - AppLovinSDK
+    - UnityAds (= 3.4.6)
+  - AppLovinMediationVungleAdapter (6.7.0.4):
+    - AppLovinSDK
+    - VungleSDK-iOS (= 6.7.0)
+  - AppLovinSDK (6.13.1)
+  - ChartboostSDK (8.2.0)
+  - FBAudienceNetwork (5.10.0):
+    - FBSDKCoreKit/Basics (>= 5.6.0)
+  - FBSDKCoreKit/Basics (7.1.1)
+  - Google-Mobile-Ads-SDK (7.62.0):
+    - GoogleAppMeasurement (~> 6.0)
+  - GoogleAppMeasurement (6.6.2):
+    - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
+    - GoogleUtilities/MethodSwizzler (~> 6.0)
+    - GoogleUtilities/Network (~> 6.0)
+    - "GoogleUtilities/NSData+zlib (~> 6.0)"
+    - nanopb (~> 1.30905.0)
+  - GoogleUtilities/AppDelegateSwizzler (6.7.1):
+    - GoogleUtilities/Environment
+    - GoogleUtilities/Logger
+    - GoogleUtilities/Network
+  - GoogleUtilities/Environment (6.7.1):
+    - PromisesObjC (~> 1.2)
+  - GoogleUtilities/Logger (6.7.1):
+    - GoogleUtilities/Environment
+  - GoogleUtilities/MethodSwizzler (6.7.1):
+    - GoogleUtilities/Logger
+  - GoogleUtilities/Network (6.7.1):
+    - GoogleUtilities/Logger
+    - "GoogleUtilities/NSData+zlib"
+    - GoogleUtilities/Reachability
+  - "GoogleUtilities/NSData+zlib (6.7.1)"
+  - GoogleUtilities/Reachability (6.7.1):
+    - GoogleUtilities/Logger
+  - IronSourceSDK (6.17.0)
+  - nanopb (1.30905.0):
+    - nanopb/decode (= 1.30905.0)
+    - nanopb/encode (= 1.30905.0)
+  - nanopb/decode (1.30905.0)
+  - nanopb/encode (1.30905.0)
+  - PromisesObjC (1.2.9)
+  - UnityAds (3.4.6)
+  - VungleSDK-iOS (6.7.0)
+
+DEPENDENCIES:
+  - AppLovinMediationChartboostAdapter
+  - AppLovinMediationFacebookAdapter
+  - AppLovinMediationGoogleAdapter (= 7.62.0.0)
+  - AppLovinMediationGoogleAdManagerAdapter (= 7.62.0.0)
+  - AppLovinMediationIronSourceAdapter
+  - AppLovinMediationUnityAdsAdapter
+  - AppLovinMediationVungleAdapter
+  - AppLovinSDK (= 6.13.1)
+
+SPEC REPOS:
+  trunk:
+    - AppLovinMediationChartboostAdapter
+    - AppLovinMediationFacebookAdapter
+    - AppLovinMediationGoogleAdapter
+    - AppLovinMediationGoogleAdManagerAdapter
+    - AppLovinMediationIronSourceAdapter
+    - AppLovinMediationUnityAdsAdapter
+    - AppLovinMediationVungleAdapter
+    - AppLovinSDK
+    - ChartboostSDK
+    - FBAudienceNetwork
+    - FBSDKCoreKit
+    - Google-Mobile-Ads-SDK
+    - GoogleAppMeasurement
+    - GoogleUtilities
+    - IronSourceSDK
+    - nanopb
+    - PromisesObjC
+    - UnityAds
+    - VungleSDK-iOS
+
+SPEC CHECKSUMS:
+  AppLovinMediationChartboostAdapter: e84ae7bb0dfd6ae101172f3d2e6cadf1b31c7811
+  AppLovinMediationFacebookAdapter: ef444d7dacbff2e988f05c63a54c8e4d80747cca
+  AppLovinMediationGoogleAdapter: bfd94d59a7e80eec5383bafba5ed8df2c5806562
+  AppLovinMediationGoogleAdManagerAdapter: fa116d4e11516c17c4dde1092ff9d130079fd0c6
+  AppLovinMediationIronSourceAdapter: 62f5af7503d1e9671118fe86aec5f35c93c05bad
+  AppLovinMediationUnityAdsAdapter: 8ccd1cd1253fa7696893fcaf3be135183afe16ff
+  AppLovinMediationVungleAdapter: 26c1002be5122f4a468d2d53d0f25f93bbf42eb4
+  AppLovinSDK: ab1a0a8dd23eb0de9df8508096218982f52b1d3c
+  ChartboostSDK: ced50b199c29b6fa55a14b676114ec695b7d2315
+  FBAudienceNetwork: 9feb7563093d6c87671f5a08ae2d134ba097084f
+  FBSDKCoreKit: b46507dc8b8cefed31d644e74d7cc30e2a715ef8
+  Google-Mobile-Ads-SDK: c92c27666fbf684c964259785a6b3cdd3068e06f
+  GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
+  GoogleUtilities: e121a3867449ce16b0e35ddf1797ea7a389ffdf2
+  IronSourceSDK: 88dde749fcc6dd515191ddfa32dbe6b2a99b29d3
+  nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  UnityAds: 74c947800ab94551a12df87de852bcad44b152ab
+  VungleSDK-iOS: 85456e060a3f26a0e03f9d4841495976326a7d05
+
+PODFILE CHECKSUM: bf984519239a21b06028c2fc609c9ecca80e9a51
+
+COCOAPODS: 1.9.3

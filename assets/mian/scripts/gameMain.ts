@@ -1,6 +1,6 @@
 import gridManager from "./gridManager";
 import comboText from "./comboText";
-import level_parameter from "./level_parameter";
+import level_parameter, { remote_parameter_data } from "./level_parameter";
 import gameAudioClip from "./gameAudioClip";
 import comboAward from "./comboAward";
 import setting from "./setting";
@@ -15,6 +15,7 @@ import gameOver from "./gameOver";
 import { gameLib } from "../../commonLib/lib/gameLib";
 import { loginLib } from "../../commonLib/lib/LoginLib";
 import { construct } from "./Construct";
+import { itemParameter } from "./settlementParameter";
 
 const { ccclass, property } = cc._decorator;
 
@@ -204,6 +205,16 @@ export default class gameMain extends cc.Component {
             construct.userInfo.phone = loginLib.loginData.phone;
             construct.userInfo.property_num = loginLib.loginData.userInfo.property_num;
             cc.log("userinfo property_num is " + construct.userInfo.property_num);
+
+            try {
+                let config = loginLib.loginData.config;
+                let config_set: remote_parameter_data = JSON.parse(config.config_set);
+                this.level_parameter.setData(config_set);
+                itemParameter.remoteItemParameter = JSON.parse(config.settlement);
+                itemParameter.remoteThemeParameter = JSON.parse(config.theme);
+            } catch (error) {
+                cc.error(error);
+            }
         })
         setting.initVolume();
         this.freezeSpine.node.active = false;

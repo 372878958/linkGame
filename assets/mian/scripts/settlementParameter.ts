@@ -36,4 +36,26 @@ export class itemParameter {
         displayName: "钥匙"
     })
     key: number = 0.9;
+
+    // 远程参数
+    static remoteItemParameter: remoteItemParameter = null;
+    static remoteThemeParameter:remoteThemeParameter = null;
+}
+
+type remoteItemParameter = {
+    search: number,
+    lightning: number,
+    derangement: number,
+    frozen: number,
+    key: number
+}
+
+type remoteThemeParameter = {
+    redbag: number,
+    theme1: number,
+    theme2: number,
+    theme3: number,
+    theme4: number,
+    theme5: number,
+    prop: number
 }

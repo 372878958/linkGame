@@ -155,6 +155,26 @@ export default class settlement extends cc.Component {
         this.nextLevelBtn.node.active = false;
     }
 
+    onEnable() {
+        // 设置远程参数
+        if (itemParameter.remoteThemeParameter) {
+            this.themeProbability[0] = itemParameter.remoteThemeParameter.redbag;
+            this.themeProbability[1] = itemParameter.remoteThemeParameter.theme1;
+            this.themeProbability[2] = itemParameter.remoteThemeParameter.theme2;
+            this.themeProbability[3] = itemParameter.remoteThemeParameter.theme3;
+            this.themeProbability[4] = itemParameter.remoteThemeParameter.theme4;
+            this.themeProbability[5] = itemParameter.remoteThemeParameter.theme5;
+            this.themeProbability[6] = itemParameter.remoteThemeParameter.prop;
+        }
+        if (itemParameter.remoteItemParameter) {
+            this.itemParameter.tip = itemParameter.remoteItemParameter.search;
+            this.itemParameter.lightning = itemParameter.remoteItemParameter.lightning;
+            this.itemParameter.reset = itemParameter.remoteItemParameter.derangement;
+            this.itemParameter.freeze = itemParameter.remoteItemParameter.frozen;
+            this.itemParameter.key = itemParameter.remoteItemParameter.key;
+        }
+    }
+
     protected nextlevelCallback: Function = null;
     // 设置下一局回调
     setNextlevelCallback(nextlevelCallback: Function) {

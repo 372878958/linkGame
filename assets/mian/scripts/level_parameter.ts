@@ -8,7 +8,7 @@ class parameter_base {
         displayName: "初始值",
         step: 1
     })
-    protected baseValue: number = 0;
+    protected initial: number = 0;
 
     @property({
         displayName: "步数",
@@ -20,20 +20,26 @@ class parameter_base {
         displayName: "步长",
         step: 1
     })
-    protected stepCount: number = 0;
+    protected steps: number = 0;
 
     // 获取正值
     getValue(level: number): number {
         let step = Math.floor(level / this.step);
-        let totalCount = this.baseValue + step * this.stepCount;
+        let totalCount = this.initial + step * this.steps;
         return totalCount;
     }
 
     // 获取负值
     getValue_(level: number): number {
         let step = Math.floor(level / this.step);
-        let totalCount = this.baseValue - step * this.stepCount;
+        let totalCount = this.initial - step * this.steps;
         return totalCount;
+    }
+
+    setData(data: remote_parameter_base) {
+        for (let key in data) {
+            this[key] = data[key];
+        }
     }
 }
 
@@ -43,15 +49,15 @@ class parameter_rv extends parameter_base {
         displayName: "重置值",
         step: 1
     })
-    protected resetValue: number = 0;
+    protected reset: number = 0;
 
     getValue(level: number): number {
-        level = level % this.resetValue;
+        level = level % this.reset;
         return super.getValue(level);
     }
 
     getValue_(level: number): number {
-        level = level % this.resetValue;
+        level = level % this.reset;
         return super.getValue_(level);
     }
 }
@@ -62,15 +68,15 @@ class parameter_limit extends parameter_base {
         displayName: "阈值",
         step: 1
     })
-    protected limit: number = 0;
+    protected threshold: number = 0;
 
     // 获取关卡时间
     getTime(level: number, gridTotalCount: number): number {
-        let baseValue = this.baseValue * gridTotalCount;
+        let baseValue = this.initial * gridTotalCount;
         let step = Math.floor(level / this.step);
-        let time = baseValue - step * this.stepCount;
-        if (time < this.limit) {
-            time = this.limit;
+        let time = baseValue - step * this.steps;
+        if (time < this.threshold) {
+            time = this.threshold;
         }
         return time;
     }
@@ -78,16 +84,16 @@ class parameter_limit extends parameter_base {
     // 获取未知格子的个数
     getValue(level: number): number {
         let totalCount = super.getValue(level);
-        if (totalCount > this.limit) {
-            totalCount = this.limit;
+        if (totalCount > this.threshold) {
+            totalCount = this.threshold;
         }
         return totalCount;
     }
 
     getValue_(level: number): number {
         let totalCount = super.getValue_(level);
-        if (totalCount < this.limit) {
-            totalCount = this.limit;
+        if (totalCount < this.threshold) {
+            totalCount = this.threshold;
         }
         return totalCount;
     }
@@ -99,28 +105,28 @@ class parameter_rvl extends parameter_rv {
         displayName: "阈值",
         step: 1
     })
-    protected limit: number = 0;
+    protected threshold: number = 0;
 
     getValue(level: number): number {
         let v = super.getValue(level);
-        if (v > this.limit) {
-            v = this.limit;
+        if (v > this.threshold) {
+            v = this.threshold;
         }
         return v;
     }
 
     getValue_(level: number): number {
         let v = super.getValue_(level);
-        if (v < this.limit) {
-            v = this.limit;
+        if (v < this.threshold) {
+            v = this.threshold;
         }
         return v;
     }
 
     // 获取种类数
     getTypeNum(level: number, gridTotalCount: number): number {
-        level = level % this.resetValue;
-        let baseValue = this.baseValue;
+        level = level % this.reset;
+        let baseValue = this.initial;
         switch (gridTotalCount) {
             case 40:
                 baseValue += 1;
@@ -134,9 +140,9 @@ class parameter_rvl extends parameter_rv {
         }
 
         let step = Math.floor(level / this.step);
-        let totalCount = baseValue + step * this.stepCount;
-        if (totalCount > this.limit) {
-            totalCount = this.limit;
+        let totalCount = baseValue + step * this.steps;
+        if (totalCount > this.threshold) {
+            totalCount = this.threshold;
         }
         return totalCount;
     }
@@ -148,19 +154,25 @@ class parameter_bomb {
         type: parameter_rvl,
         displayName: "一次出现个数"
     })
-    count: parameter_rvl = null;
+    once_num: parameter_rvl = null;
 
     @property({
         type: parameter_limit,
         displayName: "出现方式"
     })
-    condition: parameter_limit = null;
+    appear_type: parameter_limit = null;
 
     @property({
         type: parameter_rvl,
         displayName: "倒计时"
     })
-    time: parameter_rvl = null;
+    countdown: parameter_rvl = null;
+
+    setData(data: remote_parameter_bomb) {
+        this.appear_type.setData(data.appear_type);
+        this.countdown.setData(data.countdown);
+        this.once_num.setData(data.once_num);
+    }
 }
 
 @ccclass("parameter_easterGrid")
@@ -177,6 +189,11 @@ class parameter_easterGrid {
         step: 1
     })
     condition: parameter_rvl = null;
+
+    setData(data: remote_parameter_reborn) {
+        this.count.setData(data.trigger);
+        this.condition.setData(data.reflesh);
+    }
 }
 
 export class level_parameter_result {
@@ -303,6 +320,18 @@ export default class level_parameter {
         return ret;
     }
 
+    setData(data: remote_parameter_data) {
+        this.width.setData(data.width);
+        this.height.setData(data.height);
+        this.bomb.setData(data.bomb);
+        this.typesNum.setData(data.cube_type);
+        this.unknownGrid.setData(data.cube_unknown);
+        this.move.setData(data.displacement.direction);
+        this.freezeGrid.setData(data.frozen_cube);
+        this.time.setData(data.gate_time);
+        this.easterGrid.setData(data.reborn_cube);
+    }
+
     // 获得列数
     protected getWidth(): number {
         return this.width.getValue(this.level);
@@ -317,15 +346,15 @@ export default class level_parameter {
     }
     // 获取炸弹数
     protected getBombCount(): number {
-        return this.bomb.count.getValue(this.level);
+        return this.bomb.once_num.getValue(this.level);
     }
     // 获取炸弹出现方式
     protected getBombCondition(): number {
-        return this.bomb.condition.getValue(this.level);
+        return this.bomb.appear_type.getValue(this.level);
     }
     // 获取炸弹时间
     protected getBombTime(): number {
-        return this.bomb.time.getValue_(this.level);
+        return this.bomb.countdown.getValue_(this.level);
     }
     // 获取冰冻方块个数
     protected getFreezeGridNum(): number {
@@ -346,3 +375,60 @@ export default class level_parameter {
         return r;
     }
 }
+
+type remote_parameter_base = {
+    initial: number,
+    steps: number,
+    step: number,
+    reset: number,
+    threshold: number,
+}
+
+type remote_parameter_bomb = {
+    once_num: remote_parameter_base,
+    appear_type: remote_parameter_base,
+    countdown: remote_parameter_base
+}
+
+type remote_parameter_reborn = {
+    trigger: remote_parameter_base,
+    reflesh: remote_parameter_base
+}
+// 关卡难度远端参数
+export type remote_parameter_data = {
+    width: remote_parameter_base,
+    height: remote_parameter_base,
+    cube_type: remote_parameter_base,
+    gate_time: remote_parameter_base,
+    cube_unknown: remote_parameter_base,
+    bomb: remote_parameter_bomb,
+    displacement: {
+        direction: remote_parameter_base
+    },
+    frozen_cube: remote_parameter_base,
+    reborn_cube: remote_parameter_reborn,
+    difficulty: {
+        frozen_cube: {
+            six: 222
+        },
+        cube_unknown: {
+            twelve: 1
+        },
+        bomb: {
+            zero: 0
+        }
+    }
+}
+// export type remote_parameter_data = {
+//     settlement: {
+//     },
+//     theme: {
+//         redbag: 2,
+//         theme1: 64,
+//         theme2: 25,
+//         theme3: 9,
+//         theme4: 44,
+//         theme5: 0.8,
+//         prop: 0.2
+//     }
+// }

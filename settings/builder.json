@@ -18,7 +18,7 @@
   "mergeStartScene": false,
   "optimizeHotUpdate": false,
   "md5Cache": true,
-  "encryptJs": false,
+  "encryptJs": true,
   "xxteaKey": "417a63c1-6c96-4e",
   "zipCompressJs": true,
   "fb-instant-games": {},

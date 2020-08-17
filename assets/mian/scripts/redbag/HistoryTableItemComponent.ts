@@ -139,8 +139,8 @@ export default class HistoryTableItemComponent extends tableViewItem {
         });
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             popBox.popBox("Successful！");
             this.historyController.refreshData();

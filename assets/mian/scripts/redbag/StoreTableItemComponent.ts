@@ -150,8 +150,8 @@ export default class StoreTableItemComponent extends tableViewItem {
         httpLib.send(param);
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             cc.log("get success!");
             popBox.popBox("Successful！");

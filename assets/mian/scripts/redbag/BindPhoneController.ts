@@ -54,8 +54,8 @@ export default class BindPhoneController extends cc.Component {
         httpLib.send(param);
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             construct.userInfo.phone = this.phone_lab.string;
             popBox.popBox("Bind Successful!");

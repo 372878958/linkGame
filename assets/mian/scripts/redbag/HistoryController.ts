@@ -59,8 +59,8 @@ export default class HistoryController extends cc.Component {
         httpLib.send(param);
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             if (req.data) {
                 if (req.data.length > 0) {

@@ -56,8 +56,8 @@ export default class RedPackets extends cc.Component {
         httpLib.send(param);
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             this._getMoney = req.data.CouponNum;
             this.moneyLable.string = this._getMoney + "";

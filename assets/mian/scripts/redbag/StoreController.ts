@@ -110,8 +110,8 @@ export default class StoreController extends cc.Component {
         // this.redbag_tb.setData(items.data);
     }
 
-    public successCallback(request: string) {
-        let req = JSON.parse(request);
+    public successCallback(request) {
+        let req = request;
         if (req.code == 0) {
             this._storeData = req.data.data;
             construct.userInfo.property_num = req.data.userInfo.property_num;

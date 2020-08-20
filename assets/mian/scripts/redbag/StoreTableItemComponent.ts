@@ -13,6 +13,7 @@ import messageBox from "../../../commonLib/component/PopBox/messageBox";
 import { construct } from "../Construct";
 import addUI from "../../../commonLib/component/addUI";
 import popBox from "../../../commonLib/component/PopBox/popBox";
+import { reportLib } from '../../../commonLib/lib/ReportLib';
 
 const { ccclass, property } = cc._decorator;
 
@@ -65,6 +66,8 @@ export default class StoreTableItemComponent extends tableViewItem {
     private _itemId = -1;
     private _storePath = HttpLib.BASE_PATH + "/smallgameapi/exchange.php";
     private _canPay = true;
+    private _itemName = 0;
+    private _useAmount = 0;
 
     // LIFE-CYCLE CALLBACKS:
 
@@ -100,7 +103,9 @@ export default class StoreTableItemComponent extends tableViewItem {
         if (goodsData.item_name == 2007 || goodsData.item_name == 2008) {
             type = 0;
         }
+        this._itemName = goodsData.item_name;
         this._itemId = goodsData.item_id;
+        this._useAmount = goodsData.use_amount;
         this.typeNode[type].active = true;
         let price_lab = this.typeNode[type].getChildByName("price_lab");
         let priceGame_lab = this.typeNode[type].getChildByName("priceGame_lab");
@@ -156,6 +161,7 @@ export default class StoreTableItemComponent extends tableViewItem {
             cc.log("get success!");
             popBox.popBox("Successful！");
             this.storeController.refreshData();
+            reportLib.rpExchange(0, this._itemId, this._itemName + "", 1, this._useAmount);
         }
         // else if (req.code == 9) {
         //     cc.log("兑换失败：" + req.msg);

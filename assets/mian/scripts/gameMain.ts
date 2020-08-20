@@ -8,11 +8,10 @@ import cover from "./cover";
 import subject from "./subject";
 import settlement from "./settlement";
 import countDown from "../../commonLib/component/countDown";
-import { loadGameData, gameData, saveGameData, resetGameData } from "./gameData";
+import { loadGameData, gameData, resetGameData, curLevelProp } from "./gameData";
 import addUI from "../../commonLib/component/addUI";
 import addItem from "./addItem";
 import gameOver from "./gameOver";
-import { gameLib } from "../../commonLib/lib/gameLib";
 import { loginLib } from "../../commonLib/lib/LoginLib";
 import { construct } from "./Construct";
 import { itemParameter } from "./settlementParameter";
@@ -205,7 +204,6 @@ export default class gameMain extends cc.Component {
             construct.userInfo.phone = loginLib.loginData.phone;
             construct.userInfo.property_num = loginLib.loginData.userInfo.property_num;
             cc.log("userinfo property_num is " + construct.userInfo.property_num);
-
             try {
                 let config = loginLib.loginData.config;
                 let config_set: remote_parameter_data = JSON.parse(config.config_set);
@@ -299,6 +297,7 @@ export default class gameMain extends cc.Component {
         if (this.isGameOver) {
             return;
         }
+        gameData.isFirst = false;
         this.isGameOver = true;
         // 显示游戏结束
         this.gameOverNode.addUI(null, (ui: gameOver) => {
@@ -476,6 +475,7 @@ export default class gameMain extends cc.Component {
                         tweenNode = this.freezeTimeLabel.node.parent;
                         break;
                 }
+                curLevelProp.addProp(award.awardID);
                 if (tweenNode) {
                     cc.tween(tweenNode)
                         .to(0.15, { scale: 1.2 })
@@ -564,6 +564,7 @@ export default class gameMain extends cc.Component {
                         gameData.curFreezeTimeCount += num;
                         break;
                 }
+                curLevelProp.addProp(id, num);
                 this.updateItemsCount();
             });
         }, "addItem");
@@ -572,6 +573,7 @@ export default class gameMain extends cc.Component {
     protected 点击提示() {
         if (gameData.curTipCount > 0) {
             --gameData.curTipCount;
+            curLevelProp.useProp(0);
             this.updateItemsCount();
             this.gridManager.autoLinkGrid();
         } else {
@@ -583,6 +585,7 @@ export default class gameMain extends cc.Component {
     protected onBombSelect(select: boolean) {
         if (select) {
             --gameData.curLightningCount;
+            curLevelProp.useProp(1);
             this.updateItemsCount();
         }
     }
@@ -598,6 +601,7 @@ export default class gameMain extends cc.Component {
     protected 点击重排() {
         if (gameData.curResetCount > 0) {
             --gameData.curResetCount;
+            curLevelProp.useProp(2);
             this.updateItemsCount();
             this.gridManager.randomGridsPos();
         } else {
@@ -608,6 +612,7 @@ export default class gameMain extends cc.Component {
     protected 点击冻结时间() {
         if (gameData.curFreezeTimeCount > 0) {
             --gameData.curFreezeTimeCount;
+            curLevelProp.useProp(3);
             this.updateItemsCount();
             this.freezeTime();
         } else {

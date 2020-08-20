@@ -5,9 +5,10 @@ import { gameLib } from "../../commonLib/lib/gameLib";
 import advertising from "./advertising";
 import gameAudioClip from "./gameAudioClip";
 import gameMain from "./gameMain";
-import { gameData, saveGameData, setGridIcon } from "./gameData";
+import { gameData, saveGameData, setGridIcon, curLevelProp } from "./gameData";
 import addUI from "../../commonLib/component/addUI";
 import RedPackets from "./RedPackets";
+import { reportLib } from "../../commonLib/lib/ReportLib";
 
 const { ccclass, property } = cc._decorator;
 
@@ -245,8 +246,12 @@ export default class settlement extends cc.Component {
         if (this.openBoxAni.isPlaying()) {
             return;
         }
+        // 报送本关数据
+        reportLib.stageGameFinish(0, gameData.curLevel, 0, curLevelProp.getAddProp(), curLevelProp.getUseProp(), this.totalScore, 1, gameData.isFirst ? 1 : 0);
+        curLevelProp.reset();
         // 下一关
         ++gameData.curLevel;
+        gameData.isFirst = true;
         // 保存游戏
         saveGameData();
 
@@ -291,6 +296,7 @@ export default class settlement extends cc.Component {
                         ++gameData.curFreezeTimeCount;
                         break;
                 }
+                curLevelProp.addProp(i);
                 mark.node.scale = 0;
                 mark.node.active = true;
                 cc.tween(mark.node)
@@ -360,6 +366,7 @@ export default class settlement extends cc.Component {
                     ++gameData.curFreezeTimeCount;
                     break;
             }
+            curLevelProp.addProp(award.awardID);
             this.boxAward[index].spriteFrame = this.itemSpriteFrames[award.awardID];
             this.boxAward[index].node.width = oldWidth;
             this.boxAward[index].node.height = oldHeight;

@@ -1,6 +1,7 @@
 import { construct } from "../Construct";
 import { HttpLib, HttpMethod } from "../../../commonLib/lib/HttpLib";
 import { loginLib } from "../../../commonLib/lib/LoginLib";
+import { reportLib } from '../../../commonLib/lib/ReportLib';
 
 export default class RedBagDataHelper {
     private _httpFinishPath = HttpLib.BASE_PATH + "/smallgameapi/changeUserProperty.php";
@@ -14,6 +15,7 @@ export default class RedBagDataHelper {
     public successFinishCallback(request: string) {
         let req = JSON.parse(request);
         if (req.code == 0) {
+            reportLib.tokenReceive(req.data.userInfo.property_num, req.data.userInfo.property_num - construct.userInfo.property_num, "redbag")
             construct.userInfo.property_num = req.data.userInfo.property_num;
         } else {
             cc.log("successFinishCallback接口失败！" + req.code);

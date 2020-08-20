@@ -16,9 +16,57 @@ class _gameData {
     curFreezeTimeCount: number = 0;
     // 图鉴
     archive: { [key: number]: number[] } = {};
+    // 是否是第一次打本关
+    isFirst: boolean = true;
 }
 
 export var gameData = new _gameData();
+
+type propRet = { props_id: number, num: number };
+// 当前关卡获取和使用的道具数量
+class _CurLevelProp {
+    _addProp: { [key: number]: number } = {};
+    _usedProp: { [key: number]: number } = {};
+    reset() {
+        this._addProp = {};
+        this._usedProp = {};
+    }
+    // 获得道具
+    addProp(id: number, count: number = 1) {
+        if (!this._addProp[id]) {
+            this._addProp[id] = count;
+        } else {
+            this._addProp[id] += count;
+        }
+    }
+    // 使用道具
+    useProp(id: number) {
+        if (!this._usedProp[id]) {
+            this._usedProp[id] = 1;
+        } else {
+            ++this._usedProp[id];
+        }
+    }
+    // 获取得到过的道具刷量
+    getAddProp(): propRet[] {
+        let ret: propRet[] = [];
+        for (let key in this._addProp) {
+            let num = this._addProp[key];
+            ret.push({ props_id: Number(key), num: num });
+        }
+        return ret;
+    }
+    // 获取使用过的道具数量
+    getUseProp(): propRet[] {
+        let ret: propRet[] = [];
+        for (let key in this._usedProp) {
+            let num = this._usedProp[key];
+            ret.push({ props_id: Number(key), num: num });
+        }
+        return ret;
+    }
+}
+export var curLevelProp = new _CurLevelProp();
 
 // 重置游戏记录
 export function resetGameData() {

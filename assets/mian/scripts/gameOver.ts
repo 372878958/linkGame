@@ -1,5 +1,7 @@
 import nodeOperation from "../../commonLib/component/nodeOperation";
 import advertising from "./advertising";
+import { reportLib } from "../../commonLib/lib/ReportLib";
+import { gameData, curLevelProp } from "./gameData";
 
 const { ccclass, property } = cc._decorator;
 
@@ -32,6 +34,9 @@ export default class gameOver extends cc.Component {
             v.node.active = !isTime;
         }
         this.node.active = true;
+        // 报送本关数据
+        reportLib.stageGameFinish(0, gameData.curLevel, 0, curLevelProp.getAddProp(), curLevelProp.getUseProp(), 0, 0, gameData.isFirst ? 1 : 0);
+        curLevelProp.reset();
     }
 
     protected continueCallback: Function = null;

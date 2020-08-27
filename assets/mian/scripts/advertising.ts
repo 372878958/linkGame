@@ -46,10 +46,10 @@ export default class advertising extends cc.Component {
         }
     }
 
-    public static showInterstitialAd(finishCallback: Function) {
+    public static showInterstitialAd(/*finishCallback: Function*/) {
         if (cc.sys.isNative) {
             this.init();
-            this.callback = finishCallback;
+            // this.callback = finishCallback;
             let ret: any = null;
             switch (cc.sys.os) {
                 case cc.sys.OS_IOS:

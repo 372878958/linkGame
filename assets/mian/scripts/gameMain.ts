@@ -15,6 +15,7 @@ import gameOver from "./gameOver";
 import { loginLib } from "../../commonLib/lib/LoginLib";
 import { construct } from "./Construct";
 import { itemParameter } from "./settlementParameter";
+import advertising from "./advertising";
 
 const { ccclass, property } = cc._decorator;
 
@@ -299,6 +300,7 @@ export default class gameMain extends cc.Component {
         if (this.isGameOver) {
             return;
         }
+        this.showInterstitialAd();
         gameData.isFirst = false;
         this.isGameOver = true;
         // 显示游戏结束
@@ -519,8 +521,18 @@ export default class gameMain extends cc.Component {
         this.score.string = "0";
     }
 
+    // 显示插屏广告
+    protected showInterstitialAd() {
+        if (Math.random() <= loginLib.ad_probability) {
+            advertising.showInterstitialAd();
+            return true;
+        }
+        return false;
+    }
+
     // 下一关
     nextLevel(delayTime: number = null) {
+        this.showInterstitialAd();
         // 显示结算
         let showSettlement = () => {
             this.settlement.addUI(null, (ui: settlement) => {

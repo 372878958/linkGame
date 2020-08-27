@@ -300,7 +300,30 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
         });
     }
 
-
+    // 显示广告
+    public static void showInterstitialAd(final String title,final String message) {
+        // 这里一定要使用 runOnUiThread
+        app.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if ( app.interstitialAd.isReady() )
+                {
+                    app.interstitialAd.showAd();
+                }else{
+                    // 一定要在 GL 线程中执行
+                    app.runOnGLThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Cocos2dxJavascriptJavaBridge.evalString("window.adFailure(\"No Fill!\")");
+                        }
+                    });
+                }
+//                if (app.interstitialAd.isReady()){
+//                    app.interstitialAd.showAd();
+//                }
+            }
+        });
+    }
     /**
      * 映射返回获取imei
      * @return

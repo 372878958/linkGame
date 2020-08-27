@@ -405,7 +405,7 @@
       "array": [
         0,
         0,
-        491.1446571212498,
+        401.3140991805615,
         0,
         0,
         0,
@@ -20795,40 +20795,40 @@
   },
   {
     "__type__": "parameter_rv",
-    "initial": 0,
+    "initial": 5,
     "step": 2,
-    "steps": 0,
-    "reset": 0
+    "steps": 1,
+    "reset": 6
   },
   {
     "__type__": "parameter_rv",
-    "initial": 0,
+    "initial": 8,
     "step": 2,
-    "steps": 0,
-    "reset": 0
+    "steps": 1,
+    "reset": 6
   },
   {
     "__type__": "parameter_rvl",
-    "initial": 0,
+    "initial": 5,
     "step": 6,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "steps": 1,
+    "reset": 78,
+    "threshold": 17
   },
   {
     "__type__": "parameter_limit",
-    "initial": 0,
+    "initial": 1.5,
     "step": 6,
-    "steps": 0,
-    "threshold": 0
+    "steps": 0.1,
+    "threshold": 1
   },
   {
     "__type__": "parameter_rvl",
     "initial": 0,
     "step": 12,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "steps": 2,
+    "reset": 72,
+    "threshold": 10
   },
   {
     "__type__": "parameter_bomb",
@@ -20845,40 +20845,40 @@
   {
     "__type__": "parameter_rvl",
     "initial": 0,
-    "step": 0,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "step": 12,
+    "steps": 1,
+    "reset": 108,
+    "threshold": 8
   },
   {
     "__type__": "parameter_limit",
     "initial": 0,
-    "step": 0,
-    "steps": 0,
-    "threshold": 0
+    "step": 10,
+    "steps": 1,
+    "threshold": 2
   },
   {
     "__type__": "parameter_rvl",
-    "initial": 0,
-    "step": 0,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "initial": 98,
+    "step": 12,
+    "steps": 2,
+    "reset": 108,
+    "threshold": 82
   },
   {
     "__type__": "parameter_limit",
     "initial": 0,
     "step": 12,
-    "steps": 0,
-    "threshold": 0
+    "steps": 1,
+    "threshold": 5
   },
   {
     "__type__": "parameter_rvl",
     "initial": 0,
     "step": 6,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "steps": 2,
+    "reset": 36,
+    "threshold": 10
   },
   {
     "__type__": "parameter_easterGrid",
@@ -20891,19 +20891,19 @@
   },
   {
     "__type__": "parameter_rvl",
-    "initial": 0,
+    "initial": 80,
     "step": 12,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "steps": 10,
+    "reset": 84,
+    "threshold": 20
   },
   {
     "__type__": "parameter_rvl",
-    "initial": 0,
+    "initial": 11,
     "step": 12,
-    "steps": 0,
-    "reset": 0,
-    "threshold": 0
+    "steps": 1,
+    "reset": 84,
+    "threshold": 5
   },
   {
     "__type__": "6be07d+u7xJ+oTTuMBkXQWI",

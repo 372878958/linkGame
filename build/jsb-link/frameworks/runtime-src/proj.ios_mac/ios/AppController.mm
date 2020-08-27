@@ -274,6 +274,22 @@ AppController* appCon = nullptr;
     return true;
 }
 
++(BOOL)showInterstitialAd:(NSString *)str title:(NSString *)tit{
+//    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:tit message:str delegate:nil cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];
+//    [alertView show];
+    if ( [appCon.interstitialAd isReady] )
+    {
+        [appCon.interstitialAd showAd];
+        NSLog(@"[self.interstitialAd showAd];");
+    }else{
+        Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+                se::ScriptEngine::getInstance()->evalString("adFailure(\"No Fill!\")");
+        //        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
+            });
+    }
+    return true;
+}
+
 +(NSString *)getUUID:(NSString *)st{
     return [NSString stringWithFormat:@"%@,%@,%@", [XLNDevice uuid],[XLNDevice idfa],@""];
 }

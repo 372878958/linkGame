@@ -1,7 +1,7 @@
 import addUI from "../../commonLib/component/addUI";
-import { HttpLib, HttpMethod } from "../../commonLib/lib/HttpLib";
-import { loginLib } from "../../commonLib/lib/LoginLib";
+import { HttpLib } from "../../commonLib/lib/HttpLib";
 import popBox from "../../commonLib/component/PopBox/popBox";
+import { reportLib } from "../../commonLib/lib/ReportLib";
 
 const { ccclass, property } = cc._decorator;
 
@@ -29,9 +29,34 @@ export default class advertising extends cc.Component {
             switch (cc.sys.os) {
                 case cc.sys.OS_IOS:
                     ret = jsb.reflection.callStaticMethod("AppController", "showAd:title:", "", "");
+                    reportLib.watchAdverts("getRedbag", 0);//点击播放广告
                     break;
                 case cc.sys.OS_ANDROID:
                     ret = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAd", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+                    reportLib.watchAdverts("getRedbag", 0);//点击播放广告
+                    break;
+            }
+            if (ret) {
+                cc.log(".reflection.callStaticMethod.ret = " + ret.toString());
+            }
+        } else {
+            addUI.addUI("广告", (ui: advertising) => {
+                ui.setFinishCallback(finishCallback);
+            }, "advertising");
+        }
+    }
+
+    public static showInterstitialAd(finishCallback: Function) {
+        if (cc.sys.isNative) {
+            this.init();
+            this.callback = finishCallback;
+            let ret: any = null;
+            switch (cc.sys.os) {
+                case cc.sys.OS_IOS:
+                    ret = jsb.reflection.callStaticMethod("AppController", "showInterstitialAd:title:", "", "");
+                    break;
+                case cc.sys.OS_ANDROID:
+                    ret = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showInterstitialAd", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
                     break;
             }
             if (ret) {
@@ -50,6 +75,7 @@ export default class advertising extends cc.Component {
             this.isInit = true;
             window["didHideAd"] = (str) => {
                 // 广告播放完毕
+                reportLib.watchAdverts("getRedbag", 1);//播放完毕
                 if (this.callback) {
                     this.callback();
                 }
@@ -60,5 +86,5 @@ export default class advertising extends cc.Component {
             }
         }
     }
-    
+
 }

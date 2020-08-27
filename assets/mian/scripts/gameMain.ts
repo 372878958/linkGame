@@ -200,20 +200,22 @@ export default class gameMain extends cc.Component {
         // let guid = gameLib.getGUID();
         // console.error("GUID = " + guid);
         // this.skipLevelEdit.string = "GUID = " + guid;
-        loginLib.LoginGame(() => {
-            construct.userInfo.phone = loginLib.loginData.phone;
-            construct.userInfo.property_num = loginLib.loginData.userInfo.property_num;
-            cc.log("userinfo property_num is " + construct.userInfo.property_num);
-            try {
-                let config = loginLib.loginData.config;
-                let config_set: remote_parameter_data = JSON.parse(config.config_set);
-                this.level_parameter.setData(config_set);
-                itemParameter.remoteItemParameter = JSON.parse(config.settlement);
-                itemParameter.remoteThemeParameter = JSON.parse(config.theme);
-            } catch (error) {
-                cc.error(error);
-            }
-        })
+        if (!CC_EDITOR) {
+            loginLib.LoginGame(() => {
+                construct.userInfo.phone = loginLib.loginData.phone;
+                construct.userInfo.property_num = loginLib.loginData.userInfo.property_num;
+                cc.log("userinfo property_num is " + construct.userInfo.property_num);
+                try {
+                    let config = loginLib.loginData.config;
+                    let config_set: remote_parameter_data = JSON.parse(config.config_set);
+                    this.level_parameter.setData(config_set);
+                    itemParameter.remoteItemParameter = JSON.parse(config.settlement);
+                    itemParameter.remoteThemeParameter = JSON.parse(config.theme);
+                } catch (error) {
+                    cc.error(error);
+                }
+            });
+        }
         setting.initVolume();
         this.freezeSpine.node.active = false;
         this.freezeSpine.setCompleteListener((te: sp.spine.TrackEntry) => {

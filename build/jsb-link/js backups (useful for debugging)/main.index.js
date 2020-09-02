@@ -1,16 +1,16 @@
 window.__require = function t(e, o, i) {
-function n(a, c) {
+function n(a, s) {
 if (!o[a]) {
 if (!e[a]) {
-var s = a.split("/");
-s = s[s.length - 1];
-if (!e[s]) {
+var c = a.split("/");
+c = c[c.length - 1];
+if (!e[c]) {
 var l = "function" == typeof __require && __require;
-if (!c && l) return l(s, !0);
-if (r) return r(s, !0);
+if (!s && l) return l(c, !0);
+if (r) return r(c, !0);
 throw new Error("Cannot find module '" + a + "'");
 }
-a = s;
+a = c;
 }
 var p = o[a] = {
 exports: {}
@@ -46,22 +46,22 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = r.requireComponent, p = function() {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = r.requireComponent, p = function() {
 function t() {
 this.clip = null;
 this.callbackEvents = [];
 }
-n([ c({
+n([ s({
 type: cc.AnimationClip,
 displayName: "要监听的动画"
 }) ], t.prototype, "clip", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "要回调的函数"
 }) ], t.prototype, "callbackEvents", void 0);
@@ -87,16 +87,16 @@ e.prototype.onFinished = function(t, e) {
 for (var o = 0, i = this.callback; o < i.length; o++) {
 var n = i[o];
 if (n.clip && n.clip.name == e.name) for (var r = 0, a = n.callbackEvents; r < a.length; r++) {
-var c = a[r];
-c.emit([ c.customEventData ]);
+var s = a[r];
+s.emit([ s.customEventData ]);
 }
 }
 };
-n([ c({
+n([ s({
 type: p,
 displayName: "监听"
 }) ], e.prototype, "callback", void 0);
-return e = n([ a, l(cc.Animation), s("扩展组件/动画事件") ], e);
+return e = n([ a, l(cc.Animation), c("扩展组件/动画事件") ], e);
 }(cc.Component);
 o.default = h;
 cc._RF.pop();
@@ -123,13 +123,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./gameData"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("./gameData"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -182,31 +182,31 @@ this.viewCallback = t;
 e.prototype.点击查看 = function() {
 this.viewCallback && this.viewCallback(this.id);
 };
-n([ s({
+n([ c({
 type: cc.Sprite,
 displayName: "锁头图标"
 }) ], e.prototype, "lockImg", void 0);
-n([ s({
+n([ c({
 type: cc.Sprite,
 displayName: "主题图标"
 }) ], e.prototype, "themeIconImg", void 0);
-n([ s({
+n([ c({
 type: cc.Sprite,
 displayName: "主题名称"
 }) ], e.prototype, "themeIconName", void 0);
-n([ s({
+n([ c({
 type: cc.ProgressBar,
 displayName: "进度条"
 }) ], e.prototype, "progress", void 0);
-n([ s({
+n([ c({
 type: cc.Label,
 displayName: "进度文字"
 }) ], e.prototype, "progressLabel", void 0);
-n([ s({
+n([ c({
 type: cc.Sprite,
 displayName: "所有图标"
 }) ], e.prototype, "icons", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -235,13 +235,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./ArchiveItem"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("./ArchiveItem"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -272,27 +272,27 @@ e.prototype.关闭查看主题 = function() {
 this.viewItem.node.active = !1;
 this.scrollView.node.active = !0;
 };
-n([ s({
+n([ c({
 type: r.default,
 displayName: "图鉴主题Item"
 }) ], e.prototype, "items", void 0);
-n([ s({
+n([ c({
 type: cc.SpriteFrame,
 displayName: "主题图标"
 }) ], e.prototype, "themeIcons", void 0);
-n([ s({
+n([ c({
 type: cc.SpriteFrame,
 displayName: "主题名称"
 }) ], e.prototype, "themeNames", void 0);
-n([ s({
+n([ c({
 type: r.default,
 displayName: "查看界面"
 }) ], e.prototype, "viewItem", void 0);
-n([ s({
+n([ c({
 type: cc.ScrollView,
 displayName: "滚动视图"
 }) ], e.prototype, "scrollView", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -321,13 +321,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/lib/HttpLib"), a = t("../../../commonLib/lib/LoginLib"), c = t("../../../commonLib/component/PopBox/popBox"), s = t("../Construct"), l = t("../../../commonLib/component/nodeOperation"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
+var r = t("../../../commonLib/lib/HttpLib"), a = t("../../../commonLib/lib/LoginLib"), s = t("../../../commonLib/component/PopBox/popBox"), c = t("../Construct"), l = t("../../../commonLib/component/nodeOperation"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -346,17 +346,17 @@ phone: this.phone_lab.string
 };
 t.setRequestHeader("cookie", "PHPSESSID=" + a.loginLib.loginToken);
 t.send(e);
-} else c.default.popBox("Please check out your phone number!");
+} else s.default.popBox("Please check out your phone number!");
 };
 e.prototype.successCallback = function(t) {
-if (0 == JSON.parse(t).code) {
-s.construct.userInfo.phone = this.phone_lab.string;
-c.default.popBox("Bind Successful!");
+if (0 == t.code) {
+c.construct.userInfo.phone = this.phone_lab.string;
+s.default.popBox("Bind Successful!");
 this.getComponent(l.default).closeSelf();
-} else c.default.popBox("Bind failure!");
+} else s.default.popBox("Bind failure!");
 };
 e.prototype.failureCallback = function(t, e, o) {
-c.default.popBox("Bind failure!");
+s.default.popBox("Bind failure!");
 };
 n([ u({
 type: cc.EditBox,
@@ -418,7 +418,7 @@ Construct: [ function(t, e, o) {
 cc._RF.push(e, "3774d+i5MNFoZfBZ0G/y80r", "Construct");
 var i = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
@@ -460,13 +460,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/component/tableView/tableView"), a = t("../../../commonLib/lib/HttpLib"), c = t("../../../commonLib/lib/LoginLib"), s = t("../../../commonLib/component/PopBox/popBox"), l = cc._decorator, p = l.ccclass, h = l.property, u = function(t) {
+var r = t("../../../commonLib/component/tableView/tableView"), a = t("../../../commonLib/lib/HttpLib"), s = t("../../../commonLib/lib/LoginLib"), c = t("../../../commonLib/component/PopBox/popBox"), l = cc._decorator, p = l.ccclass, h = l.property, u = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -495,20 +495,20 @@ var i = {
 page: this._pageNumber,
 rows: 10
 };
-o.setRequestHeader("cookie", "PHPSESSID=" + c.loginLib.loginToken);
+o.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
 o.send(i);
 };
 e.prototype.successCallback = function(t) {
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 if (e.data) if (e.data.length > 0) {
 this._historyData = this._historyData.concat(e.data);
 this.history_tb.setData(this._historyData);
 } else 1 == this._pageNumber || (this._pageNumber -= 1);
-} else s.default.popBox(e.msg);
+} else c.default.popBox(e.msg);
 };
 e.prototype.failureCallback = function(t, e, o) {
-s.default.popBox(e);
+c.default.popBox(e);
 };
 e.prototype.refreshData = function(t) {
 void 0 === t && (t = null);
@@ -559,13 +559,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), c = t("../../../commonLib/lib/LoginLib"), s = t("./HistoryController"), l = t("../../../commonLib/component/PopBox/popBox"), p = t("../../../commonLib/component/PopBox/messageBox"), h = cc._decorator, u = h.ccclass, d = h.property, f = function(t) {
+var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), s = t("../../../commonLib/lib/LoginLib"), c = t("./HistoryController"), l = t("../../../commonLib/component/PopBox/popBox"), p = t("../../../commonLib/component/PopBox/messageBox"), h = cc._decorator, u = h.ccclass, d = h.property, f = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -632,12 +632,12 @@ e.open(t.successCallback, t.failureCallback, t._storePath, t, a.HttpMethod.POST)
 var o = {
 id: t._item_id
 };
-e.setRequestHeader("cookie", "PHPSESSID=" + c.loginLib.loginToken);
+e.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
 e.send(o);
 }, function() {});
 };
 e.prototype.successCallback = function(t) {
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 l.default.popBox("Successful！");
 this.historyController.refreshData();
@@ -685,7 +685,7 @@ displayName: "完成订单背景",
 tooltip: "完成订单背景"
 }) ], e.prototype, "finish_node", void 0);
 n([ d({
-type: s.default,
+type: c.default,
 displayName: "记录类",
 tooltip: "记录类"
 }) ], e.prototype, "historyController", void 0);
@@ -732,9 +732,11 @@ this._xhr.onerror = this.onGetIOError.bind(this);
 cc.sys.isNative ? this._xhr.onreadystatechange = function() {
 if (4 == e._xhr.readyState) if (200 == e._xhr.status) {
 cc.log("成功回调函数 = " + e._xhr.responseText);
+var o = e._xhr.responseText;
+"string" == typeof o && (o = JSON.parse(o));
 e.isShowWaitUI && t.hideWaitUICallback && t.hideWaitUICallback(e);
 e._isOver = !0;
-e._callback_Success && e._callback_Success.call(e._cbThisArg, e._xhr.responseText);
+e._callback_Success && e._callback_Success.call(e._cbThisArg, o);
 } else {
 cc.log("失败回调函数 this._xhr.status is " + e._xhr.status);
 e._callback_Fail.call(e._cbThisArg, 80001, "请求失败，请联系服务器管理员！");
@@ -853,7 +855,7 @@ cc.log(t);
 return !1;
 }
 };
-t.BASE_PATH = "https://vntest.game.luckycatgame.com";
+t.BASE_PATH = "http://192.168.6.153";
 t.http_timeout = 3e4;
 t.isShowWaitUI = !0;
 t.showWaitUICallback = null;
@@ -876,6 +878,9 @@ this.loginUrl = i.HttpLib.BASE_PATH + "/smallgameapi/login.php";
 this.loginToken = "";
 this.userId = "";
 this.loginData = null;
+this.deviceId = "";
+this.appId = "69156";
+this.ad_probability = 4;
 }
 t.prototype.LoginGame = function(t, e) {
 void 0 === e && (e = "");
@@ -883,32 +888,32 @@ this._loginCallback = t;
 var o = new i.HttpLib();
 o.open(this.successCallback, this.failureCallback, this.loginUrl, this, i.HttpMethod.POST);
 var n = {
-app_id: "456",
+app_id: this.appId,
 client_id: e,
 imei: "",
 android_id: ""
 };
 if ("" == e) {
-var r = this.getDeviceId();
-if (r && "" != r && r.includes(",")) {
-var a = r.split(",");
-n.client_id = a[0];
-n.imei = a[1];
-n.android_id = a[2];
+this.deviceId = this.getDeviceId();
+if (this.deviceId && "" != this.deviceId && this.deviceId.includes(",")) {
+var r = this.deviceId.split(",");
+n.client_id = r[0];
+n.imei = r[1];
+n.android_id = r[2];
 o.send(n);
 }
 } else o.send(n);
 };
 t.prototype.successCallback = function(t) {
 console.log("success is：" + t.toString());
-cc.log("success is " + t.toString());
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 this.loginData = e.data;
 this.loginToken = this.loginData.session_id;
 this.userId = this.loginData.uid;
+this.loginData.ad_probability && (this.ad_probability = this.loginData.ad_probability);
 this._loginCallback();
-}
+} else cc.log("code is " + e.code);
 };
 t.prototype.failureCallback = function(t, e, o) {};
 t.prototype.getDeviceId = function() {
@@ -960,13 +965,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r, a = cc._decorator, c = a.ccclass, s = a.property, l = a.menu;
+var r, a = cc._decorator, s = a.ccclass, c = a.property, l = a.menu;
 (function(t) {
 t[t["默认"] = 0] = "默认";
 t[t["节点隐藏"] = 1] = "节点隐藏";
@@ -1115,17 +1120,17 @@ this.eventType == r.节点启用 && this.onEvent();
 e.prototype.onDisable = function() {
 this.eventType == r.节点禁用 && this.onEvent();
 };
-n([ s({
+n([ c({
 type: r,
 displayName: "事件类型",
 tooltip: "需要监听的事件类型"
 }) ], e.prototype, "eventType", void 0);
-n([ s({
+n([ c({
 type: cc.Component.EventHandler,
 displayName: "操作",
 tooltip: "监听事件触发的操作"
 }) ], e.prototype, "callbackEvents", void 0);
-return e = n([ c, l("扩展组件/节点事件监听") ], e);
+return e = n([ s, l("扩展组件/节点事件监听") ], e);
 }(cc.Component);
 o.default = p;
 cc._RF.pop();
@@ -1137,7 +1142,7 @@ Object.defineProperty(o, "__esModule", {
 value: !0
 });
 o.redBagDataHelper = void 0;
-var i = t("../Construct"), n = t("../../../commonLib/lib/HttpLib"), r = t("../../../commonLib/lib/LoginLib"), a = function() {
+var i = t("../Construct"), n = t("../../../commonLib/lib/HttpLib"), r = t("../../../commonLib/lib/LoginLib"), a = t("../../../commonLib/lib/ReportLib"), s = function() {
 function t() {
 this._httpFinishPath = n.HttpLib.BASE_PATH + "/smallgameapi/changeUserProperty.php";
 }
@@ -1149,19 +1154,23 @@ t.send({});
 };
 t.prototype.successFinishCallback = function(t) {
 var e = JSON.parse(t);
-0 == e.code ? i.construct.userInfo.property_num = e.data.userInfo.property_num : cc.log("successFinishCallback接口失败！" + e.code);
+if (0 == e.code) {
+a.reportLib.tokenReceive(e.data.userInfo.property_num, e.data.userInfo.property_num - i.construct.userInfo.property_num, "redbag");
+i.construct.userInfo.property_num = e.data.userInfo.property_num;
+} else cc.log("successFinishCallback接口失败！" + e.code);
 };
 t.prototype.failureFinishCallback = function(t, e, o) {
 cc.log("确认红包领取失败！" + t);
 };
 return t;
 }();
-o.default = a;
-o.redBagDataHelper = new a();
+o.default = s;
+o.redBagDataHelper = new s();
 cc._RF.pop();
 }, {
 "../../../commonLib/lib/HttpLib": "HttpLib",
 "../../../commonLib/lib/LoginLib": "LoginLib",
+"../../../commonLib/lib/ReportLib": "ReportLib",
 "../Construct": "Construct"
 } ],
 RedPackets: [ function(t, e, o) {
@@ -1186,13 +1195,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./advertising"), a = t("../../commonLib/lib/HttpLib"), c = t("../../commonLib/lib/LoginLib"), s = t("./Construct"), l = t("./redbag/RedBagDataHelper"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
+var r = t("./advertising"), a = t("../../commonLib/lib/HttpLib"), s = t("../../commonLib/lib/LoginLib"), c = t("./Construct"), l = t("./redbag/RedBagDataHelper"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1217,15 +1226,15 @@ l.redBagDataHelper.adsFinished();
 });
 var e = new a.HttpLib();
 e.open(this.successCallback, this.failureCallback, this._httpPath, this, a.HttpMethod.POST);
-e.setRequestHeader("cookie", "PHPSESSID=" + c.loginLib.loginToken);
+e.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
 e.send({});
 };
 e.prototype.successCallback = function(t) {
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 this._getMoney = e.data.CouponNum;
 this.moneyLable.string = this._getMoney + "";
-this.allLable.string = s.construct.userInfo.property_num + this._getMoney + "";
+this.allLable.string = c.construct.userInfo.property_num + this._getMoney + "";
 } else cc.log("successCallback接口失败！" + e.code);
 };
 e.prototype.failureCallback = function(t, e, o) {
@@ -1263,6 +1272,249 @@ cc._RF.pop();
 "./advertising": "advertising",
 "./redbag/RedBagDataHelper": "RedBagDataHelper"
 } ],
+ReportLib: [ function(t, e, o) {
+"use strict";
+cc._RF.push(e, "f5d14MzOtpE7KUuIu8lUWfM", "ReportLib");
+var i, n = this && this.__decorate || function(t, e, o, i) {
+var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+return r > 3 && a && Object.defineProperty(e, o, a), a;
+};
+Object.defineProperty(o, "__esModule", {
+value: !0
+});
+o.ReportHttp = o.reportLib = o.REPORT_EVENT = void 0;
+(function(t) {
+t.LOGIN = "log_in";
+t.REGISTER = "register";
+t.SIGNOUT = "sign_out";
+t.ONLINE_NUM = "online_num";
+t.THIRDPARTY_BIND = "thirdparty_bind";
+t.TABLE_START = "table_start";
+t.TABLE_FINISH = "table_finish";
+t.STAGE_GAME_FINISH = "stage_game_finish";
+t.INGAME_CONSUME = "ingame_consume";
+t.CLICK_EVENT = "click_event";
+t.WATCH_ADVERTS = "watch_adverts";
+t.TOKEN_RECEIVE = "token_receive";
+t.MISSION_COMPLETE = "mission_complete";
+t.RE_EXCHANGE = "rp_exchange";
+t.TOKEN_CHANGE = "token_change";
+})(i = o.REPORT_EVENT || (o.REPORT_EVENT = {}));
+var r = t("./HttpLib"), a = t("./LoginLib"), s = t("./gameLib"), c = cc._decorator, l = c.ccclass, p = (c.property, 
+function() {
+function t() {
+this._reportPath = "https://record.game.luckycatgame.com:9002/kafka_yuenan";
+this._mode = "debug";
+this._reportParamList = [];
+}
+t.prototype.start = function() {};
+t.prototype.reportLogin = function() {
+this.sendReport(i.LOGIN, {});
+};
+t.prototype.register = function() {
+this.sendReport(i.REGISTER, {});
+};
+t.prototype.signOut = function() {
+this.sendReport(i.SIGNOUT, {});
+};
+t.prototype.tableStart = function(t, e) {
+void 0 === e && (e = 0);
+var o = {
+table_type: t,
+bet_type: e
+};
+this.sendReport(i.TABLE_START, o);
+};
+t.prototype.tableFinish = function(t, e, o, n, r) {
+void 0 === o && (o = null);
+void 0 === n && (n = null);
+void 0 === r && (r = 0);
+var a = {
+table_type: t,
+win_lose: e,
+increase_props_info: o,
+reduce_props_info: n,
+bet_type: r
+};
+this.sendReport(i.TABLE_FINISH, a);
+};
+t.prototype.stageGameFinish = function(t, e, o, n, r, a, s, c) {
+void 0 === n && (n = []);
+void 0 === r && (r = []);
+void 0 === c && (c = 1);
+var l = {
+stage_chapter: t,
+stage_step: e,
+stage_difficulty: o,
+increase_props_info: n,
+reduce_props_info: r,
+score_num: a,
+win_lose: s,
+is_first: c
+};
+this.sendReport(i.STAGE_GAME_FINISH, l);
+};
+t.prototype.ingameConsume = function() {
+this.sendReport(i.INGAME_CONSUME, {});
+};
+t.prototype.clickEvent = function(t, e) {
+var o = {
+event_name: t,
+status: e
+};
+this.sendReport(i.CLICK_EVENT, o);
+};
+t.prototype.watchAdverts = function(t, e) {
+var o = {
+adverts_name: t,
+register_data: new Date().getFullYear,
+status: e
+};
+this.sendReport(i.WATCH_ADVERTS, o);
+};
+t.prototype.tokenReceive = function(t, e, o) {
+var n = {
+current_num: t,
+game_id: a.loginLib.appId,
+reason: o,
+send_from: a.loginLib.userId,
+token_name: e
+};
+this.sendReport(i.TOKEN_RECEIVE, n);
+};
+t.prototype.missionComplete = function() {
+this.sendReport(i.MISSION_COMPLETE, {});
+};
+t.prototype.rpExchange = function(t, e, o, n, r) {
+var a = {
+exchange_type: t,
+props_id: e,
+props_name: o,
+props_num: n,
+token_num: r
+};
+this.sendReport(i.RE_EXCHANGE, a);
+};
+t.prototype.tokenChange = function(t, e, o, n) {
+var r = {
+client_id: a.loginLib.deviceId,
+client_type: "app",
+current_num: t,
+event_type: n,
+product_id: 0,
+reason: o,
+reason_id: 1,
+role_id: 1,
+role_name: "Player",
+token_id: 2005,
+token_name: 2005,
+token_num: e,
+user_id: a.loginLib.userId
+};
+this.sendReport(i.TOKEN_CHANGE, r);
+};
+t.prototype.sendReport = function(t, e) {
+var o = this;
+void 0 === e && (e = {});
+e.user_id = a.loginLib.userId;
+e.client_id = a.loginLib.deviceId;
+e.role_id = a.loginLib.userId;
+e.role_name = "";
+switch (cc.sys.os) {
+case cc.sys.OS_IOS:
+e.system_type = "IOS";
+break;
+
+case cc.sys.OS_ANDROID:
+e.system_type = "ANDROID";
+}
+e.client_type = "APP";
+e.package_id = a.loginLib.appId;
+var i = new Date(), n = {
+data: {
+app_version: "1.0",
+context: e,
+event: t,
+time: this.formateDate(i)
+},
+mode: this._mode,
+type: "operation",
+isSending: !0
+}, r = cc.sys.localStorage.getItem("reportData");
+r && (this._reportParamList = JSON.parse(r));
+this._reportParamList.length >= 200 && this._reportParamList.shift();
+for (var s = [], c = 0; c < this._reportParamList.length; c++) {
+var l = this._reportParamList[c];
+if (!l.isSending) {
+l.isSending = !0;
+s.push(l);
+}
+}
+s.push(n);
+this._reportParamList.push(n);
+cc.sys.localStorage.setItem("reportData", JSON.stringify(this._reportParamList));
+new h().sendReport(this._reportPath, s, function() {
+s.forEach(function(t) {
+var e = o._reportParamList.indexOf(t);
+e >= 0 && o._reportParamList.splice(e, 1);
+});
+cc.sys.localStorage.setItem("reportData", JSON.stringify(o._reportParamList));
+}, function() {
+s.forEach(function(t) {
+t.isSending = !1;
+});
+cc.sys.localStorage.setItem("reportData", JSON.stringify(o._reportParamList));
+});
+};
+t.prototype.formateDate = function(t) {
+var e = s.gameLib.formatDate(t, "yyyy-MM-ddTHH:mm:ss"), o = t.getTimezoneOffset() / 60 * -1;
+if ((o *= 100) > 0) {
+e += "+";
+e += o < 1e3 ? "0" + o : o;
+} else {
+e += "-";
+e += o > -1e3 ? "0" + o : o;
+}
+return e;
+};
+return t = n([ l ], t);
+}());
+o.default = p;
+o.reportLib = new p();
+var h = function() {
+function t() {
+this._param = [];
+this._path = "";
+}
+t.prototype.sendReport = function(t, e, o, i) {
+this._path = t;
+this._param = e;
+this._callFuns = o;
+this._callFunf = i;
+this.sendMessage();
+};
+t.prototype.sendMessage = function() {
+var t = new r.HttpLib();
+t.open(this.successCallback, this.failureCallback, this._path, this, r.HttpMethod.POST);
+t.send(this._param);
+};
+t.prototype.successCallback = function(t) {
+cc.log("success is " + t.toString());
+0 === t.code && this._callFuns();
+};
+t.prototype.failureCallback = function(t, e, o) {
+this._callFunf();
+};
+return t;
+}();
+o.ReportHttp = h;
+cc._RF.pop();
+}, {
+"./HttpLib": "HttpLib",
+"./LoginLib": "LoginLib",
+"./gameLib": "gameLib"
+} ],
 StoreController: [ function(t, e, o) {
 "use strict";
 cc._RF.push(e, "80544LX7p9ERrXD4oasyD5k", "StoreController");
@@ -1285,13 +1537,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/component/tableView/tableView"), a = t("../../../commonLib/lib/HttpLib"), c = t("../Construct"), s = t("../../../commonLib/lib/LoginLib"), l = cc._decorator, p = l.ccclass, h = l.property, u = function(t) {
+var r = t("../../../commonLib/component/tableView/tableView"), a = t("../../../commonLib/lib/HttpLib"), s = t("../Construct"), c = t("../../../commonLib/lib/LoginLib"), l = cc._decorator, p = l.ccclass, h = l.property, u = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1310,7 +1562,7 @@ this.initUI();
 this.getData();
 };
 e.prototype.initUI = function() {
-this.all_lab.string = c.construct.userInfo.property_num + "";
+this.all_lab.string = s.construct.userInfo.property_num + "";
 };
 e.prototype.setData = function(t) {
 0 == t ? this.redbag_tb.setData(this._goodsRed) : 1 == t && this.redbag_tb.setData(this._goodsOrange);
@@ -1335,17 +1587,17 @@ this._goodsOrange = t;
 e.prototype.getData = function() {
 var t = new a.HttpLib();
 t.open(this.successCallback, this.failureCallback, this._storePath, this, a.HttpMethod.POST);
-t.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
+t.setRequestHeader("cookie", "PHPSESSID=" + c.loginLib.loginToken);
 t.send({
 page: 1,
 rows: 100
 });
 };
 e.prototype.successCallback = function(t) {
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 this._storeData = e.data.data;
-c.construct.userInfo.property_num = e.data.userInfo.property_num;
+s.construct.userInfo.property_num = e.data.userInfo.property_num;
 this.initUI();
 this._goodsRed = [];
 this._goodsOrange = [];
@@ -1420,13 +1672,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), c = t("../../../commonLib/lib/LoginLib"), s = t("./StoreController"), l = t("../../../commonLib/component/PopBox/messageBox"), p = t("../Construct"), h = t("../../../commonLib/component/addUI"), u = t("../../../commonLib/component/PopBox/popBox"), d = cc._decorator, f = d.ccclass, m = d.property, y = function(t) {
+var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), s = t("../../../commonLib/lib/LoginLib"), c = t("./StoreController"), l = t("../../../commonLib/component/PopBox/messageBox"), p = t("../Construct"), h = t("../../../commonLib/component/addUI"), u = t("../../../commonLib/component/PopBox/popBox"), d = t("../../../commonLib/lib/ReportLib"), f = cc._decorator, m = f.ccclass, y = f.property, g = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1440,6 +1692,8 @@ e.storeController = null;
 e._itemId = -1;
 e._storePath = a.HttpLib.BASE_PATH + "/smallgameapi/exchange.php";
 e._canPay = !0;
+e._itemName = 0;
+e._useAmount = 0;
 return e;
 }
 e.prototype.start = function() {};
@@ -1451,7 +1705,9 @@ var e = 1;
 this.typeNode[0].active = !1;
 this.typeNode[1].active = !1;
 2007 != t.item_name && 2008 != t.item_name || (e = 0);
+this._itemName = t.item_name;
 this._itemId = t.item_id;
+this._useAmount = t.use_amount;
 this.typeNode[e].active = !0;
 var o = this.typeNode[e].getChildByName("price_lab"), i = this.typeNode[e].getChildByName("priceGame_lab"), n = this.typeNode[e].getChildByName("gameMoneyTitle");
 this.showTip(t.activity_code);
@@ -1484,15 +1740,16 @@ t.open(this.successCallback, this.failureCallback, this._storePath, this, a.Http
 var e = {
 item_id: this._itemId
 };
-t.setRequestHeader("cookie", "PHPSESSID=" + c.loginLib.loginToken);
+t.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
 t.send(e);
 };
 e.prototype.successCallback = function(t) {
-var e = JSON.parse(t);
+var e = t;
 if (0 == e.code) {
 cc.log("get success!");
 u.default.popBox("Successful！");
 this.storeController.refreshData();
+d.reportLib.rpExchange(0, this._itemId, this._itemName + "", 1, this._useAmount);
 } else {
 cc.log("兑换失败：" + e.msg);
 u.default.popBox("Failure!");
@@ -1522,44 +1779,44 @@ this.tag1.active = !1;
 this.tag2.active = !0;
 }
 };
-n([ m({
+n([ y({
 type: cc.Node,
 displayName: "标签1",
 tooltip: "不明标签1"
 }) ], e.prototype, "tag1", void 0);
-n([ m({
+n([ y({
 type: cc.Node,
 displayName: "标签2",
 tooltip: "不明标签2"
 }) ], e.prototype, "tag2", void 0);
-n([ m({
+n([ y({
 type: h.default,
 displayName: "绑定手机号",
 tooltip: "绑定手机号"
 }) ], e.prototype, "bindPhoneLayer", void 0);
-n([ m({
+n([ y({
 type: cc.Node,
 displayName: "红包icon",
 tooltip: "红包icon"
 }) ], e.prototype, "redIcons", void 0);
-n([ m({
+n([ y({
 type: cc.Node,
 displayName: "电话卡icon",
 tooltip: "电话卡icon"
 }) ], e.prototype, "orangeIcons", void 0);
-n([ m({
+n([ y({
 type: cc.Node,
 displayName: "类型底板",
 tooltip: "类型底板"
 }) ], e.prototype, "typeNode", void 0);
-n([ m({
-type: s.default,
+n([ y({
+type: c.default,
 displayName: "商店类",
 tooltip: "商店类"
 }) ], e.prototype, "storeController", void 0);
-return e = n([ f ], e);
+return e = n([ m ], e);
 }(r.default);
-o.default = y;
+o.default = g;
 cc._RF.pop();
 }, {
 "../../../commonLib/component/PopBox/messageBox": "messageBox",
@@ -1568,6 +1825,7 @@ cc._RF.pop();
 "../../../commonLib/component/tableView/tableViewItem": "tableViewItem",
 "../../../commonLib/lib/HttpLib": "HttpLib",
 "../../../commonLib/lib/LoginLib": "LoginLib",
+"../../../commonLib/lib/ReportLib": "ReportLib",
 "../Construct": "Construct",
 "./StoreController": "StoreController"
 } ],
@@ -1593,13 +1851,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./gameData"), a = t("./gridManager"), c = t("./advertising"), s = t("../../commonLib/component/nodeOperation"), l = t("./gameMain"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
+var r = t("./gameData"), a = t("./gridManager"), s = t("./advertising"), c = t("../../commonLib/component/nodeOperation"), l = t("./gameMain"), p = cc._decorator, h = p.ccclass, u = p.property, d = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1646,10 +1904,10 @@ this.okBtn.interactable = this.curSelectIndex != this.srcSelectIndex;
 };
 e.prototype.点击确定 = function() {
 var t = this;
-c.default.play(function() {
+s.default.play(function() {
 r.saveThemeSelect(t.curSelectIndex);
 a.default.instance.updateTheme();
-t.getComponent(s.default).closeSelf();
+t.getComponent(c.default).closeSelf();
 });
 };
 n([ u({
@@ -1705,13 +1963,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = (r.property, r.menu), s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = (r.property, r.menu), c = function(t) {
 i(e, t);
 function e() {
 return null !== t && t.apply(this, arguments) || this;
@@ -1736,9 +1994,9 @@ this.node.scaleX = t.height / this.node.height;
 this.node.scaleY = t.height / this.node.height;
 }
 };
-return e = n([ a, c("适配/等比缩放适配") ], e);
+return e = n([ a, s("适配/等比缩放适配") ], e);
 }(cc.Component);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 addItem: [ function(t, e, o) {
@@ -1763,13 +2021,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./advertising"), a = t("../../commonLib/component/nodeOperation"), c = cc._decorator, s = c.ccclass, l = c.property, p = function(t) {
+var r = t("./advertising"), a = t("../../commonLib/component/nodeOperation"), s = cc._decorator, c = s.ccclass, l = s.property, p = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1825,7 +2083,7 @@ n([ l({
 type: cc.Sprite,
 displayName: "数量图"
 }) ], e.prototype, "numImg", void 0);
-return e = n([ s ], e);
+return e = n([ c ], e);
 }(cc.Component);
 o.default = p;
 cc._RF.pop();
@@ -1855,13 +2113,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1909,15 +2167,15 @@ e(n.getComponent(o || t.name));
 }
 };
 var o;
-n([ c({
+n([ s({
 type: cc.Prefab,
 displayName: "要打开的UI",
 tooltip: "可以在这里拖预设，也可以调用（弹窗）参数填路径，参数优先"
 }) ], e.prototype, "ui", void 0);
-n([ c({
+n([ s({
 displayName: "是否置顶弹窗"
 }) ], e.prototype, "isTop", void 0);
-return e = o = n([ a, s("扩展组件/弹窗") ], e);
+return e = o = n([ a, c("扩展组件/弹窗") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -1944,13 +2202,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/addUI"), a = t("../../commonLib/lib/HttpLib"), c = t("../../commonLib/component/PopBox/popBox"), s = cc._decorator, l = s.ccclass, p = (s.property, 
+var r = t("../../commonLib/component/addUI"), a = t("../../commonLib/lib/HttpLib"), s = t("../../commonLib/component/PopBox/popBox"), c = t("../../commonLib/lib/ReportLib"), l = cc._decorator, p = l.ccclass, h = (l.property, 
 function(t) {
 i(e, t);
 function e() {
@@ -1973,14 +2231,33 @@ var e = null;
 switch (cc.sys.os) {
 case cc.sys.OS_IOS:
 e = jsb.reflection.callStaticMethod("AppController", "showAd:title:", "", "");
+c.reportLib.watchAdverts("getRedbag", 0);
 break;
 
 case cc.sys.OS_ANDROID:
 e = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showAd", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+c.reportLib.watchAdverts("getRedbag", 0);
 }
 e && cc.log(".reflection.callStaticMethod.ret = " + e.toString());
 } else r.default.addUI("广告", function(e) {
 e.setFinishCallback(t);
+}, "advertising");
+};
+e.showInterstitialAd = function() {
+if (cc.sys.isNative) {
+this.init();
+var t = null;
+switch (cc.sys.os) {
+case cc.sys.OS_IOS:
+t = jsb.reflection.callStaticMethod("AppController", "showInterstitialAd:title:", "", "");
+break;
+
+case cc.sys.OS_ANDROID:
+t = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "showInterstitialAd", "(Ljava/lang/String;Ljava/lang/String;)V", "title", "hahahahha");
+}
+t && cc.log(".reflection.callStaticMethod.ret = " + t.toString());
+} else r.default.addUI("广告", function(t) {
+t.setFinishCallback(finishCallback);
 }, "advertising");
 };
 e.init = function() {
@@ -1988,25 +2265,27 @@ var t = this;
 if (!this.isInit) {
 this.isInit = !0;
 window.didHideAd = function(e) {
+c.reportLib.watchAdverts("getRedbag", 1);
 t.callback && t.callback();
 return "abcd";
 };
 window.adFailure = function(t) {
-c.default.popBox(t);
+s.default.popBox(t);
 };
 }
 };
 var o;
 e.callback = null;
 e.isInit = !1;
-return e = o = n([ l ], e);
+return e = o = n([ p ], e);
 }(cc.Component));
-o.default = p;
+o.default = h;
 cc._RF.pop();
 }, {
 "../../commonLib/component/PopBox/popBox": "popBox",
 "../../commonLib/component/addUI": "addUI",
-"../../commonLib/lib/HttpLib": "HttpLib"
+"../../commonLib/lib/HttpLib": "HttpLib",
+"../../commonLib/lib/ReportLib": "ReportLib"
 } ],
 canvasAdapter: [ function(t, e, o) {
 "use strict";
@@ -2030,13 +2309,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = r.requireComponent, p = r.executeInEditMode, h = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = r.requireComponent, p = r.executeInEditMode, h = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2075,10 +2354,10 @@ this.canvas.fitHeight = !0;
 }
 }
 };
-n([ c({
+n([ s({
 serializable: !0
 }) ], e.prototype, "_widget", void 0);
-return e = n([ a, l(cc.Widget), p(), s("适配/画布适配") ], e);
+return e = n([ a, l(cc.Widget), p(), c("适配/画布适配") ], e);
 }(cc.Component);
 o.default = h;
 cc._RF.pop();
@@ -2105,13 +2384,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/lib/gameLib"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../../commonLib/lib/gameLib"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2162,34 +2441,34 @@ o.particle && o.particle.stopSystem();
 }).start();
 }
 };
-n([ s({
+n([ c({
 displayName: "连击奖励查找概率",
 step: .1
 }) ], e.prototype, "comboAwardLink", void 0);
-n([ s({
+n([ c({
 displayName: "连击奖励炸弹概率",
 step: .1
 }) ], e.prototype, "comboAwardBomb", void 0);
-n([ s({
+n([ c({
 displayName: "连击奖励重排概率",
 step: .1
 }) ], e.prototype, "comboAwardReset", void 0);
-n([ s({
+n([ c({
 displayName: "连击奖励冻结概率",
 step: .1
 }) ], e.prototype, "comboAwardFreeze", void 0);
-n([ s({
+n([ c({
 type: cc.Sprite
 }) ], e.prototype, "sp", void 0);
-n([ s({
+n([ c({
 type: cc.SpriteFrame,
 displayName: "连击奖励图标"
 }) ], e.prototype, "sf", void 0);
-n([ s({
+n([ c({
 type: cc.ParticleSystem,
 displayName: "粒子效果"
 }) ], e.prototype, "particle", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -2218,13 +2497,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/countDown"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../../commonLib/component/countDown"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2255,31 +2534,31 @@ this.cd.setTime(this.durationTime);
 e.prototype.playHideAni = function() {
 this.animation.play(this.hideAni.name);
 };
-n([ s({
+n([ c({
 type: r.default,
 displayName: "倒计时"
 }) ], e.prototype, "cd", void 0);
-n([ s({
+n([ c({
 type: cc.Label,
 displayName: "连击数字"
 }) ], e.prototype, "combo", void 0);
-n([ s({
+n([ c({
 type: cc.Animation,
 displayName: "动画播放器"
 }) ], e.prototype, "animation", void 0);
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "文字变动动画"
 }) ], e.prototype, "changeAni", void 0);
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "文字显示动画"
 }) ], e.prototype, "showAni", void 0);
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "文字隐藏动画"
 }) ], e.prototype, "hideAni", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -2308,13 +2587,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2381,13 +2660,13 @@ var t = Math.floor(this.intTime / 60), e = t < 10 ? "0" + t : t.toString(), o = 
 this.timeLabel.string = e + ":" + i;
 } else this.timeLabel.string = this.intTime.toString();
 for (var n = 0, r = this.callbackEvents; n < r.length; n++) {
-(s = r[n]).emit([ s.customEventData, this.intTime ]);
+(c = r[n]).emit([ c.customEventData, this.intTime ]);
 }
 if (0 == this.intTime) {
 this.finishCallback && this.finishCallback(this);
-for (var a = 0, c = this.finishCallbackEvents; a < c.length; a++) {
-var s;
-(s = c[a]).emit([ s.customEventData, this.intTime ]);
+for (var a = 0, s = this.finishCallbackEvents; a < s.length; a++) {
+var c;
+(c = s[a]).emit([ c.customEventData, this.intTime ]);
 }
 }
 };
@@ -2397,32 +2676,32 @@ this.isPause = !0;
 e.prototype.resume = function() {
 this.isPause = !1;
 };
-n([ c({
+n([ s({
 displayName: "是否是倒计时"
 }) ], e.prototype, "isCountDown", void 0);
-n([ c({
+n([ s({
 displayName: "是否进位到分钟"
 }) ], e.prototype, "isMinutes", void 0);
-n([ c({
+n([ s({
 displayName: "开始计时秒数"
 }) ], e.prototype, "curTime", void 0);
-n([ c({
+n([ s({
 type: cc.Label,
 displayName: "计时label"
 }) ], e.prototype, "timeLabel", void 0);
-n([ c({
+n([ s({
 type: cc.Sprite,
 displayName: "倒计时进度条"
 }) ], e.prototype, "timeImg", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "计时每秒回调"
 }) ], e.prototype, "callbackEvents", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "计时结束回调"
 }) ], e.prototype, "finishCallbackEvents", void 0);
-return e = n([ a, s("扩展组件/倒计时") ], e);
+return e = n([ a, c("扩展组件/倒计时") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -2449,13 +2728,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/BlockInput"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../../commonLib/component/BlockInput"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2476,11 +2755,11 @@ this.node.active = !0;
 this.ani.setCurrentTime(0, this.hideClip.name);
 this.ani.sample(this.hideClip.name);
 };
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "隐藏动画"
 }) ], e.prototype, "hideClip", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -2509,13 +2788,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2598,35 +2877,35 @@ this.tarBeginPos = null;
 this.touchBeginPos = null;
 this.isMoved = !1;
 };
-n([ c({
+n([ s({
 displayName: "保存坐标",
 tooltip: "是否保存拖拽后的坐标"
 }) ], e.prototype, "savePOS", void 0);
-n([ c({
+n([ s({
 displayName: "拖拽中心",
 tooltip: "是否拖拽物体中心"
 }) ], e.prototype, "dragCenter", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "按下监听",
 tooltip: "按下方法监听，可设置多个"
 }) ], e.prototype, "downEvents", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "抬起监听",
 tooltip: "抬起方法监听，可设置多个"
 }) ], e.prototype, "upEvents", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "移动监听",
 tooltip: "移动方法监听，可设置多个"
 }) ], e.prototype, "moveEvents", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "点击监听",
 tooltip: "点击方法监听，可设置多个"
 }) ], e.prototype, "clickEvents", void 0);
-return e = n([ a, s("扩展组件/拖动") ], e);
+return e = n([ a, c("扩展组件/拖动") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -2653,13 +2932,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -2835,109 +3114,109 @@ o.instance && o.instance.playClickFreeze();
 };
 var o;
 e.instance = null;
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "背景音乐",
 tooltip: "游戏关卡使用的背景音乐"
 }) ], e.prototype, "bgm", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "消除",
 tooltip: "方块消除时播放的音效"
 }) ], e.prototype, "removeGrid", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "重新排列",
 tooltip: "使用道具“重排”或者关卡出现无解需要重新排列的时候播放的音效"
 }) ], e.prototype, "resetGridPos", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "闪电",
 tooltip: "使用道具“闪电”时播放的音效"
 }) ], e.prototype, "lightning", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "时间冻结",
 tooltip: "使用道具“时间冻结”时播放的音效"
 }) ], e.prototype, "freezeTime", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "不可消除",
 tooltip: "玩家先选中一个方块，然后选中第二个方块的时候，如果不能消除，则同时播放此音效"
 }) ], e.prototype, "noLink", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "点击按钮",
 tooltip: "点击游戏中的确定类按钮时播放的音效"
 }) ], e.prototype, "btnClick", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "取消",
 tooltip: "点击游戏中的取消或X类按钮时播放的音效"
 }) ], e.prototype, "btnCancel", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "获得道具",
 tooltip: "关卡结算时，当分数满足条件的时候会得到道具（道具图标上会挑勾），每得到一个道具，播放一次本音效"
 }) ], e.prototype, "receiveItem", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "开箱子",
 tooltip: "关卡结算时如果分数足够，可以获得钥匙道具来开启宝箱，宝箱开始时播放本音效"
 }) ], e.prototype, "openBox", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "方块破冰",
 tooltip: "如果消除了冰块旁边的方块，则冰块会解冻，解冻时播放本音效"
 }) ], e.prototype, "unfreezeGrid", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "炸弹爆炸",
 tooltip: "有些方块上会带有炸弹，如果倒计时结束，炸弹爆炸时播放本音效"
 }) ], e.prototype, "bombExplosion", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "重生方块出现",
 tooltip: "当重生方块出现时，播放本音效"
 }) ], e.prototype, "rebirthGrid", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "闪电待机",
 tooltip: "点击闪电按钮后，需要选择格子时等待音效"
 }) ], e.prototype, "lightningSelect", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "选中格子音效",
 tooltip: "格子被选中时要播放的音效"
 }) ], e.prototype, "gridSelect", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "提醒时间快到了",
 tooltip: "当关卡倒计时时间快到的时候播放"
 }) ], e.prototype, "timeTip", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "倒计时音效",
 tooltip: "当关卡倒计时剩余不多的时候播放的音效"
 }) ], e.prototype, "timeCountdown", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "连击奖励",
 tooltip: "当连击奖励飞到目标位置的时候播放"
 }) ], e.prototype, "getComboAward", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "获得连击奖励",
 tooltip: "当连击奖励达到一定数量可获得奖励时播放的声音"
 }) ], e.prototype, "comboAward", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "点击冰冻",
 tooltip: "点击冰冻格子时播放的音效"
 }) ], e.prototype, "clickFreeze", void 0);
 return e = o = n([ a ], e);
 }(cc.Component);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 gameData: [ function(t, e, o) {
@@ -2946,6 +3225,7 @@ cc._RF.push(e, "10d25lzIfVEJ6AM++3LsCza", "gameData");
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
+o.setGridIcon = o.ThemeIconNames = o.loadThemeSelect = o.saveThemeSelect = o.loadGameData = o.saveGameData = o.resetGameData = o.curLevelProp = o.gameData = void 0;
 var i = function() {
 return function() {
 this.curLevel = 1;
@@ -2954,61 +3234,103 @@ this.curLightningCount = 0;
 this.curResetCount = 0;
 this.curFreezeTimeCount = 0;
 this.archive = {};
+this.isFirst = !0;
 };
 }();
 o.gameData = new i();
+var n = function() {
+function t() {
+this._addProp = {};
+this._usedProp = {};
+}
+t.prototype.reset = function() {
+this._addProp = {};
+this._usedProp = {};
+};
+t.prototype.addProp = function(t, e) {
+void 0 === e && (e = 1);
+this._addProp[t] ? this._addProp[t] += e : this._addProp[t] = e;
+};
+t.prototype.useProp = function(t) {
+this._usedProp[t] ? ++this._usedProp[t] : this._usedProp[t] = 1;
+};
+t.prototype.getAddProp = function() {
+var t = [];
+for (var e in this._addProp) {
+var o = this._addProp[e];
+t.push({
+props_id: Number(e),
+num: o
+});
+}
+return t;
+};
+t.prototype.getUseProp = function() {
+var t = [];
+for (var e in this._usedProp) {
+var o = this._usedProp[e];
+t.push({
+props_id: Number(e),
+num: o
+});
+}
+return t;
+};
+return t;
+}();
+o.curLevelProp = new n();
 o.resetGameData = function() {
 o.gameData = new i();
-r();
 a();
-l(0);
+s();
+p(0);
 };
-var n = "GAME_DATA";
-function r() {
-cc.sys.localStorage.setItem(n, JSON.stringify(o.gameData));
-}
-o.saveGameData = r;
+var r = "GAME_DATA";
 function a() {
-var t = cc.sys.localStorage.getItem(n);
+cc.sys.localStorage.setItem(r, JSON.stringify(o.gameData));
+}
+o.saveGameData = a;
+function s() {
+var t = cc.sys.localStorage.getItem(r);
 t && (o.gameData = JSON.parse(t));
 o.gameData.archive[0] = [];
 for (var e = 0; e < 20; ++e) o.gameData.archive[0].push(e);
-d();
+f();
 }
-o.loadGameData = a;
-var c = null, s = "Theme_Select";
-function l(t) {
+o.loadGameData = s;
+var c = null, l = "Theme_Select";
+function p(t) {
 c = t;
-cc.sys.localStorage.setItem(s, t.toString());
+cc.sys.localStorage.setItem(l, t.toString());
 }
-o.saveThemeSelect = l;
-function p() {
+o.saveThemeSelect = p;
+function h() {
 if (null == c) {
-var t = cc.sys.localStorage.getItem(s);
+var t = cc.sys.localStorage.getItem(l);
 c = t ? Number(t) : 0;
 }
 return c;
 }
-o.loadThemeSelect = p;
+o.loadThemeSelect = h;
 o.ThemeIconNames = [ "icona_", "iconb_", "iconc_", "icond_", "icone_", "iconf_" ];
-var h = "texture/游戏界面/icons/";
+var u = "texture/游戏界面/icons/";
 o.setGridIcon = function(t, e, i) {
 void 0 === i && (i = null);
 if (e) {
-null == i && (i = p());
-var n = o.ThemeIconNames[i], r = t + 1, a = h + n + (r < 10 ? "0" + r : r);
+null == i && (i = h());
+var n = o.ThemeIconNames[i], r = t + 1, a = u + n + (r < 10 ? "0" + r : r);
 e.spriteFrame = null;
-2 == u ? e.spriteFrame = cc.loader.getRes(a, cc.SpriteFrame) : cc.loader.loadRes(a, cc.SpriteFrame, function(t, o) {
+2 == d ? e.spriteFrame = cc.loader.getRes(a, cc.SpriteFrame) : cc.loader.loadRes(a, cc.SpriteFrame, function(t, o) {
 t ? cc.error(t.message) : e.spriteFrame = o;
 });
 }
 };
-var u = 0;
-function d() {
-if (0 == u) {
-u = 1;
-cc.loader.loadResDir(h, function(t) {
-t ? cc.log(t.message) : u = 2;
+var d = 0;
+function f() {
+if (0 == d) {
+d = 1;
+cc.loader.loadResDir(u, function(t) {
+t ? cc.log(t.message) : d = 2;
 });
 }
 }
@@ -3061,9 +3383,9 @@ f: t.getMilliseconds() + ""
 };
 o.H > 12 ? o.h = o.H - 12 + "" : o.h = o.H + "";
 o.H += "";
-for (var i = "yMdHhmsqf", n = "", r = "", a = 0, c = 0; a < i.length; a++) if (!((c = e.indexOf(i[a])) < 0)) {
+for (var i = "yMdHhmsqf", n = "", r = "", a = 0, s = 0; a < i.length; a++) if (!((s = e.indexOf(i[a])) < 0)) {
 n = "";
-for (;c < e.length && e[c] == i[a]; c++) n += i[a];
+for (;s < e.length && e[s] == i[a]; s++) n += i[a];
 if (n.length > 0) {
 if (n.length == o[i[a]].length) r = o[i[a]]; else if (n.length > o[i[a]].length) r = "f" == i[a] ? o[i[a]] + this.charString("0", n.length - o[i[a]].length) : this.charString("0", n.length - o[i[a]].length) + o[i[a]]; else switch (i[a]) {
 case "y":
@@ -3147,7 +3469,7 @@ return !1;
 t.prototype.getDisance = function(t, e, o, i) {
 var n = function(t) {
 return t * Math.PI / 180;
-}, r = n(t), a = n(o), c = r - a, s = n(e) - n(i), l = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(c / 2), 2) + Math.cos(r) * Math.cos(a) * Math.pow(Math.sin(s / 2), 2)));
+}, r = n(t), a = n(o), s = r - a, c = n(e) - n(i), l = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(s / 2), 2) + Math.cos(r) * Math.cos(a) * Math.pow(Math.sin(c / 2), 2)));
 return Math.floor(6378137 * l * 100) / 100;
 };
 t.prototype.rgb2hex = function(t, e, o) {
@@ -3323,8 +3645,8 @@ return e = e.toUpperCase();
 t.prototype.isSAInBA = function(t, e) {
 if (!(t && e && t.length && e.length)) return !1;
 for (var o = 0, i = t; o < i.length; o++) {
-for (var n = i[o], r = !1, a = 0, c = e; a < c.length; a++) {
-if (n == c[a]) {
+for (var n = i[o], r = !1, a = 0, s = e; a < s.length; a++) {
+if (n == s[a]) {
 r = !0;
 break;
 }
@@ -3368,11 +3690,11 @@ for (var o = [], i = [], n = 0; n < t; ++n) i.push(n);
 var r = function(t) {
 if (t) {
 for (var o = [], n = 0, a = i; n < a.length; n++) {
-var c = a[n];
-o.push(e[c]);
+var s = a[n];
+o.push(e[s]);
 }
 t.push(o);
-var s = function(t, e, o) {
+var c = function(t, e, o) {
 void 0 === o && (o = null);
 var i = t.length - 1;
 null != o || (o = i);
@@ -3380,12 +3702,12 @@ if (t[i] >= e.length) {
 if (o <= 0) return !1;
 ++t[o - 1];
 for (var n = o; n < t.length; ++n) t[n] = t[n - 1] + 1;
-return s(t, e, o - 1);
+return c(t, e, o - 1);
 }
 return !0;
 };
 ++i[i.length - 1];
-s(i, e) && r(t);
+c(i, e) && r(t);
 }
 };
 r(o);
@@ -3410,19 +3732,19 @@ cc.log("转换数字错误：" + t);
 t.prototype.number_format = function(t, e, o, i, n) {
 t = (t + "").replace(/[^0-9+-Ee.]/g, "");
 n = n || "ceil";
-var r = isFinite(+t) ? +t : 0, a = isFinite(+e) ? Math.abs(e) : 0, c = "undefined" == typeof i ? "," : i, s = "undefined" == typeof o ? "." : o, l = [];
+var r = isFinite(+t) ? +t : 0, a = isFinite(+e) ? Math.abs(e) : 0, s = "undefined" == typeof i ? "," : i, c = "undefined" == typeof o ? "." : o, l = [];
 l = (a ? function(t, e) {
 var o = Math.pow(10, e);
 return "" + parseFloat(Math[n](parseFloat((t * o).toFixed(2 * e))).toFixed(2 * e)) / o;
 }(r, a) : "" + Math.round(r)).split(".");
-for (var p = /(-?\d+)(\d{3})/; p.test(l[0]); ) l[0] = l[0].replace(p, "$1" + c + "$2");
+for (var p = /(-?\d+)(\d{3})/; p.test(l[0]); ) l[0] = l[0].replace(p, "$1" + s + "$2");
 var h = 0;
 if ((l[1] || "").length < a && 0 != (l[1] || "").length) {
 l[1] = l[1] || "";
 h++;
 l[1] += new Array(a - l[1].length + 1).join("0");
 } else (l[1] || "").length >= a && h++;
-return h ? l.join(s) : l;
+return h ? l.join(c) : l;
 };
 t.prototype.isHasElementOne = function(t, e) {
 for (var o = 0, i = t.length; o < i; o++) if (t[o] == e) return o;
@@ -3529,8 +3851,8 @@ if ("string" == typeof t) return t;
 for (var e = "", o = t, i = 0; i < o.length; i++) {
 var n = o[i].toString(2), r = n.match(/^1+?(?=0)/);
 if (r && 8 == n.length) {
-for (var a = r[0].length, c = o[i].toString(2).slice(7 - a), s = 1; s < a; s++) c += o[s + i].toString(2).slice(2);
-e += String.fromCharCode(parseInt(c, 2));
+for (var a = r[0].length, s = o[i].toString(2).slice(7 - a), c = 1; c < a; c++) s += o[c + i].toString(2).slice(2);
+e += String.fromCharCode(parseInt(s, 2));
 i += a - 1;
 } else e += String.fromCharCode(o[i]);
 }
@@ -3567,14 +3889,14 @@ void 0 === i && (i = 0);
 for (var n = "", r = "", a = 0; a < i; a++) r += " ";
 for (var a in t) if (!e[a]) {
 e[a] = !0;
-var c = t[a];
-if ("object" == typeof c) if (Array.isArray(c) && "object" != typeof c[0]) {
+var s = t[a];
+if ("object" == typeof s) if (Array.isArray(s) && "object" != typeof s[0]) {
 n += r + a + " = [ ";
-for (var s = 0, l = c; s < l.length; s++) {
-n += l[s] + ", ";
+for (var c = 0, l = s; c < l.length; c++) {
+n += l[c] + ", ";
 }
 n += " ]\n";
-} else n += r + a + " = [ \n" + o(c, i + 4) + r + "]\n"; else n += r + '"' + a + '" = ' + c + "\n";
+} else n += r + a + " = [ \n" + o(s, i + 4) + r + "]\n"; else n += r + '"' + a + '" = ' + s + "\n";
 }
 return n;
 }, i = o(t);
@@ -3671,13 +3993,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./gridManager"), a = t("./comboText"), c = t("./level_parameter"), s = t("./gameAudioClip"), l = t("./comboAward"), p = t("./setting"), h = t("./cover"), u = t("./subject"), d = t("../../commonLib/component/countDown"), f = t("./gameData"), m = t("../../commonLib/component/addUI"), y = t("../../commonLib/lib/LoginLib"), v = t("./Construct"), g = cc._decorator, b = g.ccclass, _ = g.property, w = function(t) {
+var r = t("./gridManager"), a = t("./comboText"), s = t("./level_parameter"), c = t("./gameAudioClip"), l = t("./comboAward"), p = t("./setting"), h = t("./cover"), u = t("./subject"), d = t("../../commonLib/component/countDown"), f = t("./gameData"), m = t("../../commonLib/component/addUI"), y = t("../../commonLib/lib/LoginLib"), g = t("./Construct"), v = t("./settlementParameter"), b = t("./advertising"), _ = cc._decorator, w = _.ccclass, P = _.property, C = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -3730,9 +4052,17 @@ e.prototype.onLoad = function() {
 var t = this;
 o.instance = this;
 y.loginLib.LoginGame(function() {
-v.construct.userInfo.phone = y.loginLib.loginData.phone;
-v.construct.userInfo.property_num = y.loginLib.loginData.userInfo.property_num;
-cc.log("userinfo property_num is " + v.construct.userInfo.property_num);
+g.construct.userInfo.phone = y.loginLib.loginData.phone;
+g.construct.userInfo.property_num = y.loginLib.loginData.userInfo.property_num;
+cc.log("userinfo property_num is " + g.construct.userInfo.property_num);
+try {
+var e = y.loginLib.loginData.config, o = JSON.parse(e.config_set);
+t.level_parameter.setData(o);
+v.itemParameter.remoteItemParameter = JSON.parse(e.settlement);
+v.itemParameter.remoteThemeParameter = JSON.parse(e.theme);
+} catch (t) {
+cc.error(t);
+}
 });
 p.default.initVolume();
 this.freezeSpine.node.active = !1;
@@ -3787,6 +4117,8 @@ this.updateItemsCount();
 e.prototype.gameOver = function(t) {
 var e = this;
 if (!this.isGameOver) {
+this.showInterstitialAd();
+f.gameData.isFirst = !1;
 this.isGameOver = !0;
 this.gameOverNode.addUI(null, function(o) {
 o.setContinueCallback(e.continueGame.bind(e));
@@ -3807,7 +4139,7 @@ this.gridManager.clearAllBomb();
 }
 };
 e.prototype.倒计时回调 = function(t, e) {
-10 == e ? s.default.playTimeTip() : e < 10 && s.default.playTimeCountdown();
+10 == e ? c.default.playTimeTip() : e < 10 && c.default.playTimeCountdown();
 e <= 0 && this.gameOver(!0);
 };
 e.prototype.setTime = function(t) {
@@ -3831,7 +4163,7 @@ var t = this.curComboNum % this.comboAwardGap;
 this.onComboAwardProgress(t / this.comboAwardGap);
 if (0 == t) {
 this.onComboAward();
-s.default.playComboAward();
+c.default.playComboAward();
 }
 this.comboText.setCombo(this.curComboNum);
 } else this.isCanCombo = !0;
@@ -3915,13 +4247,14 @@ case 3:
 ++f.gameData.curFreezeTimeCount;
 o = t.freezeTimeLabel.node.parent;
 }
+f.curLevelProp.addProp(e.awardID);
 o && cc.tween(o).to(.15, {
 scale: 1.2
 }).to(.15, {
 scale: 1
 }).start();
 t.updateItemsCount();
-s.default.playGetComboAward();
+c.default.playGetComboAward();
 e.awardID = -1;
 t.scheduleOnce(function() {
 t.comboAwardNodePool.put(e.node);
@@ -3940,9 +4273,17 @@ this.resetCombo();
 this.curScore = 0;
 this.score.string = "0";
 };
+e.prototype.showInterstitialAd = function() {
+if (Math.random() <= y.loginLib.ad_probability) {
+b.default.showInterstitialAd();
+return !0;
+}
+return !1;
+};
 e.prototype.nextLevel = function(t) {
 var e = this;
 void 0 === t && (t = null);
+this.showInterstitialAd();
 var o = function() {
 e.settlement.addUI(null, function(t) {
 t.setNextlevelCallback(e.onClickNextLevel.bind(e));
@@ -3983,6 +4324,7 @@ break;
 case 3:
 f.gameData.curFreezeTimeCount += e;
 }
+f.curLevelProp.addProp(t, e);
 o.updateItemsCount();
 });
 }, "addItem");
@@ -3990,6 +4332,7 @@ o.updateItemsCount();
 e.prototype.点击提示 = function() {
 if (f.gameData.curTipCount > 0) {
 --f.gameData.curTipCount;
+f.curLevelProp.useProp(0);
 this.updateItemsCount();
 this.gridManager.autoLinkGrid();
 } else this.addItem(0, 3);
@@ -3997,6 +4340,7 @@ this.gridManager.autoLinkGrid();
 e.prototype.onBombSelect = function(t) {
 if (t) {
 --f.gameData.curLightningCount;
+f.curLevelProp.useProp(1);
 this.updateItemsCount();
 }
 };
@@ -4006,6 +4350,7 @@ f.gameData.curLightningCount > 0 ? this.gridManager.setBombSelectMode(!0) : this
 e.prototype.点击重排 = function() {
 if (f.gameData.curResetCount > 0) {
 --f.gameData.curResetCount;
+f.curLevelProp.useProp(2);
 this.updateItemsCount();
 this.gridManager.randomGridsPos();
 } else this.addItem(2, 1);
@@ -4013,6 +4358,7 @@ this.gridManager.randomGridsPos();
 e.prototype.点击冻结时间 = function() {
 if (f.gameData.curFreezeTimeCount > 0) {
 --f.gameData.curFreezeTimeCount;
+f.curLevelProp.useProp(3);
 this.updateItemsCount();
 this.freezeTime();
 } else this.addItem(3, 1);
@@ -4046,7 +4392,7 @@ this.time.pause();
 this.gridManager.pauseGenerateGrid();
 this.gridManager.pauseAllBomb();
 if (t) {
-s.default.playFreezeTime();
+c.default.playFreezeTime();
 this.freezeSpine.node.active = !0;
 this.freezeSpine.setAnimation(0, "BD_1", !1);
 this.freezeSpine.addAnimation(0, "BD_2", !0);
@@ -4067,7 +4413,7 @@ this.time.resume();
 this.gridManager.resumeGenerateGrid();
 this.gridManager.resumeAllBomb();
 if (t) {
-s.default.stopFreezeTime();
+c.default.stopFreezeTime();
 this.freezeSpine.setAnimation(0, "BD_3", !1);
 } else this.freezeSpine.node.active = !1;
 f.gameData.curFreezeTimeCount > 0 && (this.freezeTimeButton.interactable = !0);
@@ -4107,129 +4453,130 @@ this.goHome();
 };
 var o;
 e.instance = null;
-n([ _({
-type: c.default,
+n([ P({
+type: s.default,
 displayName: "关卡参数",
 tooltip: "关卡计算公式参数"
 }) ], e.prototype, "level_parameter", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "关卡"
 }) ], e.prototype, "level", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "积分"
 }) ], e.prototype, "score", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "红包数"
 }) ], e.prototype, "redPackets", void 0);
-n([ _({
+n([ P({
 type: d.default,
 displayName: "倒计时"
 }) ], e.prototype, "time", void 0);
-n([ _({
+n([ P({
 type: cc.Sprite,
 displayName: "倒计时进度条"
 }) ], e.prototype, "timeImg", void 0);
-n([ _({
+n([ P({
 type: a.default,
 displayName: "连击文字"
 }) ], e.prototype, "comboText", void 0);
-n([ _({
+n([ P({
 type: cc.Prefab,
 displayName: "连击奖励"
 }) ], e.prototype, "comboAwardPrefab", void 0);
-n([ _({
+n([ P({
 type: cc.Node,
 displayName: "连击奖励位置"
 }) ], e.prototype, "comboAwardPosNode", void 0);
-n([ _({
+n([ P({
 displayName: "连击间隔时间",
 tooltip: "两次格子消除时间间隔不超过n(n:为连击间隔时间)秒，则视为连击"
 }) ], e.prototype, "comboTime", void 0);
-n([ _({
+n([ P({
 displayName: "连击奖励间隔"
 }) ], e.prototype, "comboAwardGap", void 0);
-n([ _({
+n([ P({
 type: cc.Button,
 displayName: "提示按钮"
 }) ], e.prototype, "tipButton", void 0);
-n([ _({
+n([ P({
 type: cc.Button,
 displayName: "炸弹按钮"
 }) ], e.prototype, "bombButton", void 0);
-n([ _({
+n([ P({
 type: cc.Button,
 displayName: "重排按钮"
 }) ], e.prototype, "realignmentButton", void 0);
-n([ _({
+n([ P({
 type: cc.Button,
 displayName: "冻结时间按钮"
 }) ], e.prototype, "freezeTimeButton", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "提示数量"
 }) ], e.prototype, "tipLabel", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "炸弹数量"
 }) ], e.prototype, "bombLabel", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "重排数量"
 }) ], e.prototype, "realignmentLabel", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "冻结时间数量"
 }) ], e.prototype, "freezeTimeLabel", void 0);
-n([ _(r.default) ], e.prototype, "gridManager", void 0);
-n([ _(m.default) ], e.prototype, "gameOverNode", void 0);
-n([ _({
+n([ P(r.default) ], e.prototype, "gridManager", void 0);
+n([ P(m.default) ], e.prototype, "gameOverNode", void 0);
+n([ P({
 type: cc.EditBox,
 displayName: "跳关输入框"
 }) ], e.prototype, "skipLevelEdit", void 0);
-n([ _({
+n([ P({
 type: m.default,
 displayName: "结算界面"
 }) ], e.prototype, "settlement", void 0);
-n([ _({
+n([ P({
 type: h.default,
 displayName: "游戏封面"
 }) ], e.prototype, "cover", void 0);
-n([ _({
+n([ P({
 type: cc.Label,
 displayName: "封面关卡数"
 }) ], e.prototype, "curCoverLevel", void 0);
-n([ _({
+n([ P({
 type: u.default,
 displayName: "游戏主体"
 }) ], e.prototype, "subject", void 0);
-n([ _({
+n([ P({
 type: sp.Skeleton,
 displayName: "冰冻特效"
 }) ], e.prototype, "freezeSpine", void 0);
-n([ _({
+n([ P({
 type: cc.Sprite,
 displayName: "时间进度条"
 }) ], e.prototype, "timePorcessSP", void 0);
-n([ _({
+n([ P({
 type: cc.SpriteFrame,
 displayName: "时间进度条图"
 }) ], e.prototype, "timePorcessSF", void 0);
-n([ _({
+n([ P({
 type: cc.SpriteFrame,
 displayName: "时间进度条冰图"
 }) ], e.prototype, "timePorcessSF2", void 0);
-return e = o = n([ b ], e);
+return e = o = n([ w ], e);
 }(cc.Component);
-o.default = w;
+o.default = C;
 cc._RF.pop();
 }, {
 "../../commonLib/component/addUI": "addUI",
 "../../commonLib/component/countDown": "countDown",
 "../../commonLib/lib/LoginLib": "LoginLib",
 "./Construct": "Construct",
+"./advertising": "advertising",
 "./comboAward": "comboAward",
 "./comboText": "comboText",
 "./cover": "cover",
@@ -4238,6 +4585,7 @@ cc._RF.pop();
 "./gridManager": "gridManager",
 "./level_parameter": "level_parameter",
 "./setting": "setting",
+"./settlementParameter": "settlementParameter",
 "./subject": "subject"
 } ],
 gameOver: [ function(t, e, o) {
@@ -4262,13 +4610,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/nodeOperation"), a = t("./advertising"), c = cc._decorator, s = c.ccclass, l = c.property, p = function(t) {
+var r = t("../../commonLib/component/nodeOperation"), a = t("./advertising"), s = t("../../commonLib/lib/ReportLib"), c = t("./gameData"), l = cc._decorator, p = l.ccclass, h = l.property, u = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -4291,6 +4639,8 @@ for (var i = 0, n = this.bombImgs; i < n.length; i++) {
 n[i].node.active = !t;
 }
 this.node.active = !0;
+s.reportLib.stageGameFinish(0, c.gameData.curLevel, 0, c.curLevelProp.getAddProp(), c.curLevelProp.getUseProp(), 0, 0, c.gameData.isFirst ? 1 : 0);
+c.curLevelProp.reset();
 };
 e.prototype.setContinueCallback = function(t) {
 this.continueCallback = t;
@@ -4319,21 +4669,23 @@ e.prototype.点击主页 = function() {
 this.goHomeCallback && this.goHomeCallback();
 this.op.node.active = !1;
 };
-n([ l({
+n([ h({
 type: cc.Sprite,
 displayName: "时间相关图"
 }) ], e.prototype, "timeImgs", void 0);
-n([ l({
+n([ h({
 type: cc.Sprite,
 displayName: "炸弹相关图"
 }) ], e.prototype, "bombImgs", void 0);
-return e = n([ s ], e);
+return e = n([ p ], e);
 }(cc.Component);
-o.default = p;
+o.default = u;
 cc._RF.pop();
 }, {
 "../../commonLib/component/nodeOperation": "nodeOperation",
-"./advertising": "advertising"
+"../../commonLib/lib/ReportLib": "ReportLib",
+"./advertising": "advertising",
+"./gameData": "gameData"
 } ],
 gridManager: [ function(t, e, o) {
 "use strict";
@@ -4357,13 +4709,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r, a = t("./grid"), c = t("./linkGamePathFinding"), s = t("./gameAudioClip"), l = t("./linkLine"), p = t("./scoreAni"), h = t("../../commonLib/component/playAnimation"), u = t("../../commonLib/lib/gameLib"), d = cc._decorator, f = d.ccclass, m = d.property;
+var r, a = t("./grid"), s = t("./linkGamePathFinding"), c = t("./gameAudioClip"), l = t("./linkLine"), p = t("./scoreAni"), h = t("../../commonLib/component/playAnimation"), u = t("../../commonLib/lib/gameLib"), d = cc._decorator, f = d.ccclass, m = d.property;
 (function(t) {
 t[t.UP = 0] = "UP";
 t[t.DOWN = 1] = "DOWN";
@@ -4393,7 +4745,7 @@ e.maxY = 0;
 e.gridSize = cc.Size.ZERO;
 e.allGrids = [];
 e.gridTypes = [ 1, 2, 3, 4 ];
-e.pathFinding = new c.default();
+e.pathFinding = new s.default();
 e.bombTime = 60;
 e.levelParameter = null;
 e.isBombSelectMode = null;
@@ -4481,7 +4833,7 @@ e.prototype.setBombSelectMode = function(t) {
 if (this.isBombSelectMode != t) {
 this.isBombSelectMode = t;
 this.bombSelectNode.active = t;
-t ? s.default.playLightningSelect() : s.default.stopLightningSelect();
+t ? c.default.playLightningSelect() : c.default.stopLightningSelect();
 this.clearCurSelectGrid();
 this.spLightningBtn.node.active = t;
 }
@@ -4533,7 +4885,7 @@ return o;
 }, o = e(), i = e(), n = this.gridTypes[u.gameLib.GetRandomNum(0, this.gridTypes.length - 1)], r = this.addGrid(o.x, o.y, n, !1, !1), a = this.addGrid(i.x, i.y, n, !1, !1);
 r.playGenerateAni();
 a.playGenerateAni();
-s.default.playRebirthGrid();
+c.default.playRebirthGrid();
 this.isAllGridBlock() && this.randomGridsPos();
 }
 };
@@ -4551,8 +4903,8 @@ var e = u.gameLib.GetRandomNum(0, t.length - 1), o = t[e];
 t.splice(e, 1);
 return o;
 }, r = 0, a = e; r < a.length; r++) {
-var c = a[r];
-n().setBombTime(c);
+var s = a[r];
+n().setBombTime(s);
 }
 };
 e.prototype.randomGridsUnknown = function() {
@@ -4577,12 +4929,12 @@ if (!(++e > 11)) {
 if (e > 10) for (var i = 0, n = t.allGrids; i < n.length; i++) {
 (d = n[i]).freezing && t.unfreezeGrid(d.x, d.y);
 }
-for (var r = [], a = [], c = 0; c < t.allGrids.length; ++c) {
-var s = t.allGrids[c];
-if (s.id >= 0) {
-r.push(s);
-s.stopMove();
-a.push(cc.v2(s.x, s.y));
+for (var r = [], a = [], s = 0; s < t.allGrids.length; ++s) {
+var c = t.allGrids[s];
+if (c.id >= 0) {
+r.push(c);
+c.stopMove();
+a.push(cc.v2(c.x, c.y));
 }
 }
 for (var l = function() {
@@ -4608,7 +4960,7 @@ return !1;
 }
 };
 o();
-this.isAllGridBlock() ? this.randomGridsPos() : s.default.playResetGridPos();
+this.isAllGridBlock() ? this.randomGridsPos() : c.default.playResetGridPos();
 };
 e.prototype.isAllGridBlock = function() {
 for (var t = this, e = function(e, o) {
@@ -4641,21 +4993,21 @@ if (r[n].equals(t)) return !1;
 return !0;
 }, r = function(t, e, o, r) {
 if (o) if (r) for (var a = t.x; a <= e.x; ++a) {
-var c = cc.v2(a, t.y);
-n(c) && i.push(c);
-} else for (var s = t.y; s <= e.y; ++s) {
-c = cc.v2(t.x, s);
-n(c) && i.push(c);
+var s = cc.v2(a, t.y);
+n(s) && i.push(s);
+} else for (var c = t.y; c <= e.y; ++c) {
+s = cc.v2(t.x, c);
+n(s) && i.push(s);
 } else if (r) for (a = t.x; a >= e.x; --a) {
-c = cc.v2(a, t.y);
-n(c) && i.push(c);
-} else for (s = t.y; s >= e.y; --s) {
-c = cc.v2(t.x, s);
-n(c) && i.push(c);
+s = cc.v2(a, t.y);
+n(s) && i.push(s);
+} else for (c = t.y; c >= e.y; --c) {
+s = cc.v2(t.x, c);
+n(s) && i.push(s);
 }
 }, a = 0; a < t.length; ++a) {
-var c = t[a], s = t[a + 1];
-c && s && (c.x > s.x ? r(c, s, !1, !0) : c.x < s.x ? r(c, s, !0, !0) : c.y > s.y ? r(c, s, !1, !1) : c.y < s.y && r(c, s, !0, !1));
+var s = t[a], c = t[a + 1];
+s && c && (s.x > c.x ? r(s, c, !1, !0) : s.x < c.x ? r(s, c, !0, !0) : s.y > c.y ? r(s, c, !1, !1) : s.y < c.y && r(s, c, !0, !1));
 }
 i.push(o);
 return i;
@@ -4681,29 +5033,29 @@ o[e].pauseBombTime();
 this.gameOverCallback && this.gameOverCallback(t);
 };
 e.prototype.onBomb = function(t) {
-s.default.playBombExplosion();
+c.default.playBombExplosion();
 this.gameOver(!1);
 };
 e.prototype.setGridAttribute = function(t, e, o) {
 void 0 === o && (o = 0);
 if (t && !(t <= 0)) {
 for (var i = [], n = 0, r = this.allGrids; n < r.length; n++) {
-var a = r[n], c = !1;
+var a = r[n], s = !1;
 switch (e) {
 case 0:
-c = !a.isBomb();
+s = !a.isBomb();
 break;
 
 case 1:
-c = !a.hideMode;
+s = !a.hideMode;
 break;
 
 case 2:
-c = !a.freezing;
+s = !a.freezing;
 }
-c && i.push(a);
+s && i.push(a);
 }
-for (var s = [], l = 0; l < t; ++l) if (i.length) {
+for (var c = [], l = 0; l < t; ++l) if (i.length) {
 var p = u.gameLib.GetRandomNum(0, i.length - 1);
 switch (e) {
 case 0:
@@ -4717,10 +5069,10 @@ break;
 case 2:
 i[p].freezing = !0;
 }
-s.push(i[p]);
+c.push(i[p]);
 i.splice(p, 1);
 }
-return s;
+return c;
 }
 };
 e.prototype.setBomb = function() {
@@ -4760,15 +5112,15 @@ var a = n[i];
 null == o[e(a)] && (o[e(a)] = []);
 o[e(a)].push(a);
 }
-for (var c in o) {
-var s = o[c];
-s.sort(function(t, o) {
+for (var s in o) {
+var c = o[s];
+c.sort(function(t, o) {
 return e(t, !0) - e(o, !0);
 });
 switch (t) {
 case r.UP:
-for (var l = this.maxY - 2, p = s.length - 1; p >= 0; --p) {
-var h = s[p];
+for (var l = this.maxY - 2, p = c.length - 1; p >= 0; --p) {
+var h = c[p];
 if (h.y == l) l--; else {
 h.moveToY(l, this.pathFinding);
 l--;
@@ -4778,8 +5130,8 @@ break;
 
 case r.DOWN:
 var u = 1;
-for (p = 0; p < s.length; ++p) {
-var d = s[p];
+for (p = 0; p < c.length; ++p) {
+var d = c[p];
 if (d.y == u) u++; else {
 d.moveToY(u, this.pathFinding);
 u++;
@@ -4788,8 +5140,8 @@ u++;
 break;
 
 case r.LEFT:
-for (u = 1, p = 0; p < s.length; ++p) {
-var f = s[p];
+for (u = 1, p = 0; p < c.length; ++p) {
+var f = c[p];
 if (f.x == u) u++; else {
 f.moveToX(u, this.pathFinding);
 u++;
@@ -4798,8 +5150,8 @@ u++;
 break;
 
 case r.RIGHT:
-for (l = this.maxX - 2, p = s.length - 1; p >= 0; --p) {
-var m = s[p];
+for (l = this.maxX - 2, p = c.length - 1; p >= 0; --p) {
+var m = c[p];
 if (m.x == l) l--; else {
 m.moveToX(l, this.pathFinding);
 l--;
@@ -4815,8 +5167,8 @@ this.curSelectGrid = null;
 }
 };
 e.prototype.onGridClick = function(t) {
-if (this.bombSelectNode.active) this.onBombSelect(t); else if (t.freezing) s.default.playClickFreeze(); else if (!this.curSelectGrid || t == this.curSelectGrid || this.curSelectGrid.id != t.id || !this.linkGrid(this.curSelectGrid, t)) {
-null != this.curSelectGrid ? s.default.playNoLink() : s.default.playGridSelect();
+if (this.bombSelectNode.active) this.onBombSelect(t); else if (t.freezing) c.default.playClickFreeze(); else if (!this.curSelectGrid || t == this.curSelectGrid || this.curSelectGrid.id != t.id || !this.linkGrid(this.curSelectGrid, t)) {
+null != this.curSelectGrid ? c.default.playNoLink() : c.default.playGridSelect();
 this.clearCurSelectGrid();
 this.curSelectGrid = t;
 this.curSelectGrid.isSelect = !0;
@@ -4833,36 +5185,36 @@ this.bombSelectCallback && this.bombSelectCallback(!0);
 for (var o = [], i = 0, n = this.allGrids; i < n.length; i++) {
 (m = n[i]).id == t.id && o.push(m);
 }
-for (var r = .25, a = u.gameLib.convertToSpacePos(this.spLightningBtn.node, this.graphics.node), c = function(t) {
-var i = o[t], n = cc.v2(i.getX(), i.getY()), c = l.spLightningPool.get();
-c || (c = cc.instantiate(l.spLightning));
-l.graphics.node.addChild(c);
-var s = c.getComponent(h.default), p = s.play();
+for (var r = .25, a = u.gameLib.convertToSpacePos(this.spLightningBtn.node, this.graphics.node), s = function(t) {
+var i = o[t], n = cc.v2(i.getX(), i.getY()), s = l.spLightningPool.get();
+s || (s = cc.instantiate(l.spLightning));
+l.graphics.node.addChild(s);
+var c = s.getComponent(h.default), p = c.play();
 p.duration > r && (r = p.duration);
 l.scheduleOnce(function() {
-e.spLightningPool.put(c);
+e.spLightningPool.put(s);
 }, p.duration);
-c.x = a.x > n.x ? n.x + (a.x - n.x) / 2 : a.x + (n.x - a.x) / 2;
-c.y = a.y > n.y ? n.y + (a.y - n.y) / 2 : a.y + (n.y - a.y) / 2;
+s.x = a.x > n.x ? n.x + (a.x - n.x) / 2 : a.x + (n.x - a.x) / 2;
+s.y = a.y > n.y ? n.y + (a.y - n.y) / 2 : a.y + (n.y - a.y) / 2;
 var u = n.sub(a), d = Math.atan2(u.x, u.y) / Math.PI * 180;
-c.angle = -d;
+s.angle = -d;
 var f = n.sub(a).mag();
-c.scaleY = f / c.height;
+s.scaleY = f / s.height;
 var m = l.spLightningHitPool.get();
 m || (m = cc.instantiate(l.spLightningHit));
 l.graphics.node.addChild(m);
-s = m.getComponent(h.default);
+c = m.getComponent(h.default);
 m.x = n.x;
 m.y = n.y;
 m.active = !1;
 l.scheduleOnce(function() {
 m.active = !0;
-var t = s.play();
+var t = c.play();
 e.scheduleOnce(function() {
 e.spLightningHitPool.put(m);
 }, t.duration);
 }, p.duration);
-}, l = this, p = 0; p < o.length; ++p) c(p);
+}, l = this, p = 0; p < o.length; ++p) s(p);
 for (var d = 0, f = o; d < f.length; d++) {
 var m = f[d];
 this.removeGrid(m);
@@ -4871,7 +5223,7 @@ this.spLightningBtn.node.active = !0;
 this.scheduleOnce(function() {
 e.spLightningBtn.node.active = !1;
 }, r);
-s.default.playLightning();
+c.default.playLightning();
 }
 };
 e.prototype.点击炸弹选择框 = function() {
@@ -4891,11 +5243,11 @@ e.prototype.linkGrid = function(t, e) {
 var o = this, i = this.pathFinding.search(cc.v2(t.x, t.y), cc.v2(e.x, e.y));
 if (i && i.length > 1) {
 this.paintLine(i);
-var n = this.getScroeLine(i, this.pathFinding.startPoint, this.pathFinding.endPoint), a = u.gameLib.convertToSpacePos(this.scorePosNode, this.graphics.node), c = this.gridSize.width / 2, l = this.gridSize.height / 2;
+var n = this.getScroeLine(i, this.pathFinding.startPoint, this.pathFinding.endPoint), a = u.gameLib.convertToSpacePos(this.scorePosNode, this.graphics.node), s = this.gridSize.width / 2, l = this.gridSize.height / 2;
 this.scoreAniDelay = 0;
 for (var p = 0, h = n; p < h.length; p++) {
 var d = h[p], f = this.getScoreAni();
-f.setPos(d.x * this.gridSize.width + c, d.y * this.gridSize.height + l);
+f.setPos(d.x * this.gridSize.width + s, d.y * this.gridSize.height + l);
 f.moveToTarget(this.scoreAniDelay, a, function(t) {
 o.linkRemovedCallback && o.linkRemovedCallback(1);
 cc.tween(o.scorePosNode).to(.15, {
@@ -4912,7 +5264,7 @@ this.comboCallback && this.comboCallback();
 var m = t.isBomb(), y = e.isBomb();
 this.removeGrid(t);
 this.removeGrid(e);
-s.default.playRemoveGrid();
+c.default.playRemoveGrid();
 if (this.isNextLevel) return !0;
 switch (this.levelParameter.move) {
 case 0:
@@ -4959,9 +5311,9 @@ t[e] || (t[e] = []);
 t[e][o] = cc.v2(e + 1, o + 1);
 }
 for (var i = 0, n = this.allGrids; i < n.length; i++) {
-t[(s = n[i]).x - 1][s.y - 1] = null;
+t[(c = n[i]).x - 1][c.y - 1] = null;
 }
-for (var r = [], a = 0, c = t; a < c.length; a++) for (var s, l = 0, p = s = c[a]; l < p.length; l++) {
+for (var r = [], a = 0, s = t; a < s.length; a++) for (var c, l = 0, p = c = s[a]; l < p.length; l++) {
 var h = p[l];
 h && r.push(h);
 }
@@ -4977,7 +5329,7 @@ return null;
 e.prototype.unfreezeGrid = function(t, e) {
 var o = this, i = this.getGrid(t, e);
 if (i && i.freezing) {
-s.default.playUnfreezeGrid();
+c.default.playUnfreezeGrid();
 i.unfreeze();
 var n = this.unfreezeAniPool.get();
 n || (n = cc.instantiate(this.unfreezePrefab));
@@ -5023,23 +5375,23 @@ void 0 === i && (i = !1);
 void 0 === n && (n = !1);
 void 0 === r && (r = 0);
 this.pathFinding.addBlockPoint([ cc.v2(t, e) ]);
-var c = this.createGrid();
-this.node.addChild(c);
-var s = c.getComponent(a.default);
-this.allGrids.push(s);
-s.setClickCallback(this.onGridClick.bind(this));
-s.setBombCallback(this.onBomb.bind(this));
-s.setBombTime(r);
-s.stopAnimation();
-s.resetTrun();
-s.isSelect = !1;
-s.size = this.gridSize;
-s.x = t;
-s.y = e;
-s.id = o;
-s.freezing = i;
-s.hideMode = n;
-return s;
+var s = this.createGrid();
+this.node.addChild(s);
+var c = s.getComponent(a.default);
+this.allGrids.push(c);
+c.setClickCallback(this.onGridClick.bind(this));
+c.setBombCallback(this.onBomb.bind(this));
+c.setBombTime(r);
+c.stopAnimation();
+c.resetTrun();
+c.isSelect = !1;
+c.size = this.gridSize;
+c.x = t;
+c.y = e;
+c.id = o;
+c.freezing = i;
+c.hideMode = n;
+return c;
 };
 e.prototype.getLinkLine = function() {
 var t = this.linkPool.get();
@@ -5049,23 +5401,23 @@ return t.getComponent(l.default);
 };
 e.prototype.paintLine = function(t) {
 if (t && t.length && t.length > 1) for (var e = this.gridSize.width / 2, o = this.gridSize.height / 2, i = .5, n = 1; n < t.length; ++n) {
-var r = t[n - 1], a = t[n], c = this.getLinkLine();
-c.node.x = a.x * this.gridSize.width + e;
-c.node.y = a.y * this.gridSize.height + o;
+var r = t[n - 1], a = t[n], s = this.getLinkLine();
+s.node.x = a.x * this.gridSize.width + e;
+s.node.y = a.y * this.gridSize.height + o;
 if (r.x > a.x) {
-c.node.width = (r.x - a.x) * this.gridSize.width;
-c.node.angle = 180;
+s.node.width = (r.x - a.x) * this.gridSize.width;
+s.node.angle = 180;
 } else if (r.y < a.y) {
-c.node.width = (a.y - r.y) * this.gridSize.height;
-c.node.angle = 90;
+s.node.width = (a.y - r.y) * this.gridSize.height;
+s.node.angle = 90;
 } else if (r.y > a.y) {
-c.node.width = (r.y - a.y) * this.gridSize.height;
-c.node.angle = -90;
+s.node.width = (r.y - a.y) * this.gridSize.height;
+s.node.angle = -90;
 } else {
-c.node.width = (a.x - r.x) * this.gridSize.width;
-c.node.angle = 0;
+s.node.width = (a.x - r.x) * this.gridSize.width;
+s.node.angle = 0;
 }
-c.setAni(i, .2, this.linkPool);
+s.setAni(i, .2, this.linkPool);
 i += .2;
 }
 };
@@ -5197,13 +5549,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/countDown"), a = t("./gameData"), c = cc._decorator, s = c.ccclass, l = c.property, p = function(t) {
+var r = t("../../commonLib/component/countDown"), a = t("./gameData"), s = cc._decorator, c = s.ccclass, l = s.property, p = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -5436,10 +5788,10 @@ o.addBlockPoint([ cc.v2(t, e) ]);
 }
 this._x = t;
 this._y = e;
-var c = this.getX(), s = this.getY();
+var s = this.getX(), c = this.getY();
 this.curMoveTween = cc.tween(this.node).to(.2 * a, {
-x: c,
-y: s
+x: s,
+y: c
 }, {
 easing: "backOut"
 }).call(function() {
@@ -5534,7 +5886,7 @@ n([ l({
 type: cc.Button,
 displayName: "点击按钮"
 }) ], e.prototype, "button", void 0);
-return e = n([ s ], e);
+return e = n([ c ], e);
 }(cc.Component);
 o.default = p;
 cc._RF.pop();
@@ -5564,106 +5916,110 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/lib/gameLib"), a = cc._decorator, c = a.ccclass, s = a.property, l = function() {
+o.level_parameter_result = void 0;
+var r = t("../../commonLib/lib/gameLib"), a = cc._decorator, s = a.ccclass, c = a.property, l = function() {
 function t() {
-this.baseValue = 0;
+this.initial = 0;
 this.step = 0;
-this.stepCount = 0;
+this.steps = 0;
 }
 t.prototype.getValue = function(t) {
 var e = Math.floor(t / this.step);
-return this.baseValue + e * this.stepCount;
+return this.initial + e * this.steps;
 };
 t.prototype.getValue_ = function(t) {
 var e = Math.floor(t / this.step);
-return this.baseValue - e * this.stepCount;
+return this.initial - e * this.steps;
 };
-n([ s({
+t.prototype.setData = function(t) {
+for (var e in t) this[e] = t[e];
+};
+n([ c({
 displayName: "初始值",
 step: 1
-}) ], t.prototype, "baseValue", void 0);
-n([ s({
+}) ], t.prototype, "initial", void 0);
+n([ c({
 displayName: "步数",
 step: 1
 }) ], t.prototype, "step", void 0);
-n([ s({
+n([ c({
 displayName: "步长",
 step: 1
-}) ], t.prototype, "stepCount", void 0);
-return t = n([ c("parameter_base") ], t);
+}) ], t.prototype, "steps", void 0);
+return t = n([ s("parameter_base") ], t);
 }(), p = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
-e.resetValue = 0;
+e.reset = 0;
 return e;
 }
 e.prototype.getValue = function(e) {
-e %= this.resetValue;
+e %= this.reset;
 return t.prototype.getValue.call(this, e);
 };
 e.prototype.getValue_ = function(e) {
-e %= this.resetValue;
+e %= this.reset;
 return t.prototype.getValue_.call(this, e);
 };
-n([ s({
+n([ c({
 displayName: "重置值",
 step: 1
-}) ], e.prototype, "resetValue", void 0);
-return e = n([ c("parameter_rv") ], e);
+}) ], e.prototype, "reset", void 0);
+return e = n([ s("parameter_rv") ], e);
 }(l), h = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
-e.limit = 0;
+e.threshold = 0;
 return e;
 }
 e.prototype.getTime = function(t, e) {
-var o = this.baseValue * e - Math.floor(t / this.step) * this.stepCount;
-o < this.limit && (o = this.limit);
+var o = this.initial * e - Math.floor(t / this.step) * this.steps;
+o < this.threshold && (o = this.threshold);
 return o;
 };
 e.prototype.getValue = function(e) {
 var o = t.prototype.getValue.call(this, e);
-o > this.limit && (o = this.limit);
+o > this.threshold && (o = this.threshold);
 return o;
 };
 e.prototype.getValue_ = function(e) {
 var o = t.prototype.getValue_.call(this, e);
-o < this.limit && (o = this.limit);
+o < this.threshold && (o = this.threshold);
 return o;
 };
-n([ s({
+n([ c({
 displayName: "阈值",
 step: 1
-}) ], e.prototype, "limit", void 0);
-return e = n([ c("parameter_limit") ], e);
+}) ], e.prototype, "threshold", void 0);
+return e = n([ s("parameter_limit") ], e);
 }(l), u = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
-e.limit = 0;
+e.threshold = 0;
 return e;
 }
 e.prototype.getValue = function(e) {
 var o = t.prototype.getValue.call(this, e);
-o > this.limit && (o = this.limit);
+o > this.threshold && (o = this.threshold);
 return o;
 };
 e.prototype.getValue_ = function(e) {
 var o = t.prototype.getValue_.call(this, e);
-o < this.limit && (o = this.limit);
+o < this.threshold && (o = this.threshold);
 return o;
 };
 e.prototype.getTypeNum = function(t, e) {
-t %= this.resetValue;
-var o = this.baseValue;
+t %= this.reset;
+var o = this.initial;
 switch (e) {
 case 40:
 o += 1;
@@ -5676,49 +6032,58 @@ break;
 case 70:
 o += 3;
 }
-var i = o + Math.floor(t / this.step) * this.stepCount;
-i > this.limit && (i = this.limit);
+var i = o + Math.floor(t / this.step) * this.steps;
+i > this.threshold && (i = this.threshold);
 return i;
 };
-n([ s({
+n([ c({
 displayName: "阈值",
 step: 1
-}) ], e.prototype, "limit", void 0);
-return e = n([ c("parameter_rvl") ], e);
+}) ], e.prototype, "threshold", void 0);
+return e = n([ s("parameter_rvl") ], e);
 }(p), d = function() {
 function t() {
-this.count = null;
-this.condition = null;
-this.time = null;
+this.once_num = null;
+this.appear_type = null;
+this.countdown = null;
 }
-n([ s({
+t.prototype.setData = function(t) {
+this.appear_type.setData(t.appear_type);
+this.countdown.setData(t.countdown);
+this.once_num.setData(t.once_num);
+};
+n([ c({
 type: u,
 displayName: "一次出现个数"
-}) ], t.prototype, "count", void 0);
-n([ s({
+}) ], t.prototype, "once_num", void 0);
+n([ c({
 type: h,
 displayName: "出现方式"
-}) ], t.prototype, "condition", void 0);
-n([ s({
+}) ], t.prototype, "appear_type", void 0);
+n([ c({
 type: u,
 displayName: "倒计时"
-}) ], t.prototype, "time", void 0);
-return t = n([ c("parameter_bomb") ], t);
+}) ], t.prototype, "countdown", void 0);
+return t = n([ s("parameter_bomb") ], t);
 }(), f = function() {
 function t() {
 this.count = null;
 this.condition = null;
 }
-n([ s({
+t.prototype.setData = function(t) {
+this.count.setData(t.trigger);
+this.condition.setData(t.reflesh);
+};
+n([ c({
 type: u,
 displayName: "消掉多少块触发"
 }) ], t.prototype, "count", void 0);
-n([ s({
+n([ c({
 type: u,
 displayName: "刷新时间",
 step: 1
 }) ], t.prototype, "condition", void 0);
-return t = n([ c("parameter_easterGrid") ], t);
+return t = n([ s("parameter_easterGrid") ], t);
 }(), m = function() {
 return function() {};
 }();
@@ -5773,6 +6138,17 @@ cc.log("重生格子数：" + e.easterGridCondition);
 cc.log("重生格子间隔时间：" + e.easterGridTime);
 return e;
 };
+t.prototype.setData = function(t) {
+this.width.setData(t.width);
+this.height.setData(t.height);
+this.bomb.setData(t.bomb);
+this.typesNum.setData(t.cube_type);
+this.unknownGrid.setData(t.cube_unknown);
+this.move.setData(t.displacement.direction);
+this.freezeGrid.setData(t.frozen_cube);
+this.time.setData(t.gate_time);
+this.easterGrid.setData(t.reborn_cube);
+};
 t.prototype.getWidth = function() {
 return this.width.getValue(this.level);
 };
@@ -5783,13 +6159,13 @@ t.prototype.getTypeCount = function() {
 return this.typesNum.getTypeNum(this.level, this.getWidth() * this.getHeight());
 };
 t.prototype.getBombCount = function() {
-return this.bomb.count.getValue(this.level);
+return this.bomb.once_num.getValue(this.level);
 };
 t.prototype.getBombCondition = function() {
-return this.bomb.condition.getValue(this.level);
+return this.bomb.appear_type.getValue(this.level);
 };
 t.prototype.getBombTime = function() {
-return this.bomb.time.getValue_(this.level);
+return this.bomb.countdown.getValue_(this.level);
 };
 t.prototype.getFreezeGridNum = function() {
 return this.freezeGrid.getValue(this.level);
@@ -5804,52 +6180,52 @@ t.prototype.getMoveCondition = function() {
 var t = this.move.getValue(this.level);
 return r.gameLib.GetRandomNum(0, t);
 };
-n([ s({
+n([ c({
 type: p,
 displayName: "宽"
 }) ], t.prototype, "width", void 0);
-n([ s({
+n([ c({
 type: p,
 displayName: "高"
 }) ], t.prototype, "height", void 0);
-n([ s({
+n([ c({
 type: u,
 displayName: "方块种类增加"
 }) ], t.prototype, "typesNum", void 0);
-n([ s({
+n([ c({
 type: h,
 displayName: "关卡时间"
 }) ], t.prototype, "time", void 0);
-n([ s({
+n([ c({
 type: u,
 displayName: "未知方块"
 }) ], t.prototype, "unknownGrid", void 0);
-n([ s({
+n([ c({
 type: d,
 displayName: "毁灭炸弹"
 }) ], t.prototype, "bomb", void 0);
-n([ s({
+n([ c({
 type: h,
 displayName: "位移"
 }) ], t.prototype, "move", void 0);
-n([ s({
+n([ c({
 type: u,
 displayName: "冰冻方块"
 }) ], t.prototype, "freezeGrid", void 0);
-n([ s({
+n([ c({
 type: f,
 displayName: "重生方块"
 }) ], t.prototype, "easterGrid", void 0);
-n([ s({
+n([ c({
 displayName: "冰冻块附加时间"
 }) ], t.prototype, "freezeGridAddTime", void 0);
-n([ s({
+n([ c({
 displayName: "未知块附加时间"
 }) ], t.prototype, "unknownGridAddTime", void 0);
-n([ s({
+n([ c({
 displayName: "炸弹块附加时间"
 }) ], t.prototype, "bombGridAddTime", void 0);
-return t = n([ c("level_parameter") ], t);
+return t = n([ s("level_parameter") ], t);
 }();
 o.default = y;
 cc._RF.pop();
@@ -5940,7 +6316,7 @@ this.m_line = [];
 return !1;
 }
 if (t.row == e.row) {
-for (var o = (c = t.col - e.col) / Math.abs(c), i = t.row, n = 1; n < Math.abs(c); ++n) {
+for (var o = (s = t.col - e.col) / Math.abs(s), i = t.row, n = 1; n < Math.abs(s); ++n) {
 var a = t.col - n * o;
 if (null != this.pathObj[a + "*" + i]) {
 this.m_line = [];
@@ -5951,8 +6327,8 @@ this.m_line.push(new r(t, e));
 return !0;
 }
 if (t.col == e.col) {
-var c;
-for (o = (c = t.row - e.row) / Math.abs(c), a = t.col, n = 1; n < Math.abs(c); ++n) {
+var s;
+for (o = (s = t.row - e.row) / Math.abs(s), a = t.col, n = 1; n < Math.abs(s); ++n) {
 i = t.row - n * o;
 if (null != this.pathObj[a + "*" + i]) {
 this.m_line = [];
@@ -6002,43 +6378,43 @@ i(t, new n(t.row, t.col - a), new n(e.row, e.col - a), e);
 return !0;
 }
 this.m_line = [];
-for (var c = t.row + 1; c <= this.m_row; ++c) if (c == this.m_row) {
-if (c - 1 == t.row && null == this.pathObj[e.col + "*" + (c - 1)]) {
-if (this.isDirectLink(e, new n(c - 1, e.col))) {
+for (var s = t.row + 1; s <= this.m_row; ++s) if (s == this.m_row) {
+if (s - 1 == t.row && null == this.pathObj[e.col + "*" + (s - 1)]) {
+if (this.isDirectLink(e, new n(s - 1, e.col))) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 }
 this.m_line = [];
-if (c - 1 == e.row && null == this.pathObj[e.col + "*" + (c - 1)]) {
-if (this.isDirectLink(t, new n(c - 1, t.col))) {
+if (s - 1 == e.row && null == this.pathObj[e.col + "*" + (s - 1)]) {
+if (this.isDirectLink(t, new n(s - 1, t.col))) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 }
 this.m_line = [];
-if (null != this.pathObj[t.col + "*" + (c - 1)] || null != this.pathObj[e.col + "*" + (c - 1)]) break;
-var s = this.isDirectLink(t, new n(c - 1, t.col)), l = this.isDirectLink(e, new n(c - 1, e.col));
-if (s && l) {
+if (null != this.pathObj[t.col + "*" + (s - 1)] || null != this.pathObj[e.col + "*" + (s - 1)]) break;
+var c = this.isDirectLink(t, new n(s - 1, t.col)), l = this.isDirectLink(e, new n(s - 1, e.col));
+if (c && l) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 } else {
 this.m_line = [];
-var p = new n(c, t.col);
+var p = new n(s, t.col);
 if (null != this.pathObj[p.col + "*" + p.row]) break;
-s = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
-if (s && l) return !0;
+c = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
+if (c && l) return !0;
 }
 this.m_line = [];
-for (c = t.row - 1; c >= -1; --c) if (-1 == c) {
+for (s = t.row - 1; s >= -1; --s) if (-1 == s) {
 if (0 == t.row && null == this.pathObj[e.col + "*0"]) {
 if (this.isDirectLink(e, new n(0, e.col))) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 }
@@ -6046,24 +6422,24 @@ this.m_line = [];
 if (0 == e.row && null == this.pathObj[t.col + "*0"]) {
 if (this.isDirectLink(t, new n(0, t.col))) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 }
 this.m_line = [];
 if (this.pathObj[t.col + "*0"] || null != this.pathObj[e.col + "*0"]) break;
-s = this.isDirectLink(t, new n(0, t.col)), l = this.isDirectLink(e, new n(0, e.col));
-if (s && l) {
+c = this.isDirectLink(t, new n(0, t.col)), l = this.isDirectLink(e, new n(0, e.col));
+if (c && l) {
 this.m_line = [];
-i(t, new n(c, t.col), new n(c, e.col), e);
+i(t, new n(s, t.col), new n(s, e.col), e);
 return !0;
 }
 } else {
 this.m_line = [];
-p = new n(c, t.col);
+p = new n(s, t.col);
 if (null != this.pathObj[p.col + "*" + p.row]) break;
-s = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
-if (s && l) return !0;
+c = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
+if (c && l) return !0;
 }
 this.m_line = [];
 for (var h = t.col - 1; h >= -1; --h) if (-1 == h) {
@@ -6084,8 +6460,8 @@ return !0;
 }
 this.m_line = [];
 if (null != this.pathObj["0*" + t.row] || null != this.pathObj["0*" + e.row]) break;
-s = this.isDirectLink(t, new n(t.row, 0)), l = this.isDirectLink(e, new n(e.row, 0));
-if (s && l) {
+c = this.isDirectLink(t, new n(t.row, 0)), l = this.isDirectLink(e, new n(e.row, 0));
+if (c && l) {
 this.m_line = [];
 i(t, new n(t.row, h), new n(e.row, h), e);
 return !0;
@@ -6094,8 +6470,8 @@ return !0;
 this.m_line = [];
 p = new n(t.row, h);
 if (null != this.pathObj[p.col + "*" + p.row]) break;
-s = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
-if (s && l) return !0;
+c = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
+if (c && l) return !0;
 }
 this.m_line = [];
 for (h = t.col + 1; h <= this.m_col; ++h) if (h == this.m_col) {
@@ -6116,8 +6492,8 @@ return !0;
 }
 this.m_line = [];
 if (null != this.pathObj[h - 1 + "*" + t.row] || null != this.pathObj[h - 1 + "*" + e.row]) break;
-s = this.isDirectLink(t, new n(t.row, h - 1)), l = this.isDirectLink(e, new n(e.row, h - 1));
-if (s && l) {
+c = this.isDirectLink(t, new n(t.row, h - 1)), l = this.isDirectLink(e, new n(e.row, h - 1));
+if (c && l) {
 this.m_line = [];
 i(t, new n(t.row, h), new n(e.row, h), e);
 return !0;
@@ -6126,8 +6502,8 @@ return !0;
 this.m_line = [];
 var u = (p = new n(t.row, h)).col + "*" + p.row;
 if (null != this.pathObj[u]) break;
-s = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
-if (s && l) return !0;
+c = this.isOneCornerLink(p, e), l = this.isDirectLink(t, p);
+if (c && l) return !0;
 }
 this.m_line = [];
 return !1;
@@ -6179,13 +6555,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6207,13 +6583,13 @@ i.particle.stopSystem();
 o.put(i.node);
 }).start();
 };
-n([ c({
+n([ s({
 type: cc.ParticleSystem,
 displayName: "粒子"
 }) ], e.prototype, "particle", void 0);
 return e = n([ a ], e);
 }(cc.Component);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 messageBox: [ function(t, e, o) {
@@ -6238,13 +6614,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../addUI"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../addUI"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6309,20 +6685,20 @@ i && i(r);
 e.messageBoxDebug = function(t) {
 0;
 };
-n([ s({
+n([ c({
 type: cc.Label,
 displayName: "内容文字",
 tooltip: "内容文字"
 }) ], e.prototype, "text", void 0);
-n([ s({
+n([ c({
 type: cc.Button,
 displayName: "关闭按钮"
 }) ], e.prototype, "closeBtn", void 0);
-n([ s({
+n([ c({
 type: cc.Button,
 displayName: "确认"
 }) ], e.prototype, "okBtn", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -6351,13 +6727,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./BlockInput"), a = cc._decorator, c = a.ccclass, s = a.property, l = a.menu, p = a.requireComponent, h = a.executeInEditMode, u = function(t) {
+var r = t("./BlockInput"), a = cc._decorator, s = a.ccclass, c = a.property, l = a.menu, p = a.requireComponent, h = a.executeInEditMode, u = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6458,24 +6834,24 @@ e.prototype.显示 = function() {
 this.showSelf();
 };
 var o;
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "显示时播放动画"
 }) ], e.prototype, "onActivePlayClip", null);
-n([ s({
+n([ c({
 serializable: !0
 }) ], e.prototype, "_onActivePlayClip", void 0);
-n([ s({
+n([ c({
 type: cc.AnimationClip,
 displayName: "隐藏时播放动画"
 }) ], e.prototype, "onInactivePlayClip", null);
-n([ s({
+n([ c({
 serializable: !0
 }) ], e.prototype, "_onInactivePlayClip", void 0);
-n([ s({
+n([ c({
 serializable: !0
 }) ], e.prototype, "_ani", void 0);
-return e = o = n([ c, p(cc.Animation), h(), l("扩展组件/UI操作及动画") ], e);
+return e = o = n([ s, p(cc.Animation), h(), l("扩展组件/UI操作及动画") ], e);
 }(cc.Component);
 o.default = u;
 cc._RF.pop();
@@ -6504,13 +6880,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = (r.requireComponent, r.menu), l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = (r.requireComponent, r.menu), l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6555,17 +6931,17 @@ if (t) return t.isPlaying;
 }
 return !1;
 };
-n([ c({
+n([ s({
 type: cc.Animation,
 displayName: "动画播放器"
 }) ], e.prototype, "ani", null);
-n([ c({
+n([ s({
 serializable: !0
 }) ], e.prototype, "_ani", void 0);
-n([ c({
+n([ s({
 displayName: "默认播放动画名称"
 }) ], e.prototype, "defaultClipName", void 0);
-return e = n([ a, s("扩展组件/播放动画") ], e);
+return e = n([ a, c("扩展组件/播放动画") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -6592,13 +6968,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6685,15 +7061,15 @@ e.musicVolume = 1;
 e.soundVolume = 1;
 e.musicIsOpen = !0;
 e.soundIsOpen = !0;
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "要播放的音效"
 }) ], e.prototype, "audioClip", void 0);
-n([ c({
+n([ s({
 type: cc.AudioClip,
 displayName: "默认要播放的音效"
 }) ], e.prototype, "defaultAudioClip", void 0);
-return e = o = n([ a, s("声音组件/音效") ], e);
+return e = o = n([ a, c("声音组件/音效") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -6720,13 +7096,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../addUI"), a = t("../nodeOperation"), c = cc._decorator, s = c.ccclass, l = c.property, p = c.requireComponent, h = function(t) {
+var r = t("../addUI"), a = t("../nodeOperation"), s = cc._decorator, c = s.ccclass, l = s.property, p = s.requireComponent, h = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6757,7 +7133,7 @@ n([ l({
 type: cc.Animation,
 displayName: "popbox动画"
 }) ], e.prototype, "popAnimation", void 0);
-return e = n([ s, p(cc.Animation) ], e);
+return e = n([ c, p(cc.Animation) ], e);
 }(cc.Component);
 o.default = h;
 cc._RF.pop();
@@ -6787,13 +7163,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6880,36 +7256,36 @@ this._curShowNode && (this._curShowNode.y = this._curShowNode.parent.height + o 
 } else this.setShowNode(null);
 }
 };
-n([ c({
+n([ s({
 displayName: "是否上拉",
 tooltip: "是否是上拉刷新（如果需要同时满足上拉和下拉刷新，请分别使用两个组件）"
 }) ], e.prototype, "isPullUp", void 0);
-n([ c({
+n([ s({
 type: cc.Node,
 displayName: "下拉节点",
 tooltip: "下拉时显示的节点"
 }) ], e.prototype, "pullDownNode", void 0);
-n([ c({
+n([ s({
 type: cc.Node,
 displayName: "释放节点",
 tooltip: "释放时显示的节点"
 }) ], e.prototype, "releaseNode", void 0);
-n([ c({
+n([ s({
 type: cc.Node,
 displayName: "加载节点",
 tooltip: "加载时显示的节点"
 }) ], e.prototype, "loadingNode", void 0);
-n([ c({
+n([ s({
 type: cc.ScrollView,
 displayName: "滚动视图",
 tooltip: "滚动视图"
 }) ], e.prototype, "scrollView", void 0);
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "刷新事件",
 tooltip: "下拉刷新的回调事件"
 }) ], e.prototype, "callbackEvents", void 0);
-return e = n([ a, s("扩展组件/下拉刷新") ], e);
+return e = n([ a, c("扩展组件/下拉刷新") ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -6936,13 +7312,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -6980,17 +7356,17 @@ n.scoreImg.node.active = !1;
 i && i(n);
 }).start();
 };
-n([ c({
+n([ s({
 type: cc.Sprite,
 displayName: "分数图标"
 }) ], e.prototype, "scoreImg", void 0);
-n([ c({
+n([ s({
 type: cc.ParticleSystem,
 displayName: "粒子特效"
 }) ], e.prototype, "particle", void 0);
 return e = n([ a ], e);
 }(cc.Component);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 setting: [ function(t, e, o) {
@@ -7015,13 +7391,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./gameAudioClip"), a = t("../../commonLib/component/sliderEX"), c = t("./gameMain"), s = cc._decorator, l = s.ccclass, p = s.property, h = function(t) {
+var r = t("./gameAudioClip"), a = t("../../commonLib/component/sliderEX"), s = t("./gameMain"), c = cc._decorator, l = c.ccclass, p = c.property, h = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7035,10 +7411,10 @@ this.musicSlider.progress = o.musicVolume;
 this.soundSlider.progress = o.soundVolume;
 };
 e.prototype.onEnable = function() {
-c.default.instance.pauseGame();
+s.default.instance.pauseGame();
 };
 e.prototype.onDisable = function() {
-c.default.instance.resumeGame();
+s.default.instance.resumeGame();
 };
 e.prototype.设置音乐 = function() {
 o.setMusicVolume(this.musicSlider.progress);
@@ -7095,13 +7471,14 @@ settlementParameter: [ function(t, e, o) {
 cc._RF.push(e, "485a7ZY32pKFqKuJEARkUMK", "settlementParameter");
 var i = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var n = cc._decorator, r = n.ccclass, a = n.property, c = function() {
+o.itemParameter = void 0;
+var n = cc._decorator, r = n.ccclass, a = n.property, s = function() {
 function t() {
 this.baseScore40 = 150;
 this.baseScore54 = 200;
@@ -7112,6 +7489,8 @@ this.reset = .6;
 this.freeze = .8;
 this.key = .9;
 }
+t.remoteItemParameter = null;
+t.remoteThemeParameter = null;
 i([ a({
 displayName: "基准分数40快"
 }) ], t.prototype, "baseScore40", void 0);
@@ -7138,7 +7517,7 @@ displayName: "钥匙"
 }) ], t.prototype, "key", void 0);
 return t = i([ r("itemParameter") ], t);
 }();
-o.itemParameter = c;
+o.itemParameter = s;
 cc._RF.pop();
 }, {} ],
 settlement: [ function(t, e, o) {
@@ -7163,13 +7542,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../commonLib/component/nodeOperation"), a = t("./settlementParameter"), c = t("../../commonLib/component/playAnimation"), s = t("../../commonLib/lib/gameLib"), l = t("./advertising"), p = t("./gameAudioClip"), h = t("./gameMain"), u = t("./gameData"), d = t("../../commonLib/component/addUI"), f = cc._decorator, m = f.ccclass, y = f.property, v = function(t) {
+var r = t("../../commonLib/component/nodeOperation"), a = t("./settlementParameter"), s = t("../../commonLib/component/playAnimation"), c = t("../../commonLib/lib/gameLib"), l = t("./advertising"), p = t("./gameAudioClip"), h = t("./gameMain"), u = t("./gameData"), d = t("../../commonLib/component/addUI"), f = t("../../commonLib/lib/ReportLib"), m = cc._decorator, y = m.ccclass, g = m.property, v = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7212,6 +7591,24 @@ this.nodeOperation = this.getComponent(r.default);
 this.addUI = this.getComponent(d.default);
 this.nextLevelBtn.node.active = !1;
 };
+e.prototype.onEnable = function() {
+if (a.itemParameter.remoteThemeParameter) {
+this.themeProbability[0] = a.itemParameter.remoteThemeParameter.redbag;
+this.themeProbability[1] = a.itemParameter.remoteThemeParameter.theme1;
+this.themeProbability[2] = a.itemParameter.remoteThemeParameter.theme2;
+this.themeProbability[3] = a.itemParameter.remoteThemeParameter.theme3;
+this.themeProbability[4] = a.itemParameter.remoteThemeParameter.theme4;
+this.themeProbability[5] = a.itemParameter.remoteThemeParameter.theme5;
+this.themeProbability[6] = a.itemParameter.remoteThemeParameter.prop;
+}
+if (a.itemParameter.remoteItemParameter) {
+this.itemParameter.tip = a.itemParameter.remoteItemParameter.search;
+this.itemParameter.lightning = a.itemParameter.remoteItemParameter.lightning;
+this.itemParameter.reset = a.itemParameter.remoteItemParameter.derangement;
+this.itemParameter.freeze = a.itemParameter.remoteItemParameter.frozen;
+this.itemParameter.key = a.itemParameter.remoteItemParameter.key;
+}
+};
 e.prototype.setNextlevelCallback = function(t) {
 this.nextlevelCallback = t;
 };
@@ -7250,7 +7647,10 @@ t.playScoreAward();
 };
 e.prototype.showNextLevelBtn = function() {
 if (!this.openBoxAni.isPlaying()) {
+f.reportLib.stageGameFinish(0, u.gameData.curLevel, 0, u.curLevelProp.getAddProp(), u.curLevelProp.getUseProp(), this.totalScore, 1, u.gameData.isFirst ? 1 : 0);
+u.curLevelProp.reset();
 ++u.gameData.curLevel;
+u.gameData.isFirst = !0;
 u.saveGameData();
 this.nextLevelBtn.node.scale = 0;
 this.nextLevelBtn.node.active = !0;
@@ -7288,6 +7688,7 @@ break;
 case 3:
 ++u.gameData.curFreezeTimeCount;
 }
+u.curLevelProp.addProp(n);
 r.node.scale = 0;
 r.node.active = !0;
 cc.tween(r.node).delay(.15).call(function() {
@@ -7338,6 +7739,7 @@ break;
 case 3:
 ++u.gameData.curFreezeTimeCount;
 }
+u.curLevelProp.addProp(n.awardID);
 e.boxAward[t].spriteFrame = e.itemSpriteFrames[n.awardID];
 e.boxAward[t].node.width = o;
 e.boxAward[t].node.height = i;
@@ -7366,7 +7768,7 @@ e.splice(o, 1);
 break;
 }
 }
-return e.length ? e[s.gameLib.GetRandomNum(0, e.length - 1)] : -1;
+return e.length ? e[c.gameLib.GetRandomNum(0, e.length - 1)] : -1;
 };
 e.prototype.randomTheme = function() {
 for (var t = 0, e = 0, o = [], i = 0; i < this.themeProbability.length; ++i) (0 == i || !u.gameData.archive[i] || u.gameData.archive[i] && u.gameData.archive[i].length < 20) && o.push({
@@ -7376,8 +7778,8 @@ pro: this.themeProbability[i]
 for (var n = 0, r = o; n < r.length; n++) {
 e += r[n].pro;
 }
-var a = e * Math.random(), c = 0;
-for (i = 0; i < o.length; ++i) if (a <= (c += o[i].pro)) {
+var a = e * Math.random(), s = 0;
+for (i = 0; i < o.length; ++i) if (a <= (s += o[i].pro)) {
 t = o[i].id;
 break;
 }
@@ -7401,96 +7803,96 @@ this.nodeOperation.closeSelf(function() {
 t.goHomeCallback && t.goHomeCallback();
 });
 };
-n([ y({
+n([ g({
 type: a.itemParameter,
 displayName: "道具所需分数"
 }) ], e.prototype, "itemParameter", void 0);
-n([ y({
+n([ g({
 type: cc.Float,
 displayName: "主题概率"
 }) ], e.prototype, "themeProbability", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "开箱奖励"
 }) ], e.prototype, "boxAward", void 0);
-n([ y({
+n([ g({
 type: cc.Button,
 displayName: "主页按钮"
 }) ], e.prototype, "homeBtn", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "星星分数"
 }) ], e.prototype, "starScore", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "时间分数"
 }) ], e.prototype, "timeScore", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "总分数"
 }) ], e.prototype, "totalScoreLab", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "提示分"
 }) ], e.prototype, "tipScore", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "提示对勾"
 }) ], e.prototype, "tipMark", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "重排分"
 }) ], e.prototype, "resetScore", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "重排对勾"
 }) ], e.prototype, "resetMark", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "闪电分"
 }) ], e.prototype, "lightningScore", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "闪电对勾"
 }) ], e.prototype, "lightningMark", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "钥匙分"
 }) ], e.prototype, "keyScore", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "钥匙对勾"
 }) ], e.prototype, "keyMark", void 0);
-n([ y({
+n([ g({
 type: cc.Label,
 displayName: "冰冻分"
 }) ], e.prototype, "freezeScore", void 0);
-n([ y({
+n([ g({
 type: cc.Sprite,
 displayName: "冰冻对勾"
 }) ], e.prototype, "freezeMark", void 0);
-n([ y({
+n([ g({
 type: cc.Button,
 displayName: "下一关按钮"
 }) ], e.prototype, "nextLevelBtn", void 0);
-n([ y({
+n([ g({
 type: cc.Button,
 displayName: "不看广告按钮"
 }) ], e.prototype, "noAdvertisingBtn", void 0);
-n([ y({
+n([ g({
 type: cc.Button,
 displayName: "看广告按钮"
 }) ], e.prototype, "advertisingBtn", void 0);
-n([ y({
-type: c.default,
+n([ g({
+type: s.default,
 displayName: "开箱动画"
 }) ], e.prototype, "openBoxAni", void 0);
-n([ y({
+n([ g({
 type: cc.SpriteFrame,
 displayName: "道具图标",
 tooltip: "四个功能道具图标(提示，闪电，重排，冻结)"
 }) ], e.prototype, "itemSpriteFrames", void 0);
-return e = n([ m ], e);
+return e = n([ y ], e);
 }(cc.Component);
 o.default = v;
 cc._RF.pop();
@@ -7498,6 +7900,7 @@ cc._RF.pop();
 "../../commonLib/component/addUI": "addUI",
 "../../commonLib/component/nodeOperation": "nodeOperation",
 "../../commonLib/component/playAnimation": "playAnimation",
+"../../commonLib/lib/ReportLib": "ReportLib",
 "../../commonLib/lib/gameLib": "gameLib",
 "./advertising": "advertising",
 "./gameAudioClip": "gameAudioClip",
@@ -7527,13 +7930,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7550,13 +7953,13 @@ this.onProgress();
 e.prototype.onProgress = function() {
 this.progressSP && (this.progressSP.fillRange = this.progress);
 };
-n([ c({
+n([ s({
 type: cc.Sprite,
 displayName: "进度条"
 }) ], e.prototype, "progressSP", void 0);
 return e = n([ a ], e);
 }(cc.Slider);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 spineEvent: [ function(t, e, o) {
@@ -7581,13 +7984,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.menu, l = r.requireComponent, p = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.menu, l = r.requireComponent, p = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7610,11 +8013,11 @@ this.endEventListener && this.endEventListener(this);
 e.prototype.setEndEventListener = function(t) {
 this.endEventListener = t;
 };
-n([ c({
+n([ s({
 type: cc.Component.EventHandler,
 displayName: "动画完成回调"
 }) ], e.prototype, "callbackEvents", void 0);
-return e = n([ a, l(sp.Skeleton), s("spine/事件监听") ], e);
+return e = n([ a, l(sp.Skeleton), c("spine/事件监听") ], e);
 }(cc.Component);
 o.default = p;
 cc._RF.pop();
@@ -7641,13 +8044,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7664,13 +8067,13 @@ this.ani.setCurrentTime(0, this.showClip.name);
 this.ani.sample(this.showClip.name);
 return t;
 };
-n([ c({
+n([ s({
 type: cc.AnimationClip,
 displayName: "淡入动画"
 }) ], e.prototype, "showClip", void 0);
 return e = n([ a ], e);
 }(cc.Component);
-o.default = s;
+o.default = c;
 cc._RF.pop();
 }, {} ],
 tableViewItemExample: [ function(t, e, o) {
@@ -7695,13 +8098,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../tableViewItem"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../tableViewItem"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7711,10 +8114,10 @@ return e;
 e.prototype.onDataChange = function(t) {
 this.lab && (this.lab.string = t);
 };
-n([ s({
+n([ c({
 type: cc.Label
 }) ], e.prototype, "lab", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(r.default);
 o.default = l;
 cc._RF.pop();
@@ -7743,13 +8146,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = cc._decorator, a = r.ccclass, c = r.property, s = r.requireComponent, l = function(t) {
+var r = cc._decorator, a = r.ccclass, s = r.property, c = r.requireComponent, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7779,12 +8182,12 @@ this.node.active = !0;
 this.playAni();
 };
 e.prototype.onDataChange = function(t) {};
-n([ c({
+n([ s({
 type: cc.AnimationClip,
 displayName: "显示动画",
 tooltip: "元素显示时要播放的动画"
 }) ], e.prototype, "aniShow", void 0);
-return e = n([ a, s(cc.Animation) ], e);
+return e = n([ a, c(cc.Animation) ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -7811,13 +8214,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./tableViewItem"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("./tableViewItem"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -7851,17 +8254,17 @@ a.getComponent(r.default).onDataChange(n);
 } else {
 1 == this.scrollView.vertical ? this.scrollView.content.height = this.data.length * this.item.node.height : this.scrollView.content.width = this.data.length * this.item.node.width;
 if (this.items) {
-for (var c = 0; c < this.items.length; ++c) {
-this.items[c].itemIndex = null;
-this.items[c].node.active = c < this.data.length;
+for (var s = 0; s < this.items.length; ++s) {
+this.items[s].itemIndex = null;
+this.items[s].node.active = s < this.data.length;
 }
 this.onScrollEvent();
 }
 }
-if (e && this.data && this.data.length) for (c = 0; c < this.items.length && c < this.data.length; ++c) {
-if ((n = this.items[c]).node.active) {
+if (e && this.data && this.data.length) for (s = 0; s < this.items.length && s < this.data.length; ++s) {
+if ((n = this.items[s]).node.active) {
 n.node.active = !1;
-this.scheduleOnce(n.playShowAni.bind(n), c * this.itemAniGap);
+this.scheduleOnce(n.playShowAni.bind(n), s * this.itemAniGap);
 }
 }
 };
@@ -7933,35 +8336,35 @@ r = Math.ceil((n - this.min) / this.maxMoveLength);
 n = this.baseItemsPos[i].x + o + this.item.node.width;
 r = Math.ceil((-n - this.min) / this.maxMoveLength);
 }
-var a = this.items[i], c = r * this.itemCount + i;
-if (a.itemIndex != c) {
-a.itemIndex = c;
+var a = this.items[i], s = r * this.itemCount + i;
+if (a.itemIndex != s) {
+a.itemIndex = s;
 1 == this.scrollView.vertical ? a.node.y = this.baseItemsPos[i].y - r * this.maxMoveLength : a.node.x = this.baseItemsPos[i].x + r * this.maxMoveLength;
-a.node.active = c >= 0 && c < this.data.length;
-a.node.active && a.onDataChange(this.data[c]);
+a.node.active = s >= 0 && s < this.data.length;
+a.node.active && a.onDataChange(this.data[s]);
 }
 }
 }
 };
-n([ s({
+n([ c({
 type: cc.ScrollView,
 displayName: "滚动视图",
 tooltip: "滚动视图"
 }) ], e.prototype, "scrollView", void 0);
-n([ s({
+n([ c({
 type: r.default,
 displayName: "内部ITEM",
 tooltip: "内部ITEM"
 }) ], e.prototype, "item", void 0);
-n([ s({
+n([ c({
 displayName: "动画间隔",
 tooltip: "各个元素显示动画的播放间隔"
 }) ], e.prototype, "itemAniGap", void 0);
-n([ s({
+n([ c({
 displayName: "不使用tableView",
 tooltip: "tableView的循环利用item的功能不生效，当item宽高不相等的时候勾选此功能(注意：需要自行添加content的布局)"
 }) ], e.prototype, "noTableView", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
@@ -7990,13 +8393,13 @@ e.prototype = null === o ? Object.create(o) : (i.prototype = o.prototype, new i(
 };
 }(), n = this && this.__decorate || function(t, e, o, i) {
 var n, r = arguments.length, a = r < 3 ? e : null === i ? i = Object.getOwnPropertyDescriptor(e, o) : i;
-if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var c = t.length - 1; c >= 0; c--) (n = t[c]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
+if ("object" == typeof Reflect && "function" == typeof Reflect.decorate) a = Reflect.decorate(t, e, o, i); else for (var s = t.length - 1; s >= 0; s--) (n = t[s]) && (a = (r < 3 ? n(a) : r > 3 ? n(e, o, a) : n(e, o)) || a);
 return r > 3 && a && Object.defineProperty(e, o, a), a;
 };
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../tableView"), a = cc._decorator, c = a.ccclass, s = a.property, l = function(t) {
+var r = t("../tableView"), a = cc._decorator, s = a.ccclass, c = a.property, l = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -8009,14 +8412,14 @@ for (var t = [], e = 0; e < 100; ++e) t.push("index = " + e);
 this.tv.setData(t);
 }
 };
-n([ s({
+n([ c({
 type: r.default
 }) ], e.prototype, "tv", void 0);
-return e = n([ c ], e);
+return e = n([ s ], e);
 }(cc.Component);
 o.default = l;
 cc._RF.pop();
 }, {
 "../tableView": "tableView"
 } ]
-}, {}, [ "AnimationEventComponent", "BlockInput", "NodeListener", "messageBox", "popBox", "adapter", "addUI", "canvasAdapter", "countDown", "dragNode", "nodeOperation", "playAnimation", "playSound", "pullToRefresh", "sliderEX", "spineEvent", "tableViewItemExample", "tebleViewExample", "tableView", "tableViewItem", "HttpLib", "LoginLib", "gameLib", "Archive", "ArchiveItem", "Construct", "RedPackets", "ThemeSelect", "addItem", "advertising", "comboAward", "comboText", "cover", "gameAudioClip", "gameData", "gameMain", "gameOver", "grid", "gridManager", "level_parameter", "linkGamePathFinding", "linkLine", "BindPhoneController", "HistoryController", "HistoryTableItemComponent", "RedBagDataHelper", "StoreController", "StoreTableItemComponent", "scoreAni", "setting", "settlement", "settlementParameter", "subject" ]);
+}, {}, [ "AnimationEventComponent", "BlockInput", "NodeListener", "messageBox", "popBox", "adapter", "addUI", "canvasAdapter", "countDown", "dragNode", "nodeOperation", "playAnimation", "playSound", "pullToRefresh", "sliderEX", "spineEvent", "tableViewItemExample", "tebleViewExample", "tableView", "tableViewItem", "HttpLib", "LoginLib", "ReportLib", "gameLib", "Archive", "ArchiveItem", "Construct", "RedPackets", "ThemeSelect", "addItem", "advertising", "comboAward", "comboText", "cover", "gameAudioClip", "gameData", "gameMain", "gameOver", "grid", "gridManager", "level_parameter", "linkGamePathFinding", "linkLine", "BindPhoneController", "HistoryController", "HistoryTableItemComponent", "RedBagDataHelper", "StoreController", "StoreTableItemComponent", "scoreAni", "setting", "settlement", "settlementParameter", "subject" ]);

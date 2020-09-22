@@ -217,10 +217,10 @@ AppController* appCon = nullptr;
     [self.interstitialAd loadAd];
     NSLog(@"didHideAd");
     
-    Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
-        se::ScriptEngine::getInstance()->evalString("didHideAd(\"啦啦啦\")");
-//        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
-    });
+//    Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+//        se::ScriptEngine::getInstance()->evalString("didHideAd(\"啦啦啦\")");
+////        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
+//    });
 }
 
 - (void)didFailToDisplayAd:(MAAd *)ad withErrorCode:(NSInteger)errorCode
@@ -243,20 +243,28 @@ AppController* appCon = nullptr;
 - (void)didStartRewardedVideoForAd:(MAAd *)ad {}
 
 - (void)didCompleteRewardedVideoForAd:(MAAd *)ad {
-    [self.rewardedAd loadAd];
+//    [self.rewardedAd loadAd];
         NSLog(@"didCompleteRewardedVideoForAd");
-        
-        Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
-            se::ScriptEngine::getInstance()->evalString("didHideAd(\"啦啦啦\")");
-    //        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
-        });
+    self.retryAttempt++;
+    NSInteger delaySec = pow(2, self.retryAttempt);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delaySec * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.rewardedAd loadAd];
+    });
 }
 
 - (void)didRewardUserForAd:(MAAd *)ad withReward:(MAReward *)reward
 {
     // Rewarded ad was displayed and user should receive the reward
+        Application::getInstance()->getScheduler()->performFunctionInCocosThread([=](){
+            se::ScriptEngine::getInstance()->evalString("didHideAd(\"啦啦啦\")");
+    //        se::ScriptEngine::getInstance()->evalString("testMethod(\"啦啦啦\")");
+        });
 }
-
++(BOOL)setUid:(NSString *)str title:(NSString *)tit{
+    [ALSdk shared].userIdentifier = str;
+    return true;
+}
 //
 +(BOOL)showAd:(NSString *)str title:(NSString *)tit{
 //    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:tit message:str delegate:nil cancelButtonTitle:@"否" otherButtonTitles:@"是", nil];

@@ -1,7 +1,7 @@
 import addUI from "../../commonLib/component/addUI";
 import { HttpLib } from "../../commonLib/lib/HttpLib";
 import popBox from "../../commonLib/component/PopBox/popBox";
-import { reportLib } from "../../commonLib/lib/ReportLib";
+import { reportLib } from '../../commonLib/lib/ReportLib';
 
 const { ccclass, property } = cc._decorator;
 
@@ -18,6 +18,24 @@ export default class advertising extends cc.Component {
     onDestroy() {
         if (advertising.callback) {
             advertising.callback();
+        }
+    }
+    public static setUserId(uid: string) {
+        if (cc.sys.isNative) {
+            let ret: any = null;
+            switch (cc.sys.os) {
+                case cc.sys.OS_IOS:
+                    ret = jsb.reflection.callStaticMethod("AppController", "setUid:title:", uid + "", "");
+                    break;
+                case cc.sys.OS_ANDROID:
+                    ret = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "setUid", "(Ljava/lang/String;)V", uid);
+                    break;
+            }
+            if (ret) {
+                cc.log(".reflection.callStaticMethod.ret = " + ret.toString());
+            }
+        } else {
+            cc.log("It's not native system,user id is" + uid);
         }
     }
 
@@ -82,6 +100,7 @@ export default class advertising extends cc.Component {
                 return 'abcd'
             }
             window["adFailure"] = (str) => {
+                reportLib.watchAdverts("getRedbag", 2);//播放失败
                 popBox.popBox(str);
             }
         }

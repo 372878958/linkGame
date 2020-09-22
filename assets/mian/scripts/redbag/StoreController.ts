@@ -9,6 +9,7 @@ import tableView from "../../../commonLib/component/tableView/tableView";
 import { HttpLib, HttpMethod } from "../../../commonLib/lib/HttpLib";
 import { construct } from "../Construct";
 import { loginLib } from "../../../commonLib/lib/LoginLib";
+import popBox from "../../../commonLib/component/PopBox/popBox";
 
 const { ccclass, property } = cc._decorator;
 
@@ -27,6 +28,12 @@ export default class StoreController extends cc.Component {
         tooltip: "拥有游戏币数量"
     })
     protected all_lab: cc.Label = null;
+    @property({
+        type: cc.Label,
+        displayName: "冻结币",
+        tooltip: "拥有冻结币数量"
+    })
+    protected frozen_lab: cc.Label = null;
     @property({
         type: tableView,
         displayName: "tableview",
@@ -50,6 +57,7 @@ export default class StoreController extends cc.Component {
 
     private initUI() {
         this.all_lab.string = construct.userInfo.property_num + "";
+        this.frozen_lab.string = construct.userInfo.frozenCouponNum + "";
     }
     private setData(goodsType: number) {
         if (goodsType == 0) {
@@ -115,6 +123,7 @@ export default class StoreController extends cc.Component {
         if (req.code == 0) {
             this._storeData = req.data.data;
             construct.userInfo.property_num = req.data.userInfo.property_num;
+            construct.userInfo.frozenCouponNum = req.data.frozenCouponNum;
             this.initUI();
             this._goodsRed = [];
             this._goodsOrange = [];

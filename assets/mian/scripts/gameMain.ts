@@ -205,6 +205,7 @@ export default class gameMain extends cc.Component {
             loginLib.LoginGame(() => {
                 construct.userInfo.phone = loginLib.loginData.phone;
                 construct.userInfo.property_num = loginLib.loginData.userInfo.property_num;
+                advertising.setUserId(loginLib.userId);
                 cc.log("userinfo property_num is " + construct.userInfo.property_num);
                 try {
                     let config = loginLib.loginData.config;

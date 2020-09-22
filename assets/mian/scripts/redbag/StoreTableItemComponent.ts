@@ -161,7 +161,7 @@ export default class StoreTableItemComponent extends tableViewItem {
             cc.log("get success!");
             popBox.popBox("Successful！");
             this.storeController.refreshData();
-            reportLib.rpExchange(0, this._itemId, this._itemName + "", 1, this._useAmount);
+            // reportLib.rpExchange(0, this._itemId, this._itemName + "", 1, this._useAmount);
         }
         // else if (req.code == 9) {
         //     cc.log("兑换失败：" + req.msg);

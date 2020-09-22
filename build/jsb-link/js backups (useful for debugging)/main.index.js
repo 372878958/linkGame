@@ -855,7 +855,7 @@ cc.log(t);
 return !1;
 }
 };
-t.BASE_PATH = "http://192.168.6.153";
+t.BASE_PATH = "https://vntest.game.luckycatgame.com";
 t.http_timeout = 3e4;
 t.isShowWaitUI = !0;
 t.showWaitUICallback = null;
@@ -871,16 +871,28 @@ cc._RF.push(e, "b8896Uzt8dPbZksuC4Rba/9", "LoginLib");
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-o.loginLib = void 0;
-var i = t("./HttpLib"), n = function() {
+o.loginLib = o.LS_REGISTER_DATE = void 0;
+var i = t("./HttpLib");
+o.LS_REGISTER_DATE = "registerDate";
+var n = function() {
 function t() {
 this.loginUrl = i.HttpLib.BASE_PATH + "/smallgameapi/login.php";
 this.loginToken = "";
 this.userId = "";
+this.register_date = "20200901";
 this.loginData = null;
 this.deviceId = "";
-this.appId = "69156";
+this.appId = "82886";
 this.ad_probability = 4;
+var t = cc.sys.localStorage.getItem(o.LS_REGISTER_DATE);
+if (t) this.register_date = t; else {
+var e = new Date();
+t = e.getFullYear() + "";
+t += e.getMonth() + 1 > 9 ? e.getMonth() + 1 : "0" + (e.getMonth() + 1);
+t += e.getDate() > 9 ? e.getDate() : "0" + e.getDate();
+cc.sys.localStorage.setItem(o.LS_REGISTER_DATE, t);
+this.register_date = t;
+}
 }
 t.prototype.LoginGame = function(t, e) {
 void 0 === e && (e = "");
@@ -1175,7 +1187,7 @@ cc._RF.pop();
 } ],
 RedPackets: [ function(t, e, o) {
 "use strict";
-cc._RF.push(e, "2826cD+wcNLKrZTUrSriraM", "RedPackets");
+cc._RF.push(e, "2b986yfWS5FG4GDYdR84VAy", "RedPackets");
 var i = this && this.__extends || function() {
 var t = function(e, o) {
 return (t = Object.setPrototypeOf || {
@@ -1207,38 +1219,53 @@ function e() {
 var e = null !== t && t.apply(this, arguments) || this;
 e.openNode = null;
 e.openedNode = null;
-e.moneyLable = null;
-e.allLable = null;
+e.moneyLabel = null;
+e.allLabel = null;
+e.frozenLabel = null;
 e._httpPath = a.HttpLib.BASE_PATH + "/smallgameapi/getRoundSet.php";
 e._getMoney = 0;
+e._frozenMoney = 0;
+e._allMoney = 0;
+e._finishType = -1;
 return e;
 }
 e.prototype.onLoad = function() {
 this.openNode.active = !0;
-this.openedNode.active = !1;
+this.openedNode.opacity = 0;
 };
 e.prototype.开红包看广告 = function() {
 var t = this;
 r.default.play(function() {
-t.openNode.active = !1;
-t.openedNode.active = !0;
-l.redBagDataHelper.adsFinished();
-});
+t.scheduleOnce(function() {
 var e = new a.HttpLib();
-e.open(this.successCallback, this.failureCallback, this._httpPath, this, a.HttpMethod.POST);
+e.open(t.successCallback, t.failureCallback, t._httpPath, t, a.HttpMethod.POST);
 e.setRequestHeader("cookie", "PHPSESSID=" + s.loginLib.loginToken);
-e.send({});
+var o = {
+type: t._finishType
+};
+e.send(o);
+});
+});
 };
 e.prototype.successCallback = function(t) {
 var e = t;
 if (0 == e.code) {
+this.openedNode.opacity = 255;
+this.openNode.active = !1;
 this._getMoney = e.data.CouponNum;
-this.moneyLable.string = this._getMoney + "";
-this.allLable.string = c.construct.userInfo.property_num + this._getMoney + "";
+this.moneyLabel.string = this._getMoney + "";
+this._frozenMoney = e.data.frozenCouponNum;
+c.construct.userInfo.frozenCouponNum = this._frozenMoney;
+this.frozenLabel.string = this._frozenMoney + "";
+this._allMoney = c.construct.userInfo.property_num;
+this.allLabel.string = this._allMoney + "";
 } else cc.log("successCallback接口失败！" + e.code);
 };
 e.prototype.failureCallback = function(t, e, o) {
 cc.log("获取红包失败！" + t);
+};
+e.prototype.setFinishType = function(t) {
+this._finishType = t;
 };
 e.prototype.getTestRedBag = function() {
 l.redBagDataHelper.adsFinished();
@@ -1256,11 +1283,15 @@ tooltip: "开红包之后要显示的节点"
 n([ u({
 type: cc.Label,
 displayName: "红包钱数"
-}) ], e.prototype, "moneyLable", void 0);
+}) ], e.prototype, "moneyLabel", void 0);
 n([ u({
 type: cc.Label,
 displayName: "总钱数"
-}) ], e.prototype, "allLable", void 0);
+}) ], e.prototype, "allLabel", void 0);
+n([ u({
+type: cc.Label,
+displayName: "冻结数"
+}) ], e.prototype, "frozenLabel", void 0);
 return e = n([ h ], e);
 }(cc.Component);
 o.default = d;
@@ -1387,14 +1418,15 @@ t.prototype.missionComplete = function() {
 this.sendReport(i.MISSION_COMPLETE, {});
 };
 t.prototype.rpExchange = function(t, e, o, n, r) {
-var a = {
+var s = {
 exchange_type: t,
 props_id: e,
 props_name: o,
 props_num: n,
-token_num: r
+token_num: r,
+register_date: a.loginLib.register_date
 };
-this.sendReport(i.RE_EXCHANGE, a);
+this.sendReport(i.RE_EXCHANGE, s);
 };
 t.prototype.tokenChange = function(t, e, o, n) {
 var r = {
@@ -1431,37 +1463,38 @@ e.system_type = "ANDROID";
 }
 e.client_type = "APP";
 e.package_id = a.loginLib.appId;
-var i = new Date(), n = {
+var i = new Date(), n = this.formateDate(i), r = {
 data: {
 app_version: "1.0",
 context: e,
 event: t,
-time: this.formateDate(i)
+product: a.loginLib.appId,
+time: n
 },
 mode: this._mode,
 type: "operation",
 isSending: !0
-}, r = cc.sys.localStorage.getItem("reportData");
-r && (this._reportParamList = JSON.parse(r));
+}, s = cc.sys.localStorage.getItem("reportData");
+s && (this._reportParamList = JSON.parse(s));
 this._reportParamList.length >= 200 && this._reportParamList.shift();
-for (var s = [], c = 0; c < this._reportParamList.length; c++) {
-var l = this._reportParamList[c];
-if (!l.isSending) {
-l.isSending = !0;
-s.push(l);
+for (var c = [], l = 0; l < this._reportParamList.length; l++) {
+var p = this._reportParamList[l];
+if (!p.isSending) {
+p.isSending = !0;
+c.push(p);
 }
 }
-s.push(n);
-this._reportParamList.push(n);
+c.push(r);
+this._reportParamList.push(r);
 cc.sys.localStorage.setItem("reportData", JSON.stringify(this._reportParamList));
-new h().sendReport(this._reportPath, s, function() {
-s.forEach(function(t) {
+new h().sendReport(this._reportPath, c, function() {
+c.forEach(function(t) {
 var e = o._reportParamList.indexOf(t);
 e >= 0 && o._reportParamList.splice(e, 1);
 });
 cc.sys.localStorage.setItem("reportData", JSON.stringify(o._reportParamList));
 }, function() {
-s.forEach(function(t) {
+c.forEach(function(t) {
 t.isSending = !1;
 });
 cc.sys.localStorage.setItem("reportData", JSON.stringify(o._reportParamList));
@@ -1549,6 +1582,7 @@ function e() {
 var e = null !== t && t.apply(this, arguments) || this;
 e.type_tc = null;
 e.all_lab = null;
+e.frozen_lab = null;
 e.redbag_tb = null;
 e._storePath = a.HttpLib.BASE_PATH + "/smallgameapi/getGoodsList.php";
 e._storeData = null;
@@ -1563,6 +1597,7 @@ this.getData();
 };
 e.prototype.initUI = function() {
 this.all_lab.string = s.construct.userInfo.property_num + "";
+this.frozen_lab.string = s.construct.userInfo.frozenCouponNum + "";
 };
 e.prototype.setData = function(t) {
 0 == t ? this.redbag_tb.setData(this._goodsRed) : 1 == t && this.redbag_tb.setData(this._goodsOrange);
@@ -1598,6 +1633,7 @@ var e = t;
 if (0 == e.code) {
 this._storeData = e.data.data;
 s.construct.userInfo.property_num = e.data.userInfo.property_num;
+s.construct.userInfo.frozenCouponNum = e.data.frozenCouponNum;
 this.initUI();
 this._goodsRed = [];
 this._goodsOrange = [];
@@ -1635,6 +1671,11 @@ type: cc.Label,
 displayName: "游戏币",
 tooltip: "拥有游戏币数量"
 }) ], e.prototype, "all_lab", void 0);
+n([ h({
+type: cc.Label,
+displayName: "冻结币",
+tooltip: "拥有冻结币数量"
+}) ], e.prototype, "frozen_lab", void 0);
 n([ h({
 type: r.default,
 displayName: "tableview",
@@ -1678,7 +1719,7 @@ return r > 3 && a && Object.defineProperty(e, o, a), a;
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), s = t("../../../commonLib/lib/LoginLib"), c = t("./StoreController"), l = t("../../../commonLib/component/PopBox/messageBox"), p = t("../Construct"), h = t("../../../commonLib/component/addUI"), u = t("../../../commonLib/component/PopBox/popBox"), d = t("../../../commonLib/lib/ReportLib"), f = cc._decorator, m = f.ccclass, y = f.property, g = function(t) {
+var r = t("../../../commonLib/component/tableView/tableViewItem"), a = t("../../../commonLib/lib/HttpLib"), s = t("../../../commonLib/lib/LoginLib"), c = t("./StoreController"), l = t("../../../commonLib/component/PopBox/messageBox"), p = t("../Construct"), h = t("../../../commonLib/component/addUI"), u = t("../../../commonLib/component/PopBox/popBox"), d = cc._decorator, f = d.ccclass, m = d.property, y = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -1749,7 +1790,6 @@ if (0 == e.code) {
 cc.log("get success!");
 u.default.popBox("Successful！");
 this.storeController.refreshData();
-d.reportLib.rpExchange(0, this._itemId, this._itemName + "", 1, this._useAmount);
 } else {
 cc.log("兑换失败：" + e.msg);
 u.default.popBox("Failure!");
@@ -1779,44 +1819,44 @@ this.tag1.active = !1;
 this.tag2.active = !0;
 }
 };
-n([ y({
+n([ m({
 type: cc.Node,
 displayName: "标签1",
 tooltip: "不明标签1"
 }) ], e.prototype, "tag1", void 0);
-n([ y({
+n([ m({
 type: cc.Node,
 displayName: "标签2",
 tooltip: "不明标签2"
 }) ], e.prototype, "tag2", void 0);
-n([ y({
+n([ m({
 type: h.default,
 displayName: "绑定手机号",
 tooltip: "绑定手机号"
 }) ], e.prototype, "bindPhoneLayer", void 0);
-n([ y({
+n([ m({
 type: cc.Node,
 displayName: "红包icon",
 tooltip: "红包icon"
 }) ], e.prototype, "redIcons", void 0);
-n([ y({
+n([ m({
 type: cc.Node,
 displayName: "电话卡icon",
 tooltip: "电话卡icon"
 }) ], e.prototype, "orangeIcons", void 0);
-n([ y({
+n([ m({
 type: cc.Node,
 displayName: "类型底板",
 tooltip: "类型底板"
 }) ], e.prototype, "typeNode", void 0);
-n([ y({
+n([ m({
 type: c.default,
 displayName: "商店类",
 tooltip: "商店类"
 }) ], e.prototype, "storeController", void 0);
-return e = n([ m ], e);
+return e = n([ f ], e);
 }(r.default);
-o.default = g;
+o.default = y;
 cc._RF.pop();
 }, {
 "../../../commonLib/component/PopBox/messageBox": "messageBox",
@@ -1825,7 +1865,6 @@ cc._RF.pop();
 "../../../commonLib/component/tableView/tableViewItem": "tableViewItem",
 "../../../commonLib/lib/HttpLib": "HttpLib",
 "../../../commonLib/lib/LoginLib": "LoginLib",
-"../../../commonLib/lib/ReportLib": "ReportLib",
 "../Construct": "Construct",
 "./StoreController": "StoreController"
 } ],
@@ -2223,6 +2262,20 @@ o.callback = t;
 e.prototype.onDestroy = function() {
 o.callback && o.callback();
 };
+e.setUserId = function(t) {
+if (cc.sys.isNative) {
+var e = null;
+switch (cc.sys.os) {
+case cc.sys.OS_IOS:
+e = jsb.reflection.callStaticMethod("AppController", "setUid:title:", t + "", "");
+break;
+
+case cc.sys.OS_ANDROID:
+e = jsb.reflection.callStaticMethod("org/cocos2dx/javascript/AppActivity", "setUid", "(Ljava/lang/String;)V", t);
+}
+e && cc.log(".reflection.callStaticMethod.ret = " + e.toString());
+} else cc.log("It's not native system,user id is" + t);
+};
 e.play = function(t) {
 if (cc.sys.isNative) {
 this.init();
@@ -2270,6 +2323,7 @@ t.callback && t.callback();
 return "abcd";
 };
 window.adFailure = function(t) {
+c.reportLib.watchAdverts("getRedbag", 2);
 s.default.popBox(t);
 };
 }
@@ -3999,7 +4053,7 @@ return r > 3 && a && Object.defineProperty(e, o, a), a;
 Object.defineProperty(o, "__esModule", {
 value: !0
 });
-var r = t("./gridManager"), a = t("./comboText"), s = t("./level_parameter"), c = t("./gameAudioClip"), l = t("./comboAward"), p = t("./setting"), h = t("./cover"), u = t("./subject"), d = t("../../commonLib/component/countDown"), f = t("./gameData"), m = t("../../commonLib/component/addUI"), y = t("../../commonLib/lib/LoginLib"), g = t("./Construct"), v = t("./settlementParameter"), b = t("./advertising"), _ = cc._decorator, w = _.ccclass, P = _.property, C = function(t) {
+var r = t("./gridManager"), a = t("./comboText"), s = t("./level_parameter"), c = t("./gameAudioClip"), l = t("./comboAward"), p = t("./setting"), h = t("./cover"), u = t("./subject"), d = t("../../commonLib/component/countDown"), f = t("./gameData"), m = t("../../commonLib/component/addUI"), y = t("../../commonLib/lib/LoginLib"), g = t("./Construct"), v = t("./settlementParameter"), b = t("./advertising"), _ = cc._decorator, w = _.ccclass, C = _.property, P = function(t) {
 i(e, t);
 function e() {
 var e = null !== t && t.apply(this, arguments) || this;
@@ -4054,6 +4108,7 @@ o.instance = this;
 y.loginLib.LoginGame(function() {
 g.construct.userInfo.phone = y.loginLib.loginData.phone;
 g.construct.userInfo.property_num = y.loginLib.loginData.userInfo.property_num;
+b.default.setUserId(y.loginLib.userId);
 cc.log("userinfo property_num is " + g.construct.userInfo.property_num);
 try {
 var e = y.loginLib.loginData.config, o = JSON.parse(e.config_set);
@@ -4453,123 +4508,123 @@ this.goHome();
 };
 var o;
 e.instance = null;
-n([ P({
+n([ C({
 type: s.default,
 displayName: "关卡参数",
 tooltip: "关卡计算公式参数"
 }) ], e.prototype, "level_parameter", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "关卡"
 }) ], e.prototype, "level", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "积分"
 }) ], e.prototype, "score", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "红包数"
 }) ], e.prototype, "redPackets", void 0);
-n([ P({
+n([ C({
 type: d.default,
 displayName: "倒计时"
 }) ], e.prototype, "time", void 0);
-n([ P({
+n([ C({
 type: cc.Sprite,
 displayName: "倒计时进度条"
 }) ], e.prototype, "timeImg", void 0);
-n([ P({
+n([ C({
 type: a.default,
 displayName: "连击文字"
 }) ], e.prototype, "comboText", void 0);
-n([ P({
+n([ C({
 type: cc.Prefab,
 displayName: "连击奖励"
 }) ], e.prototype, "comboAwardPrefab", void 0);
-n([ P({
+n([ C({
 type: cc.Node,
 displayName: "连击奖励位置"
 }) ], e.prototype, "comboAwardPosNode", void 0);
-n([ P({
+n([ C({
 displayName: "连击间隔时间",
 tooltip: "两次格子消除时间间隔不超过n(n:为连击间隔时间)秒，则视为连击"
 }) ], e.prototype, "comboTime", void 0);
-n([ P({
+n([ C({
 displayName: "连击奖励间隔"
 }) ], e.prototype, "comboAwardGap", void 0);
-n([ P({
+n([ C({
 type: cc.Button,
 displayName: "提示按钮"
 }) ], e.prototype, "tipButton", void 0);
-n([ P({
+n([ C({
 type: cc.Button,
 displayName: "炸弹按钮"
 }) ], e.prototype, "bombButton", void 0);
-n([ P({
+n([ C({
 type: cc.Button,
 displayName: "重排按钮"
 }) ], e.prototype, "realignmentButton", void 0);
-n([ P({
+n([ C({
 type: cc.Button,
 displayName: "冻结时间按钮"
 }) ], e.prototype, "freezeTimeButton", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "提示数量"
 }) ], e.prototype, "tipLabel", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "炸弹数量"
 }) ], e.prototype, "bombLabel", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "重排数量"
 }) ], e.prototype, "realignmentLabel", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "冻结时间数量"
 }) ], e.prototype, "freezeTimeLabel", void 0);
-n([ P(r.default) ], e.prototype, "gridManager", void 0);
-n([ P(m.default) ], e.prototype, "gameOverNode", void 0);
-n([ P({
+n([ C(r.default) ], e.prototype, "gridManager", void 0);
+n([ C(m.default) ], e.prototype, "gameOverNode", void 0);
+n([ C({
 type: cc.EditBox,
 displayName: "跳关输入框"
 }) ], e.prototype, "skipLevelEdit", void 0);
-n([ P({
+n([ C({
 type: m.default,
 displayName: "结算界面"
 }) ], e.prototype, "settlement", void 0);
-n([ P({
+n([ C({
 type: h.default,
 displayName: "游戏封面"
 }) ], e.prototype, "cover", void 0);
-n([ P({
+n([ C({
 type: cc.Label,
 displayName: "封面关卡数"
 }) ], e.prototype, "curCoverLevel", void 0);
-n([ P({
+n([ C({
 type: u.default,
 displayName: "游戏主体"
 }) ], e.prototype, "subject", void 0);
-n([ P({
+n([ C({
 type: sp.Skeleton,
 displayName: "冰冻特效"
 }) ], e.prototype, "freezeSpine", void 0);
-n([ P({
+n([ C({
 type: cc.Sprite,
 displayName: "时间进度条"
 }) ], e.prototype, "timePorcessSP", void 0);
-n([ P({
+n([ C({
 type: cc.SpriteFrame,
 displayName: "时间进度条图"
 }) ], e.prototype, "timePorcessSF", void 0);
-n([ P({
+n([ C({
 type: cc.SpriteFrame,
 displayName: "时间进度条冰图"
 }) ], e.prototype, "timePorcessSF2", void 0);
 return e = o = n([ w ], e);
 }(cc.Component);
-o.default = C;
+o.default = P;
 cc._RF.pop();
 }, {
 "../../commonLib/component/addUI": "addUI",

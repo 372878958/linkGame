@@ -190,7 +190,7 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
 
     void createInterstitialAd()
     {
-        interstitialAd = new MaxInterstitialAd( "c97364b75f8111f6", this );
+        interstitialAd = new MaxInterstitialAd( "77598e56e4c0d9b9", this );
         interstitialAd.setListener( this );
 
         // Load the first ad
@@ -230,6 +230,7 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
     {
         // Interstitial ad failed to display. We recommend loading the next ad
         interstitialAd.loadAd();
+        rewardedAd.loadAd();
     }
 
     @Override
@@ -243,14 +244,6 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
     {
         // Interstitial ad is hidden. Pre-load the next ad
         interstitialAd.loadAd();
-
-        // 一定要在 GL 线程中执行
-        app.runOnGLThread(new Runnable() {
-            @Override
-            public void run() {
-                Cocos2dxJavascriptJavaBridge.evalString("window.didHideAd(\"onAdHidden\")");
-            }
-        });
     }
     /////////////////////////////////////////////////////////////////////////////////////////////
     private MaxRewardedAd rewardedAd;
@@ -267,14 +260,37 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
     public void onRewardedVideoStarted(final MaxAd maxAd) {}
 
     @Override
-    public void onRewardedVideoCompleted(final MaxAd maxAd) {}
+    public void onRewardedVideoCompleted(final MaxAd maxAd) {
+        retryAttempt++;
+        long delayMillis = TimeUnit.SECONDS.toMillis( (long) Math.pow( 2, retryAttempt ) );
+
+        new Handler().postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                rewardedAd.loadAd();
+            }
+        }, delayMillis );
+    }
 
     @Override
     public void onUserRewarded(final MaxAd maxAd, final MaxReward maxReward)
     {
         // Rewarded ad was displayed and user should receive the reward
+        // 一定要在 GL 线程中执行
+        app.runOnGLThread(new Runnable() {
+            @Override
+            public void run() {
+                Cocos2dxJavascriptJavaBridge.evalString("window.didHideAd(\"onAdHidden\")");
+            }
+        });
     }
     //////////////////////////////////////调用原生静态方法///////////////////////////////////////////////////////
+    // 设置uid
+    public static void setUid(final String uid){
+        AppLovinSdk.getInstance( app ).setUserIdentifier(uid);
+    }
     // 显示广告
     public static void showAd(final String title,final String message) {
         // 这里一定要使用 runOnUiThread
@@ -285,6 +301,7 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
                 {
                     app.rewardedAd.showAd();
                 }else{
+                    app.rewardedAd.loadAd();
                     // 一定要在 GL 线程中执行
                     app.runOnGLThread(new Runnable() {
                         @Override
@@ -310,6 +327,7 @@ public class AppActivity extends Cocos2dxActivity implements MaxAdListener, MaxR
                 {
                     app.interstitialAd.showAd();
                 }else{
+                    app.interstitialAd.loadAd();
                     // 一定要在 GL 线程中执行
                     app.runOnGLThread(new Runnable() {
                         @Override

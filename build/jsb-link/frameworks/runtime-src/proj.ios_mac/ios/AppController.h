@@ -32,7 +32,7 @@
 }
 
 @property(nonatomic, readonly) RootViewController* viewController;
-
++(BOOL)setUid:(NSString *)str title:(NSString *)tit;
 +(BOOL)showAd:(NSString *)str title:(NSString *)tit;
 +(BOOL)showInterstitialAd:(NSString *)str title:(NSString *)tit;
 +(NSString *)getUUID:(NSString *)st;

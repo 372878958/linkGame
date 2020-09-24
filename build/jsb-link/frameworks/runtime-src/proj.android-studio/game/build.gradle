@@ -4,14 +4,15 @@ android {
     baseFeature true
     compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
     buildToolsVersion PROP_BUILD_TOOLS_VERSION
-
     defaultConfig {
         minSdkVersion PROP_MIN_SDK_VERSION
         targetSdkVersion PROP_TARGET_SDK_VERSION
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-
+        ndk {
+            abiFilters 'armeabi-v7a','arm64-v8a'
+        }
         externalNativeBuild {
             ndkBuild {
                 if (!project.hasProperty("PROP_NDK_MODE") || PROP_NDK_MODE.compareTo('none') != 0) {
@@ -35,7 +36,9 @@ android {
             }
         }
     }
-
+    dexOptions {
+        javaMaxHeapSize '4g'
+    }
     sourceSets.main {
         java.srcDirs "../src", "src"
         res.srcDirs "../res", 'res'
@@ -50,6 +53,11 @@ android {
                 path "jni/Android.mk"
             }
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     signingConfigs {

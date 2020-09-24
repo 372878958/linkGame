@@ -5,7 +5,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion PROP_COMPILE_SDK_VERSION.toInteger()
     buildToolsVersion PROP_BUILD_TOOLS_VERSION
-
     defaultConfig {
         applicationId "com.bhhy.linkgame"
         minSdkVersion PROP_MIN_SDK_VERSION
@@ -13,7 +12,9 @@ android {
         versionCode 1
         versionName "1.0"
         multiDexEnabled true
-
+        ndk {
+            abiFilters 'armeabi-v7a', 'arm64-v8a'
+        }
         externalNativeBuild {
             ndkBuild {
                 if (!project.hasProperty("PROP_NDK_MODE") || PROP_NDK_MODE.compareTo('none') != 0) {
@@ -37,7 +38,9 @@ android {
             }
         }
     }
-
+    dexOptions {
+        javaMaxHeapSize '4g'
+    }
     sourceSets.main {
         java.srcDirs "../src", "src"
         res.srcDirs "../res", 'res'
@@ -97,6 +100,11 @@ android {
         }
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     packagingOptions {
         exclude 'META-INF/proguard/okhttp3.pro'
     }
@@ -135,6 +143,7 @@ android.applicationVariants.all { variant ->
 repositories {
     maven { url "https://chartboostmobile.bintray.com/Chartboost" }
     maven { url "https://applovin.bintray.com/Android-Adapter-SDKs" }
+    google()
 }
 
 dependencies {
@@ -144,7 +153,7 @@ dependencies {
     implementation project(':xlnutilityandroidlib')
     implementation 'com.google.android.instantapps:instantapps:1.1.0'
     implementation 'com.google.android.gms:play-services-instantapps:16.0.0'
-    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
     implementation 'com.applovin:applovin-sdk:+'
 
     implementation 'com.applovin.mediation:chartboost-adapter:7.5.0.3'
